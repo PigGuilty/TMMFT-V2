@@ -29,9 +29,12 @@ public class Target : MonoBehaviour {
     public void Update()
     {
         Material material = new Material(Shader.Find("Transparent/Diffuse"));
-        if (material.color == Color.red)
+
+        if (this.gameObject.GetComponent<Renderer>().material.color == Color.red)
         {
-            material.color = Color.blue;
+            print("OUIIII");
+
+            material.color = blue;
             GetComponent<Renderer>().material = material;
         }
     }

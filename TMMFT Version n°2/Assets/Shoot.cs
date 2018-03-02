@@ -37,12 +37,13 @@ public class Shoot : MonoBehaviour {
                     }
                 }
 
-                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                GameObject balleGO = Instantiate(balle, hit.point, Quaternion.LookRotation(hit.normal));
-
-                Destroy(impactGO, 2f);
-                Destroy(balleGO, 10f);
-
+                if (hit.collider.tag != "Player")
+                {
+                    GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                    GameObject balleGO = Instantiate(balle, hit.point, Quaternion.LookRotation(hit.normal));
+                    Destroy(impactGO, 2f);
+                    Destroy(balleGO, 10f);
+                }
             }
         }
     }
