@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour {
     public Camera fpsCam;
     public ParticleSystem Tire;
     public GameObject impactEffect;
+    public GameObject balle;
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,7 +38,10 @@ public class Shoot : MonoBehaviour {
                 }
 
                 GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                GameObject balleGO = Instantiate(balle, hit.point, Quaternion.LookRotation(hit.normal));
+
                 Destroy(impactGO, 2f);
+                Destroy(balleGO, 10f);
 
             }
         }
