@@ -31,11 +31,11 @@ public class Target : MonoBehaviour {
         Vie -= amount;
 
         if(Vie <= 0)
-        {            
+        {
             audio.clip = meurt;
             audio.Play();
             mourir.Play();
-            Destroy(gameObject);
+            Destroy(gameObject, audio.clip.length);
         }
 
         else
@@ -62,6 +62,5 @@ public class Target : MonoBehaviour {
             GetComponent<Renderer>().material = material;
         }
     }
-
 }
 	
