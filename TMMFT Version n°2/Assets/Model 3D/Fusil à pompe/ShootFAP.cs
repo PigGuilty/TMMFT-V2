@@ -6,20 +6,24 @@ public class ShootFAP : MonoBehaviour
     // Use this for initialization
     public float DegatArme;
     public int TailleChargeur;
-    public int BalleRestante;
+    private int BalleRestante;
 
     public Camera fpsCam;
     public ParticleSystem Tire;
     public GameObject impactEffect;
     public GameObject balle;
 
-    Animator animator;
-    public Animation anim;
+	private float StartedTime;
+	private bool StartedAnim;
+
+    private Animator animator;
+	public Animation anim;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
+		StartedAnim = false;
 
         AnimationClip clip;
     }
@@ -31,7 +35,7 @@ public class ShootFAP : MonoBehaviour
 
         Vector3 lookRot = fpsCam.transform.forward;
 
-        if (BalleRestante != 0)
+        if (BalleRestante > 0)
         {
 
             if (Input.GetButtonDown("Fire1"))
@@ -75,13 +79,19 @@ public class ShootFAP : MonoBehaviour
             }
         }
 
-        if (BalleRestante == 0)
+        if (BalleRestante <= 0)
         {
-            animator.SetFloat("Reload", 1);
+			if (!StartedAnim) {
+				animator.SetFloat ("Reload", 1);
+				StartedAnim = true;
+				StartedTime = Time.time;
+			}
 
             //attendre fin de l'annimation
-            animator.SetFloat("Reload", 1);
-            BalleRestante = TailleChargeur;
+			if (StartedTime + anim.clip.length > Time.time) {
+				animator.SetFloat ("Reload", 0);
+				BalleRestante = TailleChargeur;
+			}
         }
     }
 }
