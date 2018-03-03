@@ -11264,7 +11264,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DegatArme: 20
   TailleChargeur: 2
-  BalleRestante: 0
   fpsCam: {fileID: 2045890302}
   Tire: {fileID: 205294061}
   impactEffect: {fileID: 1077792530}

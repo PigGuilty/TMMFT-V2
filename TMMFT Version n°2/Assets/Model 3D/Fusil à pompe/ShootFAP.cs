@@ -17,7 +17,10 @@ public class ShootFAP : MonoBehaviour
 	private bool StartedAnim;
 
     private Animator animator;
-	public Animation anim;
+
+    private float AnimationTime;
+    
+
 
     void Start()
     {
@@ -25,7 +28,16 @@ public class ShootFAP : MonoBehaviour
         BalleRestante = TailleChargeur;
 		StartedAnim = false;
 
-        AnimationClip clip;
+        RuntimeAnimatorController ac = animator.runtimeAnimatorController;    //Get Animator controller
+        for (int i = 0; i < ac.animationClips.Length; i++)                 //For all animations
+        {
+            if (ac.animationClips[i].name == "Reload")        //If it has the same name as your clip
+            {
+                AnimationTime = ac.animationClips[i].length;
+            }
+        }
+
+
     }
 
     // Update is called once per frame
@@ -88,8 +100,9 @@ public class ShootFAP : MonoBehaviour
 			}
 
             //attendre fin de l'annimation
-			if (StartedTime + anim.clip.length > Time.time) {
-				animator.SetFloat ("Reload", 0);
+            if (StartedTime + AnimationTime > Time.time)
+            {
+                animator.SetFloat ("Reload", 0);
 				BalleRestante = TailleChargeur;
 			}
         }
