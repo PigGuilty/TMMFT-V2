@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -4174,7 +4174,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 597227576
+  randomSeed: -1647665624
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -11001,6 +11001,68 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1373162122}
+--- !u!1001 &1458872791
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2045890299}
+    m_Modifications:
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9200001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.43000013
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.154064
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.0000002533197
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 162d962122b1e4e4c8ae00069297d390, type: 2}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.41330463
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.41330463
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.41330463
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1001 &1467154059
 Prefab:
   m_ObjectHideFlags: 0
@@ -11185,6 +11247,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1703065808 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100006, guid: ed0952e967bba864d9236aa41f2cedcc, type: 3}
+  m_PrefabInternal: {fileID: 1458872791}
+--- !u!114 &1703065811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1703065808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c79e2a311735c84e90a1c63009dfcc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DegatArme: 20
+  TailleChargeur: 2
+  BalleRestante: 0
+  fpsCam: {fileID: 2045890302}
+  Tire: {fileID: 205294061}
+  impactEffect: {fileID: 1077792530}
+  balle: {fileID: 100000, guid: 2486b8bef0ac731459df979426f98cab, type: 3}
 --- !u!1 &1717357092
 GameObject:
   m_ObjectHideFlags: 0

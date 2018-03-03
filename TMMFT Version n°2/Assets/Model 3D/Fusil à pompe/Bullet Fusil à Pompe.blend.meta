@@ -1,50 +1,19 @@
 fileFormatVersion: 2
-guid: 6e0398203f73a3044b8bb0bba04e1d8d
-timeCreated: 1519989886
+guid: 2486b8bef0ac731459df979426f98cab
+timeCreated: 1520070689
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera
-    100002: Cylinder.001
-    100004: Cylinder.002
-    100006: Cylinder.003
-    100008: //RootNode
-    100010: Hemi
-    400000: Camera
-    400002: Cylinder.001
-    400004: Cylinder.002
-    400006: Cylinder.003
-    400008: //RootNode
-    400010: Hemi
-    2000000: Camera
-    2100000: Material.003
-    2100002: Material.004
-    2100004: Material.006
-    2100006: Material.005
-    2300000: Cylinder.001
-    2300002: Cylinder.002
-    2300004: Cylinder.003
-    3300000: Cylinder.001
-    3300002: Cylinder.002
-    3300004: Cylinder.003
-    4300000: Cylinder.003
-    4300002: Cylinder.002
-    4300004: Cylinder.001
-    7400000: Cylinder.003|Cylinder.001Action
-    7400002: Cylinder.003|Cylinder.003Action
-    7400004: Cylinder.003|Cylinder.003Action.001
-    7400006: Cylinder.003|Reload
-    7400008: Cylinder.002|Cylinder.001Action
-    7400010: Cylinder.002|Cylinder.003Action
-    7400012: Cylinder.002|Cylinder.003Action.001
-    7400014: Cylinder.002|Reload
-    7400016: Cylinder.001|Cylinder.001Action
-    7400018: Cylinder.001|Cylinder.003Action
-    7400020: Cylinder.001|Cylinder.003Action.001
-    7400022: Cylinder.001|Reload
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Material_003
+    2100002: Material_004
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder_000
+    7400000: Default Take
     9500000: //RootNode
-    10800000: Hemi
   externalObjects: {}
   materials:
     importMaterials: 1

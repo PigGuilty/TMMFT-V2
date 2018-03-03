@@ -56,8 +56,6 @@ public class Target : MonoBehaviour {
 
         if (this.gameObject.GetComponent<Renderer>().material.color == Color.red)
         {
-            print("OUIIII");
-
             material.color = OriginalColor;
             GetComponent<Renderer>().material = material;
         }
