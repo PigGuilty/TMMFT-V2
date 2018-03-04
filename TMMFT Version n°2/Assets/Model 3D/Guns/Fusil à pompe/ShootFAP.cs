@@ -12,38 +12,24 @@ public class ShootFAP : MonoBehaviour
     public ParticleSystem Tire;
     public GameObject impactEffect;
     public GameObject balle;
-
-	private float StartedTime;
-	private bool StartedAnim;
+    public GameObject SpawnBullet;
 
     private Animator animator;
 
-    private float AnimationTime;
-    
-
+    private int AnimationLength;
+    private int AnimationWaitEnd;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
-		StartedAnim = false;
-
-        RuntimeAnimatorController ac = animator.runtimeAnimatorController;    //Get Animator controller
-        for (int i = 0; i < ac.animationClips.Length; i++)                 //For all animations
-        {
-            if (ac.animationClips[i].name == "Reload")        //If it has the same name as your clip
-            {
-                AnimationTime = ac.animationClips[i].length;
-            }
-        }
-
-
+        AnimationLength = 50;
+        AnimationWaitEnd = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(BalleRestante);
 
         Vector3 lookRot = fpsCam.transform.forward;
 
@@ -68,7 +54,6 @@ public class ShootFAP : MonoBehaviour
                     {
                         target.TakeDamage(DegatArme);
 
-
                         if (hit.rigidbody != null)
                         {
                             hit.rigidbody.AddForce(-hit.normal * DegatArme * 4);
@@ -78,11 +63,7 @@ public class ShootFAP : MonoBehaviour
                     if (hit.collider.tag != "Player")
                     {
                         GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-
-                        GameObject balleGO = Instantiate(balle, hit.point, Quaternion.LookRotation(lookRot));
-
                         Destroy(impactGO, 2f);
-                        Destroy(balleGO, 10f);
                     }
                 }
 
@@ -93,18 +74,31 @@ public class ShootFAP : MonoBehaviour
 
         if (BalleRestante <= 0)
         {
-			if (!StartedAnim) {
-				animator.SetFloat ("Reload", 1);
-				StartedAnim = true;
-				StartedTime = Time.time;
-			}
-
-            //attendre fin de l'annimation
-            if (StartedTime + AnimationTime > Time.time)
+            
+            if (AnimationWaitEnd == 0)
             {
-                animator.SetFloat ("Reload", 0);
-				BalleRestante = TailleChargeur;
-			}
+                animator.Rebind();
+                animator.SetFloat("Reload", 1);
+            }
+
+            AnimationWaitEnd = AnimationWaitEnd + 1;
+
+            if (AnimationWaitEnd == 10)
+            {
+                Vector3 lookrot2 = new Vector3(lookRot.x + Random.Range(-0.4f, 0.4f), lookRot.y + Random.Range(-0.4f, 0.4f), lookRot.z + Random.Range(-0.4f, 0.4f));
+
+                GameObject balleGO = Instantiate(balle, SpawnBullet.transform.position, Quaternion.LookRotation(lookrot2));
+                print(lookrot2);
+                Destroy(balleGO, 10f);
+            }
+                //attendre fin de l'annimation
+                if (AnimationWaitEnd >= AnimationLength)
+            {
+                animator.SetFloat("Reload", 0);
+                BalleRestante = TailleChargeur;
+                AnimationWaitEnd = 0;
+            }
+            
         }
     }
 }

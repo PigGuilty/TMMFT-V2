@@ -18,7 +18,7 @@ public class Apparition : MonoBehaviour {
         Vector3 forwardForce = new Vector3(finalX, -fpsCam.transform.forward.y, finalZ);
 
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(forwardForce * Random.Range(-80f, 200f));
+        rb.AddForce(forwardForce * Random.Range(200f, 400f));
 
     }
 	
