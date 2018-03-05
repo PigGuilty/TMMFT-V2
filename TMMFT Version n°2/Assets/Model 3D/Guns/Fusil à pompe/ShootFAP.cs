@@ -87,7 +87,6 @@ public class ShootFAP : MonoBehaviour
                 Vector3 lookrot2 = new Vector3(lookRot.x + Random.Range(-0.4f, 0.4f), lookRot.y + Random.Range(-0.4f, 0.4f), lookRot.z + Random.Range(-0.4f, 0.4f));
 
                 GameObject balleGO = Instantiate(balle, SpawnBullet.transform.position, Quaternion.LookRotation(lookrot2));
-                print(lookrot2);
                 Destroy(balleGO, 10f);
             }
                 //attendre fin de l'annimation
