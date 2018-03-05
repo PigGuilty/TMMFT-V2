@@ -12,6 +12,9 @@ public class WeaponChange : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		pistolet.SetActive(true);
+		//bazooka.SetActive(false);
+		fusil.SetActive(false);
+		mitrailleur.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -20,7 +23,7 @@ public class WeaponChange : MonoBehaviour {
 			pistolet.SetActive(false);
 			fusil.SetActive(false);
 			mitrailleur.SetActive(false);
-			//bazooka.enabled = false;
+			//bazooka.SetActive(false);
 		}
 
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
@@ -30,7 +33,7 @@ public class WeaponChange : MonoBehaviour {
 		}else if (Input.GetKeyDown (KeyCode.Alpha3)) {
 			mitrailleur.SetActive(true);
 		}/* else if (Input.GetKeyDown (KeyCode.Alpha4)) {
-			bazooka.enabled = true;
+			bazooka.SetActive(true);
 		}*/
 	}
 }
