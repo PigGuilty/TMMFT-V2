@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/sc\xE8ne/Script Testing 2.unity"
+    guid: 4959c9f0b06a1cb41a9d2fe2abf5568b
