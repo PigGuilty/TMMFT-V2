@@ -31,7 +31,7 @@ public class ShootP_M : MonoBehaviour
     void Update()
     {
 
-        Vector3 lookRot = fpsCam.transform.forward;
+        Vector3 lookRot = fpsCam.transform.right;
 
         if (BalleRestante > 0)
         {
