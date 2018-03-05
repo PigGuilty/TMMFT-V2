@@ -3,9 +3,11 @@
 public class ShootP_M : MonoBehaviour
 {
 
-    // Use this for initialization
     public float DegatArme;
     public int TailleChargeur;
+	public int shootPerFrame;
+	public string button;
+	private int Counter;
     private int BalleRestante;
 
     public ParticleSystem Tire;
@@ -24,6 +26,7 @@ public class ShootP_M : MonoBehaviour
         BalleRestante = TailleChargeur;
         AnimationLength = 50;
         AnimationWaitEnd = 0;
+		Counter = shootPerFrame;
     }
 
     // Update is called once per frame
@@ -35,40 +38,41 @@ public class ShootP_M : MonoBehaviour
         if (BalleRestante > 0)
         {
 
-            if (Input.GetButtonDown("Fire1"))
-            {
+			if (Input.GetButton (button) && Counter == 0) {
 
-                Tire.Play();
+				Tire.Play ();
 
-                RaycastHit hit;
-                Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+				RaycastHit hit;
+				Ray ShootingDirection = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 
-                if (Physics.Raycast(ShootingDirection, out hit))
-                {
+				if (Physics.Raycast (ShootingDirection, out hit)) {
 
-                    Target target = hit.transform.GetComponent<Target>();
+					Target target = hit.transform.GetComponent<Target> ();
 
-                    if (hit.collider.tag == "Vache")
-                    {
-                        target.TakeDamage(DegatArme);
+					if (hit.collider.tag == "Vache") {
+						target.TakeDamage (DegatArme);
 
-                        if (hit.rigidbody != null)
-                        {
-                            hit.rigidbody.AddForce(-hit.normal * DegatArme * 4);
-                        }
-                    }
+						if (hit.rigidbody != null) {
+							hit.rigidbody.AddForce (-hit.normal * DegatArme * 10);
+						}
+					}
 
-                    if (hit.collider.tag != "Player")
-                    {
-                        GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+					if (hit.collider.tag != "Player") {
+						GameObject impactGO = Instantiate (impactEffect, hit.point, Quaternion.LookRotation (hit.normal));
 
-                        Destroy(impactGO, 2f);
-                    }
-                }
+						Destroy (impactGO, 2f);
+					}
+				}
 
-                BalleRestante = BalleRestante - 1;
+				BalleRestante = BalleRestante - 1;
 
-            }
+				Counter = shootPerFrame;
+			} else if (Input.GetButton ("Fire1")) {
+				Counter--;
+			} else {
+				Counter = 0;
+			}
+
         }
 
         if (BalleRestante <= 0)

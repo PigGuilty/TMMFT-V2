@@ -5,6 +5,8 @@ public class ShootFAP : MonoBehaviour
 
     // Use this for initialization
     public float DegatArme;
+	public float nbProjctiles;
+	public float Dispertion;
     public int TailleChargeur;
     private int BalleRestante;
 
@@ -41,30 +43,34 @@ public class ShootFAP : MonoBehaviour
                 Tire.Play();
 
                 RaycastHit hit;
-                Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+				for (int i = 0; i < nbProjctiles; i++) {
+					Vector3 dir = Camera.main.transform.forward;
+					dir.x = dir.x * (Dispertion / 100) + Random.Range (-0.01f, 0.01f);
+					dir.y = dir.y * (Dispertion / 100) + Random.Range (-0.01f, 0.01f);
+					dir.z = dir.z * (Dispertion / 100) + Random.Range (-0.01f, 0.01f);
 
-                if (Physics.Raycast(ShootingDirection, out hit))
-                {
+					Ray ShootingDirection = new Ray (Camera.main.transform.position, dir);
 
-                    Target target = hit.transform.GetComponent<Target>();
+					Debug.DrawRay(Camera.main.transform.position, dir * 1000000f, Color.red,3);
 
-                    if (hit.collider.tag == "Vache")
-                    {
-                        target.TakeDamage(DegatArme);
+					if (Physics.Raycast (ShootingDirection, out hit)) {
 
-                        if (hit.rigidbody != null)
-                        {
-                            hit.rigidbody.AddForce(-hit.normal * DegatArme * 4);
-                        }
-                    }
+						Target target = hit.transform.GetComponent<Target> ();
 
-                    if (hit.collider.tag != "Player")
-                    {
-                        GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                        Destroy(impactGO, 2f);
-                    }
-                }
+						if (hit.collider.tag == "Vache") {
+							target.TakeDamage (DegatArme	);
 
+							if (hit.rigidbody != null) {
+								hit.rigidbody.AddForce (-hit.normal * DegatArme * 4);
+							}
+						}
+
+						if (hit.collider.tag != "Player") {
+							GameObject impactGO = Instantiate (impactEffect, hit.point, Quaternion.LookRotation (hit.normal));
+							Destroy (impactGO, 2f);
+						}
+					}
+				}
                 BalleRestante = BalleRestante - 1;
 
             }

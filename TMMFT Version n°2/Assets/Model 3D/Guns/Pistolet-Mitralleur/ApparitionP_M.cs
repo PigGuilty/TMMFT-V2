@@ -5,7 +5,8 @@ using UnityEngine;
 public class ApparitionP_M : MonoBehaviour
 {
 
-    public Rigidbody rb;
+    private Rigidbody rb;
+	public bool right;
 
     // Use this for initialization
     void Start()
@@ -16,11 +17,17 @@ public class ApparitionP_M : MonoBehaviour
         float finalX = Camera.main.transform.right.x + randomX;
         float finalZ = Camera.main.transform.right.z + randomZ;
 
-        Vector3 rightForce = new Vector3(finalX, Random.Range(0.1f, 1f), finalZ);
+		if (right) {
+			Vector3 rightForce = new Vector3 (finalX, Random.Range (0.1f, 1f), finalZ);
 
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(rightForce * Random.Range(20f, 200f));
+			rb = GetComponent<Rigidbody> ();
+			rb.AddForce (rightForce * Random.Range (20f, 200f));
+		} else {
+			Vector3 rightForce = new Vector3 (finalX, Random.Range (0.1f, 1f), finalZ);
 
+			rb = GetComponent<Rigidbody> ();
+			rb.AddForce (rightForce * Random.Range (-20f, -200f));
+		}
     }
 
     // Update is called once per frame

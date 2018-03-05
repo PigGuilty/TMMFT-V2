@@ -533,10 +533,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DegatArme: 20
-  fpsCam: {fileID: 0}
   Tire: {fileID: 198533057409716628}
-  impactEffect: {fileID: 0}
-  balle: {fileID: 0}
+  impactEffect: {fileID: 1420918548206048, guid: 55ade458a5beaa940ad7419fdf6d75bd,
+    type: 2}
+  balle: {fileID: 1484467118780708, guid: 564a775c940efa54ba4f11bc04217eb6, type: 2}
 --- !u!198 &198533057409716628
 ParticleSystem:
   m_ObjectHideFlags: 1
