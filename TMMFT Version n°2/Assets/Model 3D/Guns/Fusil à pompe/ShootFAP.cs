@@ -46,7 +46,6 @@ public class ShootFAP : MonoBehaviour
 
                 if (Physics.Raycast(ShootingDirection, out hit))
                 {
-                    Debug.Log(hit.transform.name);
 
                     Target target = hit.transform.GetComponent<Target>();
 
