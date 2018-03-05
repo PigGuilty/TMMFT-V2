@@ -6,7 +6,6 @@ public class ApparitionP_M : MonoBehaviour
 {
 
     public Rigidbody rb;
-    public Camera fpsCam;
 
     // Use this for initialization
     void Start()
@@ -14,8 +13,8 @@ public class ApparitionP_M : MonoBehaviour
         float randomX = Random.Range(0.50f, 0.20f);
         float randomZ = Random.Range(0.50f, 0.20f);
 
-        float finalX = fpsCam.transform.right.x + randomX;
-        float finalZ = fpsCam.transform.right.z + randomZ;
+        float finalX = Camera.main.transform.right.x + randomX;
+        float finalZ = Camera.main.transform.right.z + randomZ;
 
         Vector3 rightForce = new Vector3(finalX, Random.Range(0.1f, 1f), finalZ);
 

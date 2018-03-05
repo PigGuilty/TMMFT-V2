@@ -6,7 +6,6 @@ public class Apparitiondouille : MonoBehaviour
 {
 
     public Rigidbody rb;
-    public Camera fpsCam;
 
     // Use this for initialization
     void Start()
@@ -14,8 +13,8 @@ public class Apparitiondouille : MonoBehaviour
         float randomX = Random.Range(0.05f, 0.20f);
         float randomZ = Random.Range(0.05f, 0.20f);
 
-        float finalX = fpsCam.transform.right.x + randomX;
-        float finalZ = fpsCam.transform.right.z + randomZ;
+        float finalX = Camera.main.transform.right.x + randomX;
+        float finalZ = Camera.main.transform.right.z + randomZ;
 
         Vector3 rightForce = new Vector3(finalX, 0, finalZ);
 

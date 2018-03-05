@@ -8,7 +8,6 @@ public class ShootP_M : MonoBehaviour
     public int TailleChargeur;
     private int BalleRestante;
 
-    public Camera fpsCam;
     public ParticleSystem Tire;
     public GameObject impactEffect;
 
@@ -31,7 +30,7 @@ public class ShootP_M : MonoBehaviour
     void Update()
     {
 
-        Vector3 lookRot = -fpsCam.transform.right;
+        Vector3 lookRot = -Camera.main.transform.right;
 
         if (BalleRestante > 0)
         {
@@ -42,7 +41,7 @@ public class ShootP_M : MonoBehaviour
                 Tire.Play();
 
                 RaycastHit hit;
-                Ray ShootingDirection = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
+                Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
                 if (Physics.Raycast(ShootingDirection, out hit))
                 {

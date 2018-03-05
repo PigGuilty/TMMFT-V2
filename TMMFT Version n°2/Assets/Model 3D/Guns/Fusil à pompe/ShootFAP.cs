@@ -8,7 +8,6 @@ public class ShootFAP : MonoBehaviour
     public int TailleChargeur;
     private int BalleRestante;
 
-    public Camera fpsCam;
     public ParticleSystem Tire;
     public GameObject impactEffect;
     public GameObject balle;
@@ -31,7 +30,7 @@ public class ShootFAP : MonoBehaviour
     void Update()
     {
 
-        Vector3 lookRot = fpsCam.transform.forward;
+        Vector3 lookRot = Camera.main.transform.forward;
 
         if (BalleRestante > 0)
         {
@@ -42,7 +41,7 @@ public class ShootFAP : MonoBehaviour
                 Tire.Play();
 
                 RaycastHit hit;
-                Ray ShootingDirection = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
+                Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
                 if (Physics.Raycast(ShootingDirection, out hit))
                 {

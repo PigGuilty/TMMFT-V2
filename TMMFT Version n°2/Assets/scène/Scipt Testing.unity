@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 336631}
   - component: {fileID: 336630}
   - component: {fileID: 336629}
+  - component: {fileID: 336634}
   m_Layer: 2
   m_Name: FPSController
   m_TagString: Player
@@ -364,8 +365,22 @@ Transform:
   m_Children:
   - {fileID: 2045890299}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6843065bae9ac854fbefb578bf634c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistolet: {fileID: 278564189}
+  fusil: {fileID: 1703065808}
+  mitrailleur: {fileID: 1102084820}
 --- !u!1 &30747225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,10 +4080,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DegatArme: 20
-  fpsCam: {fileID: 2045890302}
   Tire: {fileID: 205294061}
   impactEffect: {fileID: 1077792530}
-  balle: {fileID: 1836893301}
+  balle: {fileID: 1484467118780708, guid: 564a775c940efa54ba4f11bc04217eb6, type: 2}
 --- !u!1001 &291234068
 Prefab:
   m_ObjectHideFlags: 0
@@ -4113,6 +4127,18 @@ Prefab:
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 2045890302}
+    - target: {fileID: 4359215344565216, guid: 95d7e3fab6b265b4b967f63d0a0a82b2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.05286076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359215344565216, guid: 95d7e3fab6b265b4b967f63d0a0a82b2, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.052860748
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359215344565216, guid: 95d7e3fab6b265b4b967f63d0a0a82b2, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.268047
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95d7e3fab6b265b4b967f63d0a0a82b2, type: 2}
   m_IsPrefabParent: 0
@@ -4358,53 +4384,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 571275864}
   m_Mesh: {fileID: 4300000, guid: 8a9c532a7bae73743842984c6d2206c7, type: 3}
---- !u!1001 &791768538
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4823662117175118, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 8.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823662117175118, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823662117175118, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -8.4877615
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823662117175118, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.000000059604645
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823662117175118, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823662117175118, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823662117175118, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823662117175118, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114222544432101304, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7,
-        type: 2}
-      propertyPath: fpsCam
-      value: 
-      objectReference: {fileID: 2045890302}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &794846373
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,7 +4632,7 @@ Transform:
   m_LocalScale: {x: 41.398266, y: 1, z: 31.051191}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1056212944
 Prefab:
@@ -4700,7 +4679,7 @@ Prefab:
     - target: {fileID: 224805553712561380, guid: 4bb75efca207e2e419691b0950d38457,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224805553712561380, guid: 4bb75efca207e2e419691b0950d38457,
         type: 2}
@@ -4826,7 +4805,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DegatArme: 5
   TailleChargeur: 2
-  fpsCam: {fileID: 2045890302}
   Tire: {fileID: 205294061}
   impactEffect: {fileID: 1077792530}
   ClonePM: {fileID: 2021732873}
@@ -4867,7 +4845,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 7c328831c895f474a9b0359326bb87a4, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 7c328831c895f474a9b0359326bb87a4, type: 3}
       propertyPath: m_Name
@@ -5050,7 +5028,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4492422437637092, guid: 8d8dc7eb9f073c143937188b3754de0c, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d8dc7eb9f073c143937188b3754de0c, type: 2}
@@ -5092,7 +5070,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4987697856185248, guid: 55ade458a5beaa940ad7419fdf6d75bd, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55ade458a5beaa940ad7419fdf6d75bd, type: 2}
@@ -5164,16 +5142,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DegatArme: 20
   TailleChargeur: 2
-  fpsCam: {fileID: 2045890302}
   Tire: {fileID: 205294061}
   impactEffect: {fileID: 1077792530}
   balle: {fileID: 291234069}
   SpawnBullet: {fileID: 794846373}
---- !u!1 &1836893301 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1568424839323410, guid: 1831ee6b8752bdb4cb69288ecd4a2ff7,
-    type: 2}
-  m_PrefabInternal: {fileID: 791768538}
 --- !u!1 &1980592045
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,7 +5237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2021732875}
-  fpsCam: {fileID: 2045890302}
 --- !u!54 &2021732875
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5396,7 +5367,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: a301aded4ab365c4d9e4791249428150, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: a301aded4ab365c4d9e4791249428150, type: 3}
       propertyPath: m_Controller
