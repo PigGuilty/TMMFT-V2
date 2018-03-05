@@ -31,7 +31,7 @@ public class ShootP_M : MonoBehaviour
     void Update()
     {
 
-        Vector3 lookRot = fpsCam.transform.right;
+        Vector3 lookRot = -fpsCam.transform.right;
 
         if (BalleRestante > 0)
         {
@@ -62,8 +62,9 @@ public class ShootP_M : MonoBehaviour
 
                     if (hit.collider.tag != "Player")
                     {
-                        GameObject ClonePMGO = Instantiate(ClonePM, transform.position, Quaternion.LookRotation(lookRot));
-                        Destroy(ClonePMGO, 20f);
+                        GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+
+                        Destroy(impactGO, 2f);
                     }
                 }
 
@@ -79,16 +80,14 @@ public class ShootP_M : MonoBehaviour
             {
                 animator.Rebind();
                 animator.SetFloat("Reload", 1);
-            }
 
-            AnimationWaitEnd = AnimationWaitEnd + 1;
-
-            if (AnimationWaitEnd == 10)
-            {
                 GameObject ClonePMGO = Instantiate(ClonePM, transform.position, Quaternion.LookRotation(lookRot));
 
                 Destroy(ClonePMGO, 10f);
             }
+
+            AnimationWaitEnd = AnimationWaitEnd + 1;
+
             //attendre fin de l'annimation
             if (AnimationWaitEnd >= AnimationLength)
             {
