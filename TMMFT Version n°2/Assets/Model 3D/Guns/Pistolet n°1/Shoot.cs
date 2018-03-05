@@ -5,12 +5,15 @@ public class Shoot : MonoBehaviour {
     // Use this for initialization
     public float DegatArme;
 
-    public Camera fpsCam;
+    private Camera fpsCam;
     public ParticleSystem Tire;
     public GameObject impactEffect;
     public GameObject balle;
 
-    
+	void Start() {
+		fpsCam = Camera.main;
+	}
+
     // Update is called once per frame
     void Update () {
 
