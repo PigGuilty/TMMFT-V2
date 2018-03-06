@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95341451738917246}
   - component: {fileID: 54401306837186948}
   - component: {fileID: 136910103463023374}
+  - component: {fileID: 114671520646164246}
   m_Layer: 0
   m_Name: Bullet_Fusil_a_Pompe
   m_TagString: Untagged
@@ -118,6 +119,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114671520646164246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1057371870655994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c876922c2628ed24f80768e1008c96cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 54401306837186948}
 --- !u!136 &136910103463023374
 CapsuleCollider:
   m_ObjectHideFlags: 1
