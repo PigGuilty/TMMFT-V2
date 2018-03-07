@@ -20,6 +20,9 @@ public class ShootP_M : MonoBehaviour
     private int AnimationLength;
     private int AnimationWaitEnd;
 
+    public GameObject DouilleAInstanciate;
+    public GameObject PositionSpawnDouille;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -64,7 +67,10 @@ public class ShootP_M : MonoBehaviour
 					}
 				}
 
-				BalleRestante = BalleRestante - 1;
+                GameObject BalleAInstanciateGO = Instantiate(DouilleAInstanciate, PositionSpawnDouille.transform.position, Quaternion.LookRotation(lookRot));
+                Destroy(BalleAInstanciateGO, 10f);
+
+                BalleRestante = BalleRestante - 1;
 
 				Counter = shootPerFrame;
 			} else if (Input.GetButton ("Fire1")) {
