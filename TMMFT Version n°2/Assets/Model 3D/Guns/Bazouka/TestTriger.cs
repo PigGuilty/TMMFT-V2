@@ -7,8 +7,6 @@ public class TestTriger : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-         public float radius = 5.0F;
-     public float power = 10.0F;
 
 }
 	
@@ -19,7 +17,6 @@ public class TestTriger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        rb.
+        print("collision dectected");
     }
 }
