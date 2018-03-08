@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4123213981670478}
   - component: {fileID: 212628950329865378}
   m_Layer: 0
-  m_Name: Impact_2.0 bazooka
+  m_Name: Impact_2.0 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
