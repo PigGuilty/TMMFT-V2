@@ -11,7 +11,10 @@ public class ShootFAP : MonoBehaviour
     private int BalleRestante;
 
     public ParticleSystem Tire;
-    public GameObject impactEffect;
+    public GameObject impactEffect1;
+    public GameObject impactEffect2;
+    public GameObject impactEffect3;
+    public GameObject impactEffect4;
     public GameObject balle;
     public GameObject SpawnBullet;
 
@@ -65,10 +68,33 @@ public class ShootFAP : MonoBehaviour
 							}
 						}
 
-						if (hit.collider.tag != "Player") {
-							GameObject impactGO = Instantiate (impactEffect, hit.point, Quaternion.LookRotation (hit.normal));
-							Destroy (impactGO, 2f);
-						}
+						if (hit.collider.tag != "Player" && hit.collider.tag != "Vache") {
+                            float x = Random.Range(0.0f, 4.0f);
+                            if (x <= 1)
+                            {
+                                GameObject impactGO1 = Instantiate(impactEffect1, hit.point, Quaternion.LookRotation(hit.normal));
+                                impactGO1.transform.Translate(hit.normal / 1000, Space.World);
+                                Destroy(impactGO1, 20f);
+                            }
+                            else if (x > 1 && x <= 2)
+                            {
+                                GameObject impactGO2 = Instantiate(impactEffect2, hit.point, Quaternion.LookRotation(hit.normal));
+                                impactGO2.transform.Translate(hit.normal / 1000, Space.World);
+                                Destroy(impactGO2, 20f);
+                            }
+                            else if (x > 2 && x <= 3)
+                            {
+                                GameObject impactGO3 = Instantiate(impactEffect3, hit.point, Quaternion.LookRotation(hit.normal));
+                                impactGO3.transform.Translate(hit.normal / 1000, Space.World);
+                                Destroy(impactGO3, 20f);
+                            }
+                            else if (x > 3 && x <= 4)
+                            {
+                                GameObject impactGO4 = Instantiate(impactEffect4, hit.point, Quaternion.LookRotation(hit.normal));
+                                impactGO4.transform.Translate(hit.normal / 1000, Space.World);
+                                Destroy(impactGO4, 20f);
+                            }
+                        }
 					}
 				}
                 BalleRestante = BalleRestante - 1;
