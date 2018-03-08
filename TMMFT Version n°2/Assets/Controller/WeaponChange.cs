@@ -8,12 +8,12 @@ public class WeaponChange : MonoBehaviour {
 	public GameObject fusil;
 	public GameObject mitrailleur1;
 	public GameObject mitrailleur2;
-	//public GameObject bazooka;
+    public GameObject bazooka;
 
 	// Use this for initialization
 	void Start () {
 		pistolet.SetActive(true);
-		//bazooka.SetActive(false);
+		bazooka.SetActive(false);
 		fusil.SetActive(false);
 		mitrailleur1.SetActive(false);
 		mitrailleur2.SetActive(false);
@@ -26,7 +26,7 @@ public class WeaponChange : MonoBehaviour {
 			fusil.SetActive(false);
 			mitrailleur1.SetActive(false);
 			mitrailleur2.SetActive(false);
-			//bazooka.SetActive(false);
+			bazooka.SetActive(false);
 		}
 
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
@@ -36,8 +36,8 @@ public class WeaponChange : MonoBehaviour {
 		}else if (Input.GetKeyDown (KeyCode.Alpha3)) {
 			mitrailleur1.SetActive(true);
 			mitrailleur2.SetActive(true);
-		}/* else if (Input.GetKeyDown (KeyCode.Alpha4)) {
+		} else if (Input.GetKeyDown (KeyCode.Alpha4)) {
 			bazooka.SetActive(true);
-		}*/
+		}
 	}
 }
