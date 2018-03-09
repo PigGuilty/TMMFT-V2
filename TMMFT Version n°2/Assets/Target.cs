@@ -16,11 +16,14 @@ public class Target : MonoBehaviour {
     [SerializeField] AudioClip aie;
     [SerializeField] AudioClip meurt;
 
+    private Collider Trigger;
+
     public void Start()
     {
         Material material = new Material(Shader.Find("Transparent/Diffuse"));
         material.color = Color.red;
         GetComponent<Renderer>().material = material;
+        Trigger = GetComponent<Collider>();
     }
 
 
@@ -32,6 +35,7 @@ public class Target : MonoBehaviour {
 
         if(Vie <= 0)
         {
+            Trigger.enabled = false;
             audio.clip = meurt;
             audio.Play();
             mourir.Play();

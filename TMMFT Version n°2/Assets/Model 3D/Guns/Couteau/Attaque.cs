@@ -8,6 +8,11 @@ public class Attaque : MonoBehaviour {
     private int BalleRestante;
 
     public float PortéeCouteau;
+    public int DegatArmeCouteau;
+
+    public int furry;
+    private int furryMax;
+    public int PointDeFurryGagnéParCoup;
 
     private Animator animator;
 
@@ -20,7 +25,9 @@ public class Attaque : MonoBehaviour {
         BalleRestante = TailleChargeur;
         AnimationLength = 45;
         AnimationWaitEnd = 0;
-    }
+        furry = 0;
+        furryMax = 100;
+}
 
     // Update is called once per frame
     void Update () {
@@ -33,9 +40,21 @@ public class Attaque : MonoBehaviour {
                 Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
                 if(Physics.Raycast(ShootingDirection, out hit, PortéeCouteau)){
-                    print("Objet Détecté");
-                }
 
+                    Target target = hit.transform.GetComponent<Target>();
+
+                    if (hit.collider.tag == "Vache")
+                    {
+                        target.TakeDamage(DegatArmeCouteau);
+                        furry = furry + PointDeFurryGagnéParCoup;
+                    }
+
+                    if (hit.rigidbody != null)
+                    {
+                        hit.rigidbody.AddForce(-hit.normal * DegatArmeCouteau * 4);
+                    }
+                }
+                
                 BalleRestante = BalleRestante - 1;
             }
         }

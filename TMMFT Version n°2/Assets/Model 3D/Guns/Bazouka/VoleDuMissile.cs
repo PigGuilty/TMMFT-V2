@@ -35,5 +35,3 @@ public class VoleDuMissile : MonoBehaviour {
     }
 
 }
-            //Instantiate(Sphère, transform.position, Quaternion.LookRotation(contact.normal));
-            //Destroy(gameObject);

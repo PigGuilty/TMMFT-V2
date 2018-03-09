@@ -16,6 +16,7 @@ public class PointDeVieJoueur : MonoBehaviour {
     public GameObject mitrailleur1;
     public GameObject mitrailleur2;
     public GameObject bazooka;
+    public GameObject Couteau;
 
     // Use this for initialization
     void Start () {
@@ -51,5 +52,6 @@ public class PointDeVieJoueur : MonoBehaviour {
         mitrailleur1.SetActive(false);
         mitrailleur2.SetActive(false);
         bazooka.SetActive(false);
+        Couteau.SetActive(false);
     }
 }
