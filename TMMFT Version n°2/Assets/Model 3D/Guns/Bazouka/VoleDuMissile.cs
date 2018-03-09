@@ -5,10 +5,11 @@ using UnityEngine;
 public class VoleDuMissile : MonoBehaviour {
 
     public ParticleSystem EffetFusée;
+    public GameObject DemiSphère;
     public GameObject Sphère;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         EffetFusée.Play();
 	}
 	
@@ -17,10 +18,22 @@ public class VoleDuMissile : MonoBehaviour {
         transform.Translate(-Vector3.forward * Time.deltaTime * 20);
     }
 
-    void OnTriggerEnter(Collider collision)
+    void OnCollisionEnter(Collision other)
     {
-        Instantiate(Sphère, transform.position, Quaternion.LookRotation(collision.contacts[0].normal));
-        Destroy(gameObject);
+        if (other.gameObject.tag != "Player")
+        {
+            if (other.gameObject.tag == "Vache")
+            {
+                Instantiate(Sphère, other.contacts[0].point, Quaternion.LookRotation(other.contacts[0].normal));
+            }
+            else
+            {
+                Instantiate(DemiSphère, other.contacts[0].point, Quaternion.LookRotation(other.contacts[0].normal));
+            }
+            Destroy(gameObject);
+        }
     }
 
 }
+            //Instantiate(Sphère, transform.position, Quaternion.LookRotation(contact.normal));
+            //Destroy(gameObject);
