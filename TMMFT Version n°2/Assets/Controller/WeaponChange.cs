@@ -9,6 +9,7 @@ public class WeaponChange : MonoBehaviour {
 	public GameObject mitrailleur1;
 	public GameObject mitrailleur2;
     public GameObject bazooka;
+    public GameObject Couteau;
 
 	// Use this for initialization
 	void Start () {
@@ -17,17 +18,20 @@ public class WeaponChange : MonoBehaviour {
 		fusil.SetActive(false);
 		mitrailleur1.SetActive(false);
 		mitrailleur2.SetActive(false);
-	}
+        Couteau.SetActive(false);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Alpha1) || Input.GetKeyDown (KeyCode.Alpha2) || Input.GetKeyDown (KeyCode.Alpha3) | Input.GetKeyDown (KeyCode.Alpha4)) {
+		if (Input.GetKeyDown (KeyCode.Alpha1) || Input.GetKeyDown (KeyCode.Alpha2) || Input.GetKeyDown (KeyCode.Alpha3) || Input.GetKeyDown (KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Alpha5)) {
 			pistolet.SetActive(false);
 			fusil.SetActive(false);
 			mitrailleur1.SetActive(false);
 			mitrailleur2.SetActive(false);
 			bazooka.SetActive(false);
-		}
+            Couteau.SetActive(false);
+        }
 
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			pistolet.SetActive(true);
@@ -36,8 +40,10 @@ public class WeaponChange : MonoBehaviour {
 		}else if (Input.GetKeyDown (KeyCode.Alpha3)) {
 			mitrailleur1.SetActive(true);
 			mitrailleur2.SetActive(true);
-		} else if (Input.GetKeyDown (KeyCode.Alpha4)) {
+		}else if (Input.GetKeyDown (KeyCode.Alpha4)) {
 			bazooka.SetActive(true);
+        }else if (Input.GetKeyDown (KeyCode.Alpha5)) {
+			Couteau.SetActive(true);
 		}
 	}
 }
