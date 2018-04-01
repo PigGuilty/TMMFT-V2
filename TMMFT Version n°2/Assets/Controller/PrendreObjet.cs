@@ -16,17 +16,19 @@ public class PrendreObjet : MonoBehaviour
     public GameObject bazooka;
     public GameObject Couteau;
 
+    private bool ObjetPris;
+
     // Use this for initialization
     void Start()
     {
-
+        ObjetPris = false;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && ObjetPris == false)
         {
             RaycastHit hit;
             Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
@@ -38,6 +40,7 @@ public class PrendreObjet : MonoBehaviour
 
                 if (hit.collider.tag == "Objet")
                 {
+                    ObjetPris = true;
                     pistolet.SetActive(false);
                     fusil.SetActive(false);
                     mitrailleur1.SetActive(false);
