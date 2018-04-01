@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4056961397650780}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pompe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4935635115555236}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Roote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4023146673024480}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawn Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 4075833747646922}
   - component: {fileID: 95523912925635052}
   - component: {fileID: 114715734008159142}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fusil A Pompe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4721050068136794}
   - component: {fileID: 137140240612301992}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4959426093020476}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,10 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DegatArme: 20
+  nbProjctiles: 0
+  Dispertion: 0
   TailleChargeur: 2
-  fpsCam: {fileID: 0}
   Tire: {fileID: 0}
-  impactEffect: {fileID: 0}
+  impactEffect1: {fileID: 0}
+  impactEffect2: {fileID: 0}
+  impactEffect3: {fileID: 0}
+  impactEffect4: {fileID: 0}
   balle: {fileID: 0}
   SpawnBullet: {fileID: 1189750755974876}
 --- !u!137 &137140240612301992

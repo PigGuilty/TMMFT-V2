@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4212508146189800}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4126037417900952}
   - component: {fileID: 137214783394048114}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4112849045000584}
   - component: {fileID: 65637193508173744}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "PointDeD\xE9partDuMissile"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4117454108080018}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TRONC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4336060187152558}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4676506027107932}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TRONC_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4257685693783206}
   - component: {fileID: 95512115716045522}
   - component: {fileID: 114916534686330132}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bazouka
   m_TagString: Untagged
   m_Icon: {fileID: 0}

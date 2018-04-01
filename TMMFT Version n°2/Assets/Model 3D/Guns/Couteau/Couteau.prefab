@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4122310210123926}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coeur_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 95963309862478346}
   - component: {fileID: 114438492088201676}
   - component: {fileID: 114712740769382494}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Couteau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4791705066912928}
   - component: {fileID: 137886327789363756}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4177141635368908}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: C lame_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4707830332816684}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Baguette magique
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4204632934259082}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Rootfaux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4258746796386154}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: C lame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339444681005014}
   - component: {fileID: 137414853534221380}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Couteau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4671716902859446}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4670571442443056}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: C manche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4549083568088994}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4687932549998316}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coeur
   m_TagString: Untagged
   m_Icon: {fileID: 0}

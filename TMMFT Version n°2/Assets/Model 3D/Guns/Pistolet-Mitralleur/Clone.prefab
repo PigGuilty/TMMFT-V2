@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4104641765851446}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4427349415097684}
   - component: {fileID: 137041235565538926}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pistolet-Mitralleur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 65914335936004734}
   - component: {fileID: 65752400132155318}
   - component: {fileID: 114927448382167980}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Clone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4879371984055678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Anim_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4310523729585864}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}

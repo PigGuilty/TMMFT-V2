@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 54968085591872724}
   - component: {fileID: 136282120236351258}
   - component: {fileID: 114457197619486166}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Douille P-M
   m_TagString: Untagged
   m_Icon: {fileID: 0}

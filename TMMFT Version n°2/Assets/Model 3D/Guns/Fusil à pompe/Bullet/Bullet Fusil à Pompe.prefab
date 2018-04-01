@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 54712354261167670}
   - component: {fileID: 136013483757852784}
   - component: {fileID: 114969812589821948}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "Bullet Fusil \xE0 Pompe"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 54712354261167670}
-  fpsCam: {fileID: 0}
 --- !u!136 &136013483757852784
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33144043030011570}
   - component: {fileID: 23101008149231486}
   - component: {fileID: 64034022472130864}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "demi-sph\xE8re"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
