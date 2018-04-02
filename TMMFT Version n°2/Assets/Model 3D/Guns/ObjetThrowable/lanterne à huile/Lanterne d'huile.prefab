@@ -72,6 +72,8 @@ GameObject:
   - component: {fileID: 4044137923740812}
   - component: {fileID: 54201391594063918}
   - component: {fileID: 65907173878905438}
+  - component: {fileID: 65314731761801872}
+  - component: {fileID: 114531185379106484}
   m_Layer: 0
   m_Name: Lanterne d'huile
   m_TagString: Objet
@@ -1814,7 +1816,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65907173878905438
+--- !u!65 &65314731761801872
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1823,6 +1825,18 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2870743, y: 5.20051, z: 2.2525985}
+  m_Center: {x: 0.00000017121441, y: 2.525448, z: 0.017237432}
+--- !u!65 &65907173878905438
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031197834973852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.2870743, y: 5.20051, z: 2.2525985}
   m_Center: {x: 0.00000017121441, y: 2.525448, z: 0.017237432}
@@ -1862,3 +1876,14 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114531185379106484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031197834973852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2acb0235a5af4f8954ebbc830e28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

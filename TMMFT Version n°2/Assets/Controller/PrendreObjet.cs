@@ -5,6 +5,7 @@ using UnityEngine;
 public class PrendreObjet : MonoBehaviour
 {
 
+    public int ForceDeJeter;
     public float PortéePourPrendreObjet;
 
     public GameObject PlacePourObjet;
@@ -67,6 +68,9 @@ public class PrendreObjet : MonoBehaviour
             //ajouter une force au rigidbody de l'objet... mais on n'y a plus accès :/
             print(ObjectName);
             ObjectQuiEstPris = GameObject.Find(ObjectName);
+
+            Collider ColliderDeLobjetPris = ObjectQuiEstPris.transform.GetComponent<Collider>();
+
             Rigidbody rigidbodyDeLObjetPris = ObjectQuiEstPris.transform.GetComponent<Rigidbody>();
             Vector3 DirectionForceJet = Camera.main.transform.forward + new Vector3(0f, 0.4f, 0f);
 
@@ -74,7 +78,9 @@ public class PrendreObjet : MonoBehaviour
 
             rigidbodyDeLObjetPris.isKinematic = false;
             ObjectQuiEstPris.transform.parent = null;
-            rigidbodyDeLObjetPris.AddForce(DirectionForceJet * 500);
+            rigidbodyDeLObjetPris.AddForce(DirectionForceJet * ForceDeJeter);
+
+            ColliderDeLobjetPris.enabled = true;
 
             ObjetPris = false;
         }
