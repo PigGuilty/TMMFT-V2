@@ -7,6 +7,7 @@ public class PointDeVieJoueur : MonoBehaviour {
     public int PVMax;
     private int PV;
     public int DegatReçus;
+    public int PVReçus;
 
     public GameObject SpawnQuandMort;
     public GameObject Canvas;
@@ -29,16 +30,25 @@ public class PointDeVieJoueur : MonoBehaviour {
         {
             meurt();
         }
+
+        if (PV > PVMax)
+        {
+            PV = PVMax;
+        }
+
         print(PV);
 	}
 
     void OnTriggerEnter(Collider other)
     {
-        print("col");
         if (other.gameObject.tag == "Vache")
         {
             PV = PV - DegatReçus;
-            print("vache");
+        }
+
+        if (other.gameObject.tag == "Heal")
+        {
+            PV = PV + PVReçus;
         }
     }
 

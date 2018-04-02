@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Vache
   - Objet
+  - Heal
   layers:
   - Default
   - TransparentFX
