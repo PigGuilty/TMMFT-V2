@@ -10,7 +10,7 @@ public class Attaque : MonoBehaviour {
     public float PortéeCouteau;
     public int DegatArmeCouteau;
 
-    public int furry;
+    public float furry;
     private int furryMax;
     public int PointDeFurryGagnéParCoup;
 

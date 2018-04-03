@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PointDeVieJoueur : MonoBehaviour {
 
-    public int PVMax;
+    private int PVMax;
     private int PV;
     public int DegatReçus;
     public int PVReçus;
 
+    private float widthOfLiveBar;
+
     public GameObject SpawnQuandMort;
     public GameObject Canvas;
+    public GameObject BarreDeVie;
 
     public GameObject pistolet;
     public GameObject fusil;
@@ -21,6 +24,7 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        PVMax = 100;
         PV = PVMax;
 	}
 	
@@ -36,7 +40,9 @@ public class PointDeVieJoueur : MonoBehaviour {
             PV = PVMax;
         }
 
-        print(PV);
+        var theBarRectTransform = BarreDeVie.transform as RectTransform;
+        theBarRectTransform.sizeDelta = new Vector2(PV, theBarRectTransform.sizeDelta.y);
+
 	}
 
     void OnTriggerEnter(Collider other)

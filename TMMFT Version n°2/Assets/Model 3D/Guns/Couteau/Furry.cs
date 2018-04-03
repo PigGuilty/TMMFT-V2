@@ -16,6 +16,8 @@ public class Furry : MonoBehaviour {
     private bool AnimCouteauVersBaguette;
     private bool AnimBaguetteVersCouteau;
 
+    public GameObject BarreDeFurry;
+
     private void Awake()
     {
         attaque = GetComponent<Attaque>();
@@ -36,8 +38,13 @@ public class Furry : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+     var theBarRectTransform = BarreDeFurry.transform as RectTransform;
+     theBarRectTransform.sizeDelta = new Vector2(attaque.furry, theBarRectTransform.sizeDelta.y);
+
         if (attaque.furry >= 100)
         {
+            attaque.furry = 100;
             attaque.enabled = false;
             AnimCouteauVersBaguette = true;
             if (AnimCouteauVersBaguette == true)
@@ -87,10 +94,6 @@ public class Furry : MonoBehaviour {
                 }
 
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            attaque.furry = attaque.furry - 5;
         }
      }
 }
