@@ -5,7 +5,7 @@ using UnityEngine;
 public class PointDeVieJoueur : MonoBehaviour {
 
     private int PVMax;
-    private int PV;
+    public int PV;
     public int DegatReçus;
     public int PVReçus;
 

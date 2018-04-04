@@ -244,7 +244,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4373703, y: 2.4222984, z: 2.0851612}
+  m_Size: {x: 2, y: 2.4222984, z: 2.0851612}
   m_Center: {x: 0.0055160522, y: 1.1957846, z: 0.015803337}
 --- !u!95 &95689198608883506
 Animator:
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "M\xE9dikit": {fileID: 1743296509699956}
+  Player: {fileID: 0}
 --- !u!137 &137461188679653546
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
