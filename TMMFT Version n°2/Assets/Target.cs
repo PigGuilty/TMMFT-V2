@@ -7,8 +7,6 @@ public class Target : MonoBehaviour {
 
     // Use this for initialization
 
-    public Color OriginalColor;
-
     public float Vie;
 
     public ParticleSystem mourir;
@@ -18,12 +16,22 @@ public class Target : MonoBehaviour {
 
     private Collider Trigger;
 
+    public Material Red;
+    public Material Origine;
+
+    private int waiting;
+
     public void Start()
     {
-        Material material = new Material(Shader.Find("Transparent/Diffuse"));
-        material.color = Color.red;
-        GetComponent<Renderer>().material = material;
+        SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
+        Material[] mats = rend.materials;
+        mats[1] = Origine;
+        mats[7] = Origine;
+        rend.materials = mats;
+
         Trigger = GetComponent<Collider>();
+
+        waiting = 0;
     }
 
 
@@ -46,9 +54,11 @@ public class Target : MonoBehaviour {
         {
             audio.clip = aie;
             audio.Play();
-            Material material = new Material(Shader.Find("Transparent/Diffuse"));
-            material.color = Color.red;
-            GetComponent<Renderer>().material = material;
+            SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
+            Material[] mats = rend.materials;
+            mats[1] = Red;
+            mats[7] = Red;
+            rend.materials = mats;
         }
 
     }
@@ -56,12 +66,25 @@ public class Target : MonoBehaviour {
 
     public void Update()
     {
-        Material material = new Material(Shader.Find("Transparent/Diffuse"));
 
-        if (this.gameObject.GetComponent<Renderer>().material.color == Color.red)
+        SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
+        Material[] mats = rend.materials;
+
+        if (mats[1].color == Red.color)
         {
-            material.color = OriginalColor;
-            GetComponent<Renderer>().material = material;
+            if (waiting >= 2)
+            {
+                mats[1] = Origine;
+                mats[7] = Origine;
+                rend.materials = mats;
+                waiting = 0;
+            }
+
+            if (waiting < 2)
+            {
+                waiting++;
+            }
+
         }
     }
 }
