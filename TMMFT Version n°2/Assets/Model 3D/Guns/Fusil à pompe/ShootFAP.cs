@@ -60,7 +60,12 @@ public class ShootFAP : MonoBehaviour
 
 						Target target = hit.transform.GetComponent<Target> ();
 
-						if (hit.collider.tag == "Vache") {
+                        if (hit.collider.tag == "Decor interractif")
+                        {
+                            hit.transform.SendMessage("HitByRaycast", SendMessageOptions.DontRequireReceiver);
+                        }
+
+                        if (hit.collider.tag == "Vache") {
 							target.TakeDamage (DegatArme	);
 
 							if (hit.rigidbody != null) {
@@ -68,7 +73,7 @@ public class ShootFAP : MonoBehaviour
 							}
 						}
 
-						if (hit.collider.tag != "Player" && hit.collider.tag != "Vache") {
+						if (hit.collider.tag != "Player" && hit.collider.tag != "Vache" && hit.collider.tag != "Decor interractif") {
                             float x = Random.Range(0.0f, 4.0f);
                             if (x <= 1)
                             {
