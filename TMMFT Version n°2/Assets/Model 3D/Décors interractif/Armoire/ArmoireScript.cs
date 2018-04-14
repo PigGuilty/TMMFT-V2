@@ -68,8 +68,6 @@ public class ArmoireScript : MonoBehaviour {
 
         if (Ouvert == false)
         {
-            print(TempsRandom);
-
             if (increase < TempsRandom)
             {
                 increase++;

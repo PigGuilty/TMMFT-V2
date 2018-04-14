@@ -20,11 +20,12 @@ public class MédikitDéPop : MonoBehaviour {
         PVJoueur = PVJoueurClass.PV;
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && PVJoueur < 100)
         {
-            Destroy(Médikit);
+            Médikit.SetActive(false);
         }
     }
 }

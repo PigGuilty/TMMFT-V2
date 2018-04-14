@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 001f3223b41f5584c80a4d1b3e4f7533
-timeCreated: 1520343344
+guid: 0d80d7c4abece8949b3ba71fe84698f2
+timeCreated: 1523716892
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - EnnemiPrefab: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
