@@ -17,7 +17,13 @@ public class ArmoireScript : MonoBehaviour {
     private int AnimationLengthOuverture;
     private int AnimationWaitEndOuverture;
 
+    private int AnimationLengthTremblement;
+    private int AnimationWaitEndTremblement;
+
     private int TempsPortailReload;
+
+    private int TempsRandom;
+    private int increase;
 
     // Use this for initialization
     void Start () {
@@ -30,7 +36,12 @@ public class ArmoireScript : MonoBehaviour {
         AnimationLengthOuverture = 50;
         AnimationWaitEndOuverture = 0;
 
+        AnimationLengthTremblement = 60;
+        AnimationWaitEndTremblement = 0;
+
         animator.SetFloat("Armoire", 0.0f);
+
+        TempsRandom = Random.Range(120, 480);
     }
 
 
@@ -55,6 +66,35 @@ public class ArmoireScript : MonoBehaviour {
             }
         }
 
+        if (Ouvert == false)
+        {
+            print(TempsRandom);
+
+            if (increase < TempsRandom)
+            {
+                increase++;
+            }
+
+            if (increase >= TempsRandom)
+            {
+                if (AnimationWaitEndTremblement == 0)
+                {
+                    animator.Rebind();
+                    animator.SetFloat("Armoire", 0.33f);
+                }
+
+                AnimationWaitEndTremblement = AnimationWaitEndTremblement + 1;
+
+                if (AnimationWaitEndTremblement >= AnimationLengthTremblement)
+                {
+                    animator.SetFloat("Armoire", 0.0f);
+
+                    AnimationWaitEndTremblement = 0;
+                    increase = 0;
+                    TempsRandom = Random.Range(120, 480);
+                }
+            }
+        }
     }
 
 
