@@ -8,6 +8,8 @@ public class PrendreObjet : MonoBehaviour
     public int ForceDeJeter;
     public float PortéePourPrendreObjet;
 
+    public Vector3 DirectionForceJet;
+
     public GameObject PlacePourObjet;
 
     public GameObject pistolet;
@@ -61,18 +63,17 @@ public class PrendreObjet : MonoBehaviour
                     PositionObjet.transform.parent = PlacePourObjet.transform;
                 }
             }
+
         }
 
         if (Input.GetButtonDown("Fire1") && ObjetPris == true)
         {
-            //ajouter une force au rigidbody de l'objet... mais on n'y a plus accès :/
-            print(ObjectName);
             ObjectQuiEstPris = GameObject.Find(ObjectName);
 
             Collider ColliderDeLobjetPris = ObjectQuiEstPris.transform.GetComponent<Collider>();
 
             Rigidbody rigidbodyDeLObjetPris = ObjectQuiEstPris.transform.GetComponent<Rigidbody>();
-            Vector3 DirectionForceJet = Camera.main.transform.forward + new Vector3(0f, 0.4f, 0f);
+            DirectionForceJet = Camera.main.transform.forward + new Vector3(0f, 0.4f, 0f);
 
             Debug.DrawRay(transform.position, DirectionForceJet *4, Color.green);
 
