@@ -9,6 +9,9 @@ public class assièteBreking : MonoBehaviour {
 
     public Collider col;
 
+    public GameObject Player;
+    private PrendreObjet prendreobjet;
+
     private bool OnALaDir;
 
     public static Vector3 dir;
@@ -17,6 +20,7 @@ public class assièteBreking : MonoBehaviour {
 	void Start () {
         OnALaDir = false;
         col = Assiète.GetComponent<Collider>();
+        prendreobjet = Player.GetComponent<PrendreObjet>();
     }
 
     private void Update()
@@ -34,8 +38,11 @@ public class assièteBreking : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject Assièteinvoqué = Instantiate(AssièteCassé);
-        Assièteinvoqué.transform.position = Assiète.transform.position;
-        Destroy(Assiète);
+        if (prendreobjet.ObjetPris == false)
+        {
+            GameObject Assièteinvoqué = Instantiate(AssièteCassé);
+            Assièteinvoqué.transform.position = Assiète.transform.position;
+            Destroy(Assiète);
+        }
     }
 }

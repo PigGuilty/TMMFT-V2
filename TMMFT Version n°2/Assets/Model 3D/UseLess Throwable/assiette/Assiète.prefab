@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1333514519669764}
   m_LocalRotation: {x: 0.4200996, y: 0.5687835, z: 0.5687861, w: -0.42010006}
-  m_LocalPosition: {x: 9.904839, y: 2.0542867, z: 0.31995645}
+  m_LocalPosition: {x: 11.286462, y: 1.7, z: -0.7550454}
   m_LocalScale: {x: 50, y: 50.00001, z: 50.00002}
   m_Children: []
   m_Father: {fileID: 0}
@@ -139,3 +139,5 @@ MonoBehaviour:
   "Assi\xE8te": {fileID: 1333514519669764}
   "Assi\xE8teCass\xE9": {fileID: 1037675397726862, guid: 1c0a6a6f91fe21045af5b77d649bea9a,
     type: 2}
+  col: {fileID: 0}
+  Player: {fileID: 0}

@@ -3610,6 +3610,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114652093367557192, guid: 40c0b0f8ecaae834084106c3f0c41c10,
+        type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1719911659}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c0b0f8ecaae834084106c3f0c41c10, type: 2}
   m_IsPrefabParent: 0
@@ -5299,6 +5304,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114652093367557192, guid: 40c0b0f8ecaae834084106c3f0c41c10,
+        type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1719911659}
     - target: {fileID: 1333514519669764, guid: 40c0b0f8ecaae834084106c3f0c41c10, type: 2}
       propertyPath: m_Name
       value: "Assi\xE8te (2)"
@@ -5508,6 +5518,11 @@ Prefab:
       propertyPath: m_Name
       value: "Assi\xE8te (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 114652093367557192, guid: 40c0b0f8ecaae834084106c3f0c41c10,
+        type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1719911659}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c0b0f8ecaae834084106c3f0c41c10, type: 2}
   m_IsPrefabParent: 0

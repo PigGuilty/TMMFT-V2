@@ -19,7 +19,7 @@ public class PrendreObjet : MonoBehaviour
     public GameObject bazooka;
     public GameObject Couteau;
 
-    private bool ObjetPris;
+    public bool ObjetPris;
 
     private string ObjectName;
     private GameObject ObjectQuiEstPris;

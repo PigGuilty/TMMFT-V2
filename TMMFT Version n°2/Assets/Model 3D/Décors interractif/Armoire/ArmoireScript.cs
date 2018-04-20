@@ -13,6 +13,7 @@ public class ArmoireScript : MonoBehaviour {
 
     private Animator animator;
     PortailUtilisable PortailUtilisablee;
+    PrendreObjet prendreobjet;
 
     private int AnimationLengthOuverture;
     private int AnimationWaitEndOuverture;
@@ -29,6 +30,7 @@ public class ArmoireScript : MonoBehaviour {
     void Start () {
         animator = GetComponent<Animator>();
         PortailUtilisablee = Player.GetComponent<PortailUtilisable>();
+        prendreobjet = Player.GetComponent<PrendreObjet>();
 
         AnimationOuverture = false;
         Ouvert = false;
@@ -109,7 +111,15 @@ public class ArmoireScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet"))
+
+        if (prendreobjet.ObjetPris == true && Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet"))
+        {
+            PortailUtilisablee.PortailUtilisablee = false;
+            TempsPortailReload = 0;
+            Player.transform.position = SpawnTéléport.transform.position;
+        }
+
+        else if (Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet"))
         {
             PortailUtilisablee.PortailUtilisablee = false;
             TempsPortailReload = 0;
