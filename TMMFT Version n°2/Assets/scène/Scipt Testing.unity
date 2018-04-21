@@ -803,11 +803,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 114501015316404960, guid: abcecd4f561e2d24bb8904b494da946e,
-        type: 2}
-      propertyPath: BarreDeFurry
-      value: 
-      objectReference: {fileID: 1670505839}
     - target: {fileID: 114068192995792432, guid: abcecd4f561e2d24bb8904b494da946e,
         type: 2}
       propertyPath: SpawnQuandMort
@@ -823,6 +818,16 @@ Prefab:
       propertyPath: BarreDeVie
       value: 
       objectReference: {fileID: 1256095790}
+    - target: {fileID: 114068192995792432, guid: abcecd4f561e2d24bb8904b494da946e,
+        type: 2}
+      propertyPath: BloodScreen
+      value: 
+      objectReference: {fileID: 572410691}
+    - target: {fileID: 114501015316404960, guid: abcecd4f561e2d24bb8904b494da946e,
+        type: 2}
+      propertyPath: BarreDeFurry
+      value: 
+      objectReference: {fileID: 1670505839}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abcecd4f561e2d24bb8904b494da946e, type: 2}
   m_IsPrefabParent: 0
@@ -1484,6 +1489,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 528895053}
   m_Mesh: {fileID: 4300030, guid: 910e227568a6ebc4abc8902a8522a98e, type: 3}
+--- !u!1 &572410691 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1693201835817944, guid: db309a69262a32949b175ea6bb8459f1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1236578146}
 --- !u!1 &627272882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,6 +2496,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224130008674417998, guid: 4bb75efca207e2e419691b0950d38457,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bb75efca207e2e419691b0950d38457, type: 2}
   m_IsPrefabParent: 0
@@ -3025,6 +3040,111 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 9500000, guid: 7c328831c895f474a9b0359326bb87a4, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 7c328831c895f474a9b0359326bb87a4, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1001 &1236578146
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1745091366}
+    m_Modifications:
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511942648845760, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551249737030584, guid: db309a69262a32949b175ea6bb8459f1,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: db309a69262a32949b175ea6bb8459f1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1256095790 stripped
 GameObject:

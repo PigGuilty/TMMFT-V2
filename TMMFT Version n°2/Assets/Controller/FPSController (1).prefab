@@ -2015,6 +2015,7 @@ MonoBehaviour:
   mitrailleur2: {fileID: 1328542017108602}
   bazooka: {fileID: 1316928470248664}
   Couteau: {fileID: 1490081123380510}
+  BloodScreen: {fileID: 0}
 --- !u!114 &114255807449300990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2146,6 +2147,7 @@ MonoBehaviour:
   mitrailleur2: {fileID: 1328542017108602}
   bazooka: {fileID: 1316928470248664}
   Couteau: {fileID: 1490081123380510}
+  ObjetPris: 0
 --- !u!114 &114430989156302046
 MonoBehaviour:
   m_ObjectHideFlags: 1

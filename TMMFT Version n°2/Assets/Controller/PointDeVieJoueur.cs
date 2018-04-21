@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PointDeVieJoueur : MonoBehaviour {
 
@@ -22,11 +23,21 @@ public class PointDeVieJoueur : MonoBehaviour {
     public GameObject bazooka;
     public GameObject Couteau;
 
+    public GameObject BloodScreen;
+    private Image bloodImage;
+    private Color couleurBloodScreen;
+
+    private float BloodScreenOpacity;
+
     // Use this for initialization
     void Start () {
         PVMax = 100;
         PV = PVMax;
-	}
+
+        bloodImage = BloodScreen.GetComponent<Image>();
+        BloodScreenOpacity = 0f;
+        couleurBloodScreen = new Color(1f, 1f, 1f, 0f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,7 +54,12 @@ public class PointDeVieJoueur : MonoBehaviour {
         var theBarRectTransform = BarreDeVie.transform as RectTransform;
         theBarRectTransform.sizeDelta = new Vector2(PV, theBarRectTransform.sizeDelta.y);
 
-	}
+        float Pv = PV;
+        BloodScreenOpacity = ((PV / 100) * -1 ) + 1;
+
+        couleurBloodScreen.a = BloodScreenOpacity;
+        bloodImage.color = couleurBloodScreen;
+}
 
     void OnTriggerEnter(Collider other)
     {
