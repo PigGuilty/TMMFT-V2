@@ -28,6 +28,8 @@ public class PointDeVieJoueur : MonoBehaviour {
     private Color couleurBloodScreen;
 
     private float BloodScreenOpacity;
+    private bool FullOpaque;
+    private int increase;
 
     // Use this for initialization
     void Start () {
@@ -54,11 +56,30 @@ public class PointDeVieJoueur : MonoBehaviour {
         var theBarRectTransform = BarreDeVie.transform as RectTransform;
         theBarRectTransform.sizeDelta = new Vector2(PV, theBarRectTransform.sizeDelta.y);
 
-        float Pv = PV;
-        BloodScreenOpacity = ((PV / 100) * -1 ) + 1;
+        if(FullOpaque == false)
+        {
+            float Pv = PV;
+            BloodScreenOpacity = ((Pv / 100) * -1) + 1;
 
-        couleurBloodScreen.a = BloodScreenOpacity;
-        bloodImage.color = couleurBloodScreen;
+            couleurBloodScreen.a = BloodScreenOpacity;
+            bloodImage.color = couleurBloodScreen;
+        }
+
+        if(FullOpaque == true)
+        {
+            if(increase == 0)
+            {
+                bloodImage.color = Color.white;
+            }
+
+            increase++;
+
+            if (increase >= 4)
+            {
+                increase = 0;
+                FullOpaque = false;
+            }
+        }
 }
 
     void OnTriggerEnter(Collider other)
@@ -66,6 +87,7 @@ public class PointDeVieJoueur : MonoBehaviour {
         if (other.gameObject.tag == "Vache")
         {
             PV = PV - DegatReçus;
+            FullOpaque = true;
         }
 
         if (other.gameObject.tag == "Heal")
