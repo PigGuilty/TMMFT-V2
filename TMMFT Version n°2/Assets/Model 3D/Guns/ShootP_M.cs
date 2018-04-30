@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class ShootP_M : MonoBehaviour
 {
 
@@ -26,6 +28,8 @@ public class ShootP_M : MonoBehaviour
     public GameObject DouilleAInstanciate;
     public GameObject PositionSpawnDouille;
 
+    public AudioClip SonTire;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -48,7 +52,11 @@ public class ShootP_M : MonoBehaviour
 
 				Tire.Play ();
 
-				RaycastHit hit;
+                AudioSource audio = gameObject.GetComponent<AudioSource>();
+                audio.clip = SonTire;
+                audio.Play();
+
+                RaycastHit hit;
 				Ray ShootingDirection = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 
 				if (Physics.Raycast (ShootingDirection, out hit)) {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Attaque : MonoBehaviour {
 
     public int TailleChargeur;
@@ -18,6 +20,8 @@ public class Attaque : MonoBehaviour {
 
     private int AnimationLength;
     private int AnimationWaitEnd;
+
+    public AudioClip SonAttaque;
 
     void Start()
     {
@@ -36,6 +40,10 @@ public class Attaque : MonoBehaviour {
 
             if (Input.GetButtonDown("Fire1"))
             {
+                AudioSource audio = gameObject.GetComponent<AudioSource>();
+                audio.clip = SonAttaque;
+                audio.Play();
+
                 RaycastHit hit;
                 Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 

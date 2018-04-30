@@ -803,6 +803,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 114501015316404960, guid: abcecd4f561e2d24bb8904b494da946e,
+        type: 2}
+      propertyPath: BarreDeFurry
+      value: 
+      objectReference: {fileID: 1670505839}
     - target: {fileID: 114068192995792432, guid: abcecd4f561e2d24bb8904b494da946e,
         type: 2}
       propertyPath: SpawnQuandMort
@@ -823,11 +828,6 @@ Prefab:
       propertyPath: BloodScreen
       value: 
       objectReference: {fileID: 572410691}
-    - target: {fileID: 114501015316404960, guid: abcecd4f561e2d24bb8904b494da946e,
-        type: 2}
-      propertyPath: BarreDeFurry
-      value: 
-      objectReference: {fileID: 1670505839}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abcecd4f561e2d24bb8904b494da946e, type: 2}
   m_IsPrefabParent: 0
@@ -4972,7 +4972,7 @@ Prefab:
     - target: {fileID: 224485611252381230, guid: 24af1b6458fc62a4bb61cecd55179901,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224485611252381230, guid: 24af1b6458fc62a4bb61cecd55179901,
         type: 2}

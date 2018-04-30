@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Shoot : MonoBehaviour {
 
     // Use this for initialization
@@ -13,9 +15,11 @@ public class Shoot : MonoBehaviour {
     public GameObject impactEffect4;
     public GameObject balle;
 
-	void Start() {
+    public AudioClip piou;
+
+    void Start() {
 		fpsCam = Camera.main;
-	}
+    }
 
     // Update is called once per frame
     void Update () {
@@ -26,6 +30,10 @@ public class Shoot : MonoBehaviour {
         {
 
             Tire.Play();
+
+            AudioSource audio = gameObject.GetComponent<AudioSource>();
+            audio.clip = piou;
+            audio.Play();
 
             RaycastHit hit;
             Ray ShootingDirection = new Ray(fpsCam.transform.position, fpsCam.transform.forward);

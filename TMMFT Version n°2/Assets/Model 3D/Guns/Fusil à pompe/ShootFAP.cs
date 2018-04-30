@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class ShootFAP : MonoBehaviour
 {
 
@@ -23,6 +25,11 @@ public class ShootFAP : MonoBehaviour
     private int AnimationLength;
     private int AnimationWaitEnd;
 
+    public AudioSource audioFAP;
+
+    public AudioClip Paf;
+    public AudioClip Rechargement;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -30,7 +37,7 @@ public class ShootFAP : MonoBehaviour
         AnimationLength = 50;
         AnimationWaitEnd = 0;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +51,10 @@ public class ShootFAP : MonoBehaviour
             {
 
                 Tire.Play();
+
+                audioFAP = gameObject.GetComponent<AudioSource>();
+                audioFAP.clip = Paf;
+                audioFAP.Play();
 
                 RaycastHit hit;
 				for (int i = 0; i < nbProjctiles; i++) {
@@ -124,6 +135,10 @@ public class ShootFAP : MonoBehaviour
 
                 GameObject balleGO = Instantiate(balle, SpawnBullet.transform.position, Quaternion.LookRotation(lookrot2));
                 Destroy(balleGO, 10f);
+
+                audioFAP = gameObject.GetComponent<AudioSource>();
+                audioFAP.clip = Rechargement;
+                audioFAP.Play();
             }
                 //attendre fin de l'annimation
                 if (AnimationWaitEnd >= AnimationLength)

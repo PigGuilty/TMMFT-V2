@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class WeaponChange : MonoBehaviour {
 
 	public GameObject pistolet;
@@ -15,6 +17,8 @@ public class WeaponChange : MonoBehaviour {
     private bool DemandeChangementArme;
 
     PrendreObjet prendreobjet;
+
+    public AudioClip changement;
 
     // Use this for initialization
     void Start () {
@@ -106,6 +110,11 @@ public class WeaponChange : MonoBehaviour {
                 {
                     Couteau.SetActive(true);
                 }
+
+                AudioSource audio = gameObject.GetComponent<AudioSource>();
+                audio.clip = changement;
+                audio.Play();
+
                 DemandeChangementArme = false;
             }
         }

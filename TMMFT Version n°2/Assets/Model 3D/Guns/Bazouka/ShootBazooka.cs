@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class ShootBazooka : MonoBehaviour
 {
 
@@ -14,6 +16,8 @@ public class ShootBazooka : MonoBehaviour
 
     public GameObject Missile;
     public GameObject PointDeDépartDuMissile;
+
+    public AudioClip tireBazooka;
 
     void Start()
     {
@@ -36,6 +40,10 @@ public class ShootBazooka : MonoBehaviour
             {
                 Instantiate(Missile, PointDeDépartDuMissile.transform.position , Quaternion.LookRotation(-lookRot));
                 BalleRestante = BalleRestante - 1;
+
+                AudioSource audio = gameObject.GetComponent<AudioSource>();
+                audio.clip = tireBazooka;
+                audio.Play();
             }
         }
 
