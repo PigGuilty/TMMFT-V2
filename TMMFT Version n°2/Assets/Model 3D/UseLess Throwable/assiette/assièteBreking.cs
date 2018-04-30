@@ -16,8 +16,10 @@ public class assièteBreking : MonoBehaviour {
 
     public static Vector3 dir;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject JoueurDeSon;
+
+    // Use this for initialization
+    void Start () {
         OnALaDir = false;
         col = Assiète.GetComponent<Collider>();
         prendreobjet = Player.GetComponent<PrendreObjet>();
@@ -42,6 +44,9 @@ public class assièteBreking : MonoBehaviour {
         {
             GameObject Assièteinvoqué = Instantiate(AssièteCassé);
             Assièteinvoqué.transform.position = Assiète.transform.position;
+
+            Instantiate(JoueurDeSon);
+
             Destroy(Assiète);
         }
     }

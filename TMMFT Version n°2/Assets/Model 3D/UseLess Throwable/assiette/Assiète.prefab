@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1333514519669764}
   m_LocalRotation: {x: 0.4200996, y: 0.5687835, z: 0.5687861, w: -0.42010006}
-  m_LocalPosition: {x: 11.286462, y: 1.7, z: -0.7550454}
+  m_LocalPosition: {x: 9.9, y: 1.7, z: 0.32}
   m_LocalScale: {x: 50, y: 50.00001, z: 50.00002}
   m_Children: []
   m_Father: {fileID: 0}
@@ -141,3 +141,5 @@ MonoBehaviour:
     type: 2}
   col: {fileID: 0}
   Player: {fileID: 0}
+  JoueurDeSon: {fileID: 1678354051373234, guid: 1284b1d04a830ed4897c1a2f0c8a16f5,
+    type: 2}
