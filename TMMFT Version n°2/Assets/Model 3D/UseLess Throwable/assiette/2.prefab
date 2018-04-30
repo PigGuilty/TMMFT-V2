@@ -50,9 +50,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 355e32a0d9b3a514087e562a20ffdc63, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 080ab757776c8ff498109acde76571ef, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -132,4 +132,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d231932109a7a4d98d4f1dea78581f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "Dur\xE9eDeVie": 10
+  "Dur\xE9eDeVie": 0.11

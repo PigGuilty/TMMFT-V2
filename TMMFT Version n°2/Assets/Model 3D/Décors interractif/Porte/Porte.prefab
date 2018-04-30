@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 65393043659919988}
   - component: {fileID: 65919422571650230}
   - component: {fileID: 114911107085533592}
+  - component: {fileID: 82434600060853446}
   m_Layer: 0
   m_Name: Porte
   m_TagString: Decor interractif
@@ -210,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991909144123094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.588, y: 0.72, z: 9.64}
+  m_LocalPosition: {x: -4.61, y: 0.58, z: 9.491814}
   m_LocalScale: {x: 0.8157779, y: 0.8157779, z: 0.8157779}
   m_Children:
   - {fileID: 4571513442666032}
@@ -243,6 +244,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 4, z: 2}
   m_Center: {x: 0.05, y: 2, z: -0.04}
+--- !u!82 &82434600060853446
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991909144123094}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95647193974972076
 Animator:
   serializedVersion: 3
@@ -274,6 +355,8 @@ MonoBehaviour:
   "FloatDeD\xE9partPourAnimation": 0.33
   boxOuvert: {fileID: 65919422571650230}
   "boxFerm\xE9": {fileID: 65393043659919988}
+  SonOuverture: {fileID: 8300000, guid: ed1da7d0a34ce714fb925c6d9f3d65c1, type: 3}
+  SonFermeture: {fileID: 8300000, guid: dab9b2b8aeec260428831928e315344b, type: 3}
 --- !u!137 &137330866825919384
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

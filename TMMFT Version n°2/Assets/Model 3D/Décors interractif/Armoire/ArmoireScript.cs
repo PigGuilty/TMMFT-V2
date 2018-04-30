@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class ArmoireScript : MonoBehaviour {
 
     public GameObject Player;
@@ -56,6 +58,9 @@ public class ArmoireScript : MonoBehaviour {
             {
                 animator.Rebind();
                 animator.SetFloat("Armoire", 0.66f);
+
+                AudioSource audio = gameObject.GetComponent<AudioSource>();
+                audio.Play();
             }
 
             AnimationWaitEndOuverture = AnimationWaitEndOuverture + 1;

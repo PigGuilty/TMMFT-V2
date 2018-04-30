@@ -1618,10 +1618,6 @@ Prefab:
       propertyPath: "SpawnT\xE9l\xE9port"
       value: 
       objectReference: {fileID: 1647427104}
-    - target: {fileID: 4876571664806772, guid: 0c5695b07b2613344807c2bbd14afabc, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -270
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c5695b07b2613344807c2bbd14afabc, type: 2}
   m_IsPrefabParent: 0

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Ouverture : MonoBehaviour {
 
     private Animator animator;
@@ -17,6 +19,9 @@ public class Ouverture : MonoBehaviour {
 
     private int AnimationWaitEnd;
     private int AnimationLength;
+
+    public AudioClip SonOuverture;
+    public AudioClip SonFermeture;
 
     // Use this for initialization
     void Start () {
@@ -48,6 +53,10 @@ public class Ouverture : MonoBehaviour {
 
                 boxOuvert.enabled = false;
                 boxFermé.enabled = true;
+
+                AudioSource audio = gameObject.GetComponent<AudioSource>();
+                audio.clip = SonFermeture;
+                audio.Play();
             }
 
             if (FloatDeLAnimation == 0.33f)
@@ -57,6 +66,10 @@ public class Ouverture : MonoBehaviour {
 
                 boxOuvert.enabled = true;
                 boxFermé.enabled = false;
+
+                AudioSource audio = gameObject.GetComponent<AudioSource>();
+                audio.clip = SonOuverture;
+                audio.Play();
             }
         }
     }
