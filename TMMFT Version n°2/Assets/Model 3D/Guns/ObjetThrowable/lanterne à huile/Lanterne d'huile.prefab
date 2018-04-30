@@ -74,6 +74,8 @@ GameObject:
   - component: {fileID: 65907173878905438}
   - component: {fileID: 65314731761801872}
   - component: {fileID: 114531185379106484}
+  - component: {fileID: 82830502773897452}
+  - component: {fileID: 114530838968413076}
   m_Layer: 0
   m_Name: Lanterne d'huile
   m_TagString: Objet
@@ -487,7 +489,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1031197834973852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.09, y: 2.045, z: 2.23}
+  m_LocalPosition: {x: 7.168431, y: 2.0542858, z: 2.3597465}
   m_LocalScale: {x: 0.17406434, y: 0.1740644, z: 0.1740644}
   m_Children:
   - {fileID: 4451147420961754}
@@ -1840,6 +1842,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2870743, y: 5.20051, z: 2.2525985}
   m_Center: {x: 0.00000017121441, y: 2.525448, z: 0.017237432}
+--- !u!82 &82830502773897452
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031197834973852}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!108 &108160407328950580
 Light:
   m_ObjectHideFlags: 1
@@ -1876,6 +1958,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114530838968413076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031197834973852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292d9b4d40ee3be45ac555b054a8c739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  schtonk: {fileID: 8300000, guid: f28cc235e62b0dc4f999a59ada7675fc, type: 3}
 --- !u!114 &114531185379106484
 MonoBehaviour:
   m_ObjectHideFlags: 1
