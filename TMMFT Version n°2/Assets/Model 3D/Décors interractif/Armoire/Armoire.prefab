@@ -439,7 +439,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   "SpawnT\xE9l\xE9port": {fileID: 0}
+  Ouvert: 0
 --- !u!137 &137394269846545752
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

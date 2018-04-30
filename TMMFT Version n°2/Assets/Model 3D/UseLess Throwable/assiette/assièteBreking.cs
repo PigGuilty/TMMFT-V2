@@ -11,6 +11,7 @@ public class assièteBreking : MonoBehaviour {
 
     public GameObject Player;
     private PrendreObjet prendreobjet;
+    private ArmoireScript armoirescript;
 
     private bool OnALaDir;
 
@@ -33,21 +34,38 @@ public class assièteBreking : MonoBehaviour {
             {
                 dir = new Vector3(Camera.main.transform.forward.x, 0.05f, Camera.main.transform.forward.z);
                 OnALaDir = true;
-                print("Dir" + dir);
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    {   
         if (prendreobjet.ObjetPris == false)
         {
-            GameObject Assièteinvoqué = Instantiate(AssièteCassé);
-            Assièteinvoqué.transform.position = Assiète.transform.position;
+            if (other.gameObject.GetComponent<ArmoireScript>() != null)
+            {
+                armoirescript = other.gameObject.GetComponent<ArmoireScript>();
 
-            Instantiate(JoueurDeSon);
-
-            Destroy(Assiète);
+                if (armoirescript.Ouvert == false)
+                {
+                    SeCasse();
+                }
+            }
+            else
+            {
+                SeCasse();
+            }
         }
+    }
+
+    private void SeCasse()
+    {
+        GameObject Assièteinvoqué = Instantiate(AssièteCassé);
+        Assièteinvoqué.transform.position = Assiète.transform.position;
+
+        GameObject JoueurDeSonInvok = Instantiate(JoueurDeSon);
+        JoueurDeSonInvok.transform.position = Assiète.transform.position;
+
+        Destroy(Assiète);
     }
 }

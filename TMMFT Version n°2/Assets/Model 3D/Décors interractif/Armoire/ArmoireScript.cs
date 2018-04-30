@@ -10,7 +10,7 @@ public class ArmoireScript : MonoBehaviour {
 
     public GameObject SpawnTéléport;
 
-    private bool Ouvert;
+    public bool Ouvert;
     private bool AnimationOuverture;
 
     private Animator animator;

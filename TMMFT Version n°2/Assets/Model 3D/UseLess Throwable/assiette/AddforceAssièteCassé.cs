@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class AddforceAssièteCassé : MonoBehaviour {
 
     public assièteBreking assièteBreking;
@@ -11,10 +13,12 @@ public class AddforceAssièteCassé : MonoBehaviour {
 
     private int SelectionOfSound;
 
-    public GameObject JoueurDeSon0;
-    public GameObject JoueurDeSon1;
-    public GameObject JoueurDeSon2;
-    public GameObject JoueurDeSon3;
+    private AudioSource Audio;
+
+    public AudioClip Son0;
+    public AudioClip Son1;
+    public AudioClip Son2;
+    public AudioClip Son3;
 
     private bool AutorizéAJouerDuSon;
     private int NombreDeFoisQuilAJoueLeSon;
@@ -23,7 +27,8 @@ public class AddforceAssièteCassé : MonoBehaviour {
     void Start () {
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         assièteBreking.GetComponent<assièteBreking>();
-        print("assiète" + assièteBreking.dir);
+        Audio = gameObject.GetComponent<AudioSource>();
+
         rb.AddForce(assièteBreking.dir * 500);
 
         RandomNumber = Random.Range(700, 740);
@@ -42,32 +47,40 @@ public class AddforceAssièteCassé : MonoBehaviour {
 
         increase++;
 
-        if (NombreDeFoisQuilAJoueLeSon >= 20)
+        if (NombreDeFoisQuilAJoueLeSon >= 10)
         {
             AutorizéAJouerDuSon = false;
+            Audio.Stop();
+            Audio.enabled = false;
+            
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (AutorizéAJouerDuSon == true && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Vache")
+
+        if(AutorizéAJouerDuSon == true && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Vache" )
         {
-            if (SelectionOfSound == 0)
+            if (NombreDeFoisQuilAJoueLeSon == 0)
             {
-                Instantiate(JoueurDeSon0);
+                if (SelectionOfSound == 0)
+                {
+                    Audio.clip = Son0;
+                }
+                else if (SelectionOfSound == 1)
+                {
+                    Audio.clip = Son1;
+                }
+                else if (SelectionOfSound == 2)
+                {
+                    Audio.clip = Son2;
+                }
+                else if (SelectionOfSound == 3)
+                {
+                    Audio.clip = Son3;
+                }
             }
-            else if (SelectionOfSound == 1)
-            {
-                Instantiate(JoueurDeSon1);
-            }
-            else if (SelectionOfSound == 2)
-            {
-                Instantiate(JoueurDeSon2);
-            }
-            else if (SelectionOfSound == 3)
-            {
-                Instantiate(JoueurDeSon3);
-            }
+            Audio.Play();
             NombreDeFoisQuilAJoueLeSon++;
         }
     }
