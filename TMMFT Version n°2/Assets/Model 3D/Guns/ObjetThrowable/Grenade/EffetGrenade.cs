@@ -8,17 +8,23 @@ public class EffetGrenade : MonoBehaviour {
     public GameObject Sphère;
 
     public GameObject grenade;
+    public GameObject Player;
+    private PrendreObjet prendreobjet;
 
     public bool canExplode;
 
     // Use this for initialization
-    void start () {
+    void Start () {
         canExplode = false;
+        prendreobjet = Player.GetComponent<PrendreObjet>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        canExplode = true;
+        if(prendreobjet.ObjetPris == false)
+        {
+            canExplode = true;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

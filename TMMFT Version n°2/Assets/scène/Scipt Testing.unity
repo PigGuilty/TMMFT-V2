@@ -1537,16 +1537,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114277465771479430, guid: 833017ecb931b874fa98a2577ddee03b,
         type: 2}
-      propertyPath: "DemiSph\xE8re"
+      propertyPath: Player
       value: 
-      objectReference: {fileID: 1876955304934606, guid: ef3b0a3c364fb3c4e8ef259956152c4e,
-        type: 2}
-    - target: {fileID: 114277465771479430, guid: 833017ecb931b874fa98a2577ddee03b,
-        type: 2}
-      propertyPath: "Sph\xE8re"
-      value: 
-      objectReference: {fileID: 1660462149510950, guid: 2157878ea04e71142948cd6756c8a279,
-        type: 2}
+      objectReference: {fileID: 1719911659}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 833017ecb931b874fa98a2577ddee03b, type: 2}
   m_IsPrefabParent: 0

@@ -530,3 +530,4 @@ MonoBehaviour:
   "Sph\xE8re": {fileID: 1660462149510950, guid: 2157878ea04e71142948cd6756c8a279,
     type: 2}
   grenade: {fileID: 1417951601806490}
+  Player: {fileID: 0}
