@@ -23,6 +23,8 @@ public class Appuis : MonoBehaviour {
 
         AnimationWaitEnd = 0;
         AnimationLength = 30;
+
+        animator.SetFloat("Action", 1);
     }
 
     public void HitByRaycast()
@@ -34,14 +36,14 @@ public class Appuis : MonoBehaviour {
             if (appuyé == false)
             {
                 animator.Rebind();
-                animator.SetFloat("Action", 1);
+                animator.SetFloat("Action", 0);
                 ObjetAvecLequelIlYAInterraction.transform.SendMessage("Appuyé", SendMessageOptions.DontRequireReceiver);
             }
 
             if (appuyé == true)
             {
                 animator.Rebind();
-                animator.SetFloat("Action", 0);
+                animator.SetFloat("Action", 1);
                 ObjetAvecLequelIlYAInterraction.transform.SendMessage("Relaché", SendMessageOptions.DontRequireReceiver);
             }
 

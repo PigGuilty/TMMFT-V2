@@ -112,7 +112,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4184710548782442}
   - component: {fileID: 95668307257082572}
-  - component: {fileID: 135313347420033398}
+  - component: {fileID: 136425307417907276}
+  - component: {fileID: 114508204422751236}
   m_Layer: 0
   m_Name: Gros Bouton Rouge
   m_TagString: Decor interractif
@@ -127,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1865658213455582}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -15.37, y: 4.648979, z: -4.5093255}
+  m_LocalPosition: {x: -15.37, y: 3.22, z: -4.5093255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4929123439602498}
@@ -234,18 +235,31 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!135 &135313347420033398
-SphereCollider:
+--- !u!114 &114508204422751236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865658213455582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52653fb20980c240a65545de54659fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjetAvecLequelIlYAInterraction: {fileID: 0}
+--- !u!136 &136425307417907276
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1865658213455582}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.03
-  m_Center: {x: 0, y: 0, z: -0.17}
+  m_Radius: 0.75
+  m_Height: 0.79
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137571888242853964
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
