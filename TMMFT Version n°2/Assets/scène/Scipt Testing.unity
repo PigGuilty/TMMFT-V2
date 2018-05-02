@@ -248,11 +248,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4138732744870430, guid: abcecd4f561e2d24bb8904b494da946e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.64
+      value: 5.71
       objectReference: {fileID: 0}
     - target: {fileID: 4138732744870430, guid: abcecd4f561e2d24bb8904b494da946e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.49
+      value: 4.38
       objectReference: {fileID: 0}
     - target: {fileID: 4138732744870430, guid: abcecd4f561e2d24bb8904b494da946e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -857,6 +857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d74edc068fa2649a2c0bea2d555e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cube: {fileID: 1103783229}
+  CubeTigger: {fileID: 2132757559}
+  mat: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
 --- !u!114 &630640848
 MonoBehaviour:
   m_ObjectHideFlags: 0
