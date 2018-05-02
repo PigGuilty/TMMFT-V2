@@ -17,6 +17,5 @@ public class TestTriger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        print("collision dectected");
     }
 }
