@@ -303,6 +303,11 @@ Prefab:
       propertyPath: BarreDeFurry
       value: 
       objectReference: {fileID: 1670505839}
+    - target: {fileID: 54110791077214212, guid: abcecd4f561e2d24bb8904b494da946e,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abcecd4f561e2d24bb8904b494da946e, type: 2}
   m_IsPrefabParent: 0
@@ -1684,7 +1689,89 @@ Prefab:
       propertyPath: m_RootOrder
       value: 28
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114006313282731736, guid: 1b41289f8bfcbb143949c5701d4ade29,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324963210621314, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967651366647146, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969428825339266, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895597617369118, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959363886176282, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228780278599804, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605935663178622, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446450668838630, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478085259784090, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299326245666020, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Escalier +x
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933245208536390, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895298360372328, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.3420201
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895298360372328, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9396927
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895298360372328, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494805996928530, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494805996928530, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494805996928530, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.3420201
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494805996928530, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9396927
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494805996928530, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 40
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114006313282731736, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1156642059
@@ -2000,7 +2087,57 @@ Prefab:
       propertyPath: m_Name
       value: Escalier 8 marches (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1478085259784090, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969428825339266, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933245208536390, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324963210621314, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299326245666020, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228780278599804, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895597617369118, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967651366647146, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959363886176282, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605935663178622, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446450668838630, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006313282731736, guid: 1b41289f8bfcbb143949c5701d4ade29,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114006313282731736, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1319709197 stripped
@@ -2544,8 +2681,58 @@ Prefab:
       propertyPath: m_Name
       value: Escalier 8 marches (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1324963210621314, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446450668838630, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605935663178622, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969428825339266, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299326245666020, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228780278599804, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967651366647146, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959363886176282, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478085259784090, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933245208536390, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895597617369118, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006313282731736, guid: 1b41289f8bfcbb143949c5701d4ade29,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114986910105959212, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
+    - {fileID: 114006313282731736, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1566090817 stripped
@@ -2991,6 +3178,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1178414441947124, guid: abcecd4f561e2d24bb8904b494da946e,
     type: 2}
   m_PrefabInternal: {fileID: 263093962}
+--- !u!65 &1719911660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719911659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 1.5, z: 0.25}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1745091362 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1134080638126364, guid: 4bb75efca207e2e419691b0950d38457,

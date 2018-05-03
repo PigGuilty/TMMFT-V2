@@ -83,6 +83,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Escalier +x")
+            {
+                m_MoveDir += new Vector3(100,0,0);
+            }
+            if (other.gameObject.tag == "Escalier -x")
+            {
+                m_MoveDir += new Vector3(-100, 0, 0);
+            }
+            if (other.gameObject.tag == "Escalier +y")
+            {
+                m_MoveDir.z += 1000f;
+            }
+            if (other.gameObject.tag == "Escalier -y")
+            {
+                m_MoveDir.z += -1000f;
+            }
+        }
 
         private void PlayLandingSound()
         {

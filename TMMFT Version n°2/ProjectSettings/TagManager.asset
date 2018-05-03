@@ -9,6 +9,10 @@ TagManager:
   - Heal
   - Decor interractif
   - Bullet
+  - Escalier +x
+  - Escalier -x
+  - Escalier +y
+  - Escalier -y
   layers:
   - Default
   - TransparentFX

@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 114986910105959212}
   m_Layer: 0
   m_Name: Marche (7)
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 114006313282731736}
   m_Layer: 0
   m_Name: Cube trigger
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 114080072495638836}
   m_Layer: 0
   m_Name: Marche (3)
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 114285372017632388}
   m_Layer: 0
   m_Name: Marche
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 4647743374448558}
   m_Layer: 0
   m_Name: Escalier 8 marches
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 114469647161441928}
   m_Layer: 0
   m_Name: Marche (6)
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 114570661220256870}
   m_Layer: 0
   m_Name: Marche (5)
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 65734142653749406}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 114716475389939440}
   m_Layer: 0
   m_Name: Marche (1)
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 114228880673350134}
   m_Layer: 0
   m_Name: Marche (2)
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 114465598827373746}
   m_Layer: 0
   m_Name: Marche (4)
-  m_TagString: Untagged
+  m_TagString: Escalier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,8 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
-using UnityStandardAssets.Utility;
-using Random = UnityEngine.Random;
+
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     public class AddForceDownEscalier : MonoBehaviour
@@ -30,22 +28,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             increase = 0;
         }
 
-
-
-/*        void Update()
-        {
-            if(redonnerKinematic == true)
-            {
-                if(increase>= 20)
-                {
-                    rb.isKinematic = true;
-                    increase = 0;
-                    redonnerKinematic = false;
-                }
-                increase++;
-            }
-        }*/
-
         private void OnTriggerEnter(Collider other)
         {
             rb = other.GetComponent<Rigidbody>();
@@ -62,6 +44,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             rb = other.GetComponent<Rigidbody>();
             fps = other.GetComponent<FirstPersonController>();
+
+            if(rb.isKinematic == true)
+            {
+                rb.isKinematic = false;
+            }
 
             if (other.gameObject.tag == "Player")
             {
@@ -81,8 +68,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (other.gameObject.tag == "Player")
             {
                 rb.AddForce(new Vector3(x, -y, z) * speedWalk * 200);
-                //redonnerKinematic = true;
-                rb.isKinematic = true;
             }
         }
     }
