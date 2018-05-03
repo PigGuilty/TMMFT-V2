@@ -225,7 +225,7 @@ Transform:
   m_Children:
   - {fileID: 2139565381}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &99240679
 BoxCollider:
@@ -390,7 +390,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4084179725649200, guid: 047bbe03f2cb05c4d88f59f1febf4007, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 047bbe03f2cb05c4d88f59f1febf4007, type: 2}
@@ -432,7 +432,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4184710548782442, guid: dd3e869e48f0a6a498d4319d0d622060, type: 2}
       propertyPath: m_RootOrder
-      value: 29
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 114508204422751236, guid: dd3e869e48f0a6a498d4319d0d622060,
         type: 2}
@@ -1174,7 +1174,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4044137923740812, guid: 358b3985d55321641b18002d963bf4c3, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1031197834973852, guid: 358b3985d55321641b18002d963bf4c3, type: 2}
       propertyPath: m_Name
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033878358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 001f3223b41f5584c80a4d1b3e4f7533, type: 3}
   m_Name: 
@@ -1876,7 +1876,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4647743374448558, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b41289f8bfcbb143949c5701d4ade29, type: 2}
@@ -3654,7 +3654,7 @@ Transform:
   - {fileID: 1697215397}
   - {fileID: 1750967909}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916394986
 GameObject:
@@ -3822,7 +3822,7 @@ Transform:
   m_LocalScale: {x: 5, y: 0.5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021732873 stripped
 GameObject:

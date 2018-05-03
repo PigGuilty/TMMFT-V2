@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EffetGrenade : MonoBehaviour {
 
-    public GameObject DemiSphère;
-    public GameObject Sphère;
+    public GameObject Explosion;
 
     public GameObject grenade;
     public GameObject Player;
@@ -27,22 +26,14 @@ public class EffetGrenade : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
         if (canExplode == true)
         {
-            if (collision.gameObject.tag != "Player")
-            {
-                if (collision.gameObject.tag == "Vache")
-                {
-                    Instantiate(Sphère, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal));
-                }
-                else
-                {
-                    Instantiate(DemiSphère, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal));
-                }
-                Destroy(gameObject);
-            }
+			if (other.gameObject.tag != "Player") {
+				Instantiate(Explosion, other.contacts[0].point, Quaternion.LookRotation(other.contacts[0].normal));
+				Destroy(gameObject);
+			}
         }
     }
 }

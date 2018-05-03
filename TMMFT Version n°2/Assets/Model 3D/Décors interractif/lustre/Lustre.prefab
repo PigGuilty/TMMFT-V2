@@ -1164,7 +1164,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72be5c81b8f5f244828edc5e91fa2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "DemiSph\xE8re": {fileID: 1876955304934606, guid: ef3b0a3c364fb3c4e8ef259956152c4e,
-    type: 2}
-  "Sph\xE8re": {fileID: 1660462149510950, guid: 2157878ea04e71142948cd6756c8a279,
-    type: 2}
+  Explosion: {fileID: 100010, guid: 6b589e4920d64b1409d112e4deef9e1d, type: 2}

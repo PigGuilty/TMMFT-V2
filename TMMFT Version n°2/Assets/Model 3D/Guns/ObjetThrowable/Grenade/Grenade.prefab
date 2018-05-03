@@ -525,9 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1985a631b2bb2468bc7f1bf069bbf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "DemiSph\xE8re": {fileID: 1876955304934606, guid: ef3b0a3c364fb3c4e8ef259956152c4e,
-    type: 2}
-  "Sph\xE8re": {fileID: 1660462149510950, guid: 2157878ea04e71142948cd6756c8a279,
-    type: 2}
+  Explosion: {fileID: 100010, guid: 36b1e5546835fa44f85830bf37b1b8a9, type: 2}
   grenade: {fileID: 1417951601806490}
   Player: {fileID: 0}
+  canExplode: 0

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class LustreTombe : MonoBehaviour {
 
-    public GameObject DemiSphère;
-    public GameObject Sphère;
+    public GameObject Explosion;
 
     Rigidbody rb;
 
@@ -28,15 +27,8 @@ public class LustreTombe : MonoBehaviour {
     {
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Objet")
         {
-            if (collision.gameObject.tag == "Vache")
-            {
-                Instantiate(Sphère, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal));
-            }
-            else
-            {
-                Instantiate(DemiSphère, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal));
-            }
-            Destroy(gameObject);
+			Instantiate(Explosion, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal));
+			Destroy(gameObject);
         }
     }
 }
