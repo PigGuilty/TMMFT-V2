@@ -83,23 +83,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.tag == "Escalier +x")
             {
-                m_MoveDir += new Vector3(100,0,0);
+                gameObject.transform.position += new Vector3(0.1f,0,0);
+                m_Jumping = false;
             }
             if (other.gameObject.tag == "Escalier -x")
             {
-                m_MoveDir += new Vector3(-100, 0, 0);
+                gameObject.transform.position += new Vector3(-0.1f, 0, 0);
+                m_Jumping = false;
             }
             if (other.gameObject.tag == "Escalier +y")
             {
-                m_MoveDir.z += 1000f;
+                gameObject.transform.position += new Vector3(0, 0, 0.1f);
+                m_Jumping = false;
             }
             if (other.gameObject.tag == "Escalier -y")
             {
-                m_MoveDir.z += -1000f;
+                gameObject.transform.position += new Vector3(0, 0, -0.1f);
+                m_Jumping = false;
             }
         }
 

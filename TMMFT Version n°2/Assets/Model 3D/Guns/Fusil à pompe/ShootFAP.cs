@@ -90,24 +90,28 @@ public class ShootFAP : MonoBehaviour
                             {
                                 GameObject impactGO1 = Instantiate(impactEffect1, hit.point, Quaternion.LookRotation(hit.normal));
                                 impactGO1.transform.Translate(hit.normal / 1000, Space.World);
+                                impactGO1.transform.parent = hit.transform;
                                 Destroy(impactGO1, 20f);
                             }
                             else if (x > 1 && x <= 2)
                             {
                                 GameObject impactGO2 = Instantiate(impactEffect2, hit.point, Quaternion.LookRotation(hit.normal));
                                 impactGO2.transform.Translate(hit.normal / 1000, Space.World);
+                                impactGO2.transform.parent = hit.transform;
                                 Destroy(impactGO2, 20f);
                             }
                             else if (x > 2 && x <= 3)
                             {
                                 GameObject impactGO3 = Instantiate(impactEffect3, hit.point, Quaternion.LookRotation(hit.normal));
                                 impactGO3.transform.Translate(hit.normal / 1000, Space.World);
+                                impactGO3.transform.parent = hit.transform;
                                 Destroy(impactGO3, 20f);
                             }
                             else if (x > 3 && x <= 4)
                             {
                                 GameObject impactGO4 = Instantiate(impactEffect4, hit.point, Quaternion.LookRotation(hit.normal));
                                 impactGO4.transform.Translate(hit.normal / 1000, Space.World);
+                                impactGO4.transform.parent = hit.transform;
                                 Destroy(impactGO4, 20f);
                             }
                         }
