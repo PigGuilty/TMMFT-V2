@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class Furry : MonoBehaviour {
 
+    public GameObject Player;
+
     private Attaque attaque;
     private Baguette baguette;
+    private WeaponChange weaponchange;
 
-    private Animator animator;
+    public Animator animator;
 
     private int AnimationLengthCouteau;
     private int AnimationLengthBaguette;
-    private int AnimationWaitEnd;
+    public int AnimationWaitEnd;
 
-    private bool AnimCouteauVersBaguette;
-    private bool AnimBaguetteVersCouteau;
+    public bool AnimCouteauVersBaguette;
+    public bool AnimBaguetteVersCouteau;
     public bool BlockLeChangementDArme;
 
     public GameObject BarreDeFurry;
 
     public AudioSource AmenoPlayer;
 
-    
-
     private void Awake()
     {
         attaque = GetComponent<Attaque>();
         baguette = GetComponent<Baguette>();
+        weaponchange = Player.GetComponent<WeaponChange>();
     }
 
     // Use this for initialization
@@ -38,7 +40,6 @@ public class Furry : MonoBehaviour {
         AnimationLengthBaguette = 162;
         AnimationWaitEnd = 0;
         baguette.enabled = false;
-        BlockLeChangementDArme = false;
     }
 
     // Update is called once per frame
@@ -60,7 +61,7 @@ public class Furry : MonoBehaviour {
                     animator.Rebind();
                     animator.SetFloat("Attaque Couteau", 0.5f);
 
-                    BlockLeChangementDArme = true;
+                    weaponchange.BlockLeChangementDArme = true;
 
                     AmenoPlayer.enabled = true;
                     AmenoPlayer.Play();
@@ -104,7 +105,7 @@ public class Furry : MonoBehaviour {
                     attaque.enabled = true;
                     AnimBaguetteVersCouteau = false;
                     attaque.furry = 0;
-                    BlockLeChangementDArme = false;
+                    weaponchange.BlockLeChangementDArme = false;
                 }
 
             }

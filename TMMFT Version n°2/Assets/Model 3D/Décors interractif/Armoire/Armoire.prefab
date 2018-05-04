@@ -340,8 +340,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1521534767251900}
-  m_LocalRotation: {x: -0, y: 0.70710593, z: -0, w: 0.7071076}
-  m_LocalPosition: {x: 5.769996, y: 0.5899999, z: -19.889494}
+  m_LocalRotation: {x: -0, y: -0.70710725, z: -0, w: 0.7071064}
+  m_LocalPosition: {x: -4.39, y: 0.58, z: 61.57}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4917199437793678}
@@ -498,7 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2c3ea5f0dbb764ba6b458fbadbf242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   "SpawnT\xE9l\xE9port": {fileID: 0}
   Ouvert: 0
 --- !u!137 &137394269846545752

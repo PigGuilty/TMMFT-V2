@@ -46,12 +46,12 @@ public class Baguette : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (ok >= 0.05f && Input.GetButton ("Fire1"))
+		if (ok >= 0.052f && Input.GetButton ("Fire1"))
         {
             attaque.furry = attaque.furry - 1;
             ok = 0;
         }
-		if (ok < 0.05f && Input.GetButton ("Fire1"))
+		if (ok < 0.052f && Input.GetButton ("Fire1"))
         {
 			ok += Time.deltaTime;
         }

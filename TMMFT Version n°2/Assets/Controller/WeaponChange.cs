@@ -15,25 +15,25 @@ public class WeaponChange : MonoBehaviour {
 
     private int IDWeaponDemandé;
     private bool DemandeChangementArme;
+    public bool BlockLeChangementDArme;
 
     PrendreObjet prendreobjet;
-    Furry FurryScript;
 
     public AudioClip changement;
 
     // Use this for initialization
     void Start () {
         prendreobjet = gameObject.GetComponent<PrendreObjet>();
-        FurryScript = Couteau.GetComponent<Furry>();
 
         IDWeaponDemandé = 1;
         DemandeChangementArme = true;
+        BlockLeChangementDArme = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (prendreobjet.ObjetPris != true && FurryScript.BlockLeChangementDArme != true)
+        if (prendreobjet.ObjetPris != true && BlockLeChangementDArme != true)
         {
             /****Début Changement D'arme par Clavier****/
 
