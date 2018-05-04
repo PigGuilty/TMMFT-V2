@@ -138,6 +138,11 @@ public class PointDeVieJoueur : MonoBehaviour {
         {
             PV = PV + PVReçus;
         }
+
+        if (other.gameObject.tag == "KillZone")
+        {
+            meurt();
+        }
     }
 
     void meurt()

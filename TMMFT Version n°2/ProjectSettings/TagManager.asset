@@ -13,6 +13,7 @@ TagManager:
   - Escalier -x
   - Escalier +y
   - Escalier -y
+  - KillZone
   layers:
   - Default
   - TransparentFX
