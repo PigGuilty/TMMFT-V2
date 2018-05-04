@@ -15,8 +15,13 @@ public class Furry : MonoBehaviour {
 
     private bool AnimCouteauVersBaguette;
     private bool AnimBaguetteVersCouteau;
+    public bool BlockLeChangementDArme;
 
     public GameObject BarreDeFurry;
+
+    public AudioSource AmenoPlayer;
+
+    
 
     private void Awake()
     {
@@ -30,9 +35,10 @@ public class Furry : MonoBehaviour {
         AnimCouteauVersBaguette = false;
         AnimBaguetteVersCouteau = false;
         AnimationLengthCouteau = 162;
-        AnimationLengthBaguette = 200;
+        AnimationLengthBaguette = 162;
         AnimationWaitEnd = 0;
         baguette.enabled = false;
+        BlockLeChangementDArme = false;
     }
 
     // Update is called once per frame
@@ -53,6 +59,11 @@ public class Furry : MonoBehaviour {
                 {
                     animator.Rebind();
                     animator.SetFloat("Attaque Couteau", 0.5f);
+
+                    BlockLeChangementDArme = true;
+
+                    AmenoPlayer.enabled = true;
+                    AmenoPlayer.Play();
                 }
 
                 AnimationWaitEnd = AnimationWaitEnd + 1;
@@ -79,6 +90,8 @@ public class Furry : MonoBehaviour {
                 {
                     animator.Rebind();
                     animator.SetFloat("Attaque Couteau", 1f);
+
+                    StartCoroutine(FadeOut(AmenoPlayer, 5.0f));
                 }
 
                 AnimationWaitEnd = AnimationWaitEnd + 1;
@@ -91,9 +104,26 @@ public class Furry : MonoBehaviour {
                     attaque.enabled = true;
                     AnimBaguetteVersCouteau = false;
                     attaque.furry = 0;
+                    BlockLeChangementDArme = false;
                 }
 
             }
         }
      }
+
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+        audioSource.enabled = false;
+    }
 }

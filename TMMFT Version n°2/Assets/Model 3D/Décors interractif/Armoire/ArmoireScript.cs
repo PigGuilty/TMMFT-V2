@@ -117,14 +117,14 @@ public class ArmoireScript : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
 
-        if (prendreobjet.ObjetPris == true && Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet"))
+        if (prendreobjet.ObjetPris == true && Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet" || other.tag == "Bullet"))
         {
             PortailUtilisablee.PortailUtilisablee = false;
             TempsPortailReload = 0;
             Player.transform.position = SpawnTéléport.transform.position;
         }
 
-        else if (Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet"))
+        else if (Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet" || other.tag == "Bullet"))
         {
             PortailUtilisablee.PortailUtilisablee = false;
             TempsPortailReload = 0;

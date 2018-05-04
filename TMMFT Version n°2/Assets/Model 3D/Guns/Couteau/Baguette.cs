@@ -24,6 +24,7 @@ public class Baguette : MonoBehaviour {
     private ParticleSystem particleSystemLaser2;
 
     private AudioSource Audio;
+    public AudioSource AudioAmeno;
     public AudioClip SonMagique;
 
     private bool alreadyActiveted;
@@ -61,6 +62,7 @@ public class Baguette : MonoBehaviour {
             {
                 Audio.clip = SonMagique;
                 Audio.Play();
+                AudioAmeno.volume = 0;
                 alreadyActiveted = true;
             }
 
@@ -104,6 +106,7 @@ public class Baguette : MonoBehaviour {
             particleSystemLaser1.enableEmission = false;
             particleSystemLaser2.enableEmission = false;
             Audio.Stop();
+            AudioAmeno.volume = 0.75f;
             alreadyActiveted = false;
         }
     }
@@ -114,6 +117,7 @@ public class Baguette : MonoBehaviour {
         particleSystemLaser1.enableEmission = false;
         particleSystemLaser2.enableEmission = false;
         Audio.Stop();
+        AudioAmeno.volume = 0.75f;
         alreadyActiveted = false;
     }
 

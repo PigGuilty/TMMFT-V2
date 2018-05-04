@@ -7,6 +7,8 @@ public class VoleDuMissile : MonoBehaviour {
     public ParticleSystem EffetFusée;
     public GameObject Explosion;
 
+    private ArmoireScript armoirescript;
+
     // Use this for initialization
     void Start () {
         EffetFusée.Play();
@@ -19,8 +21,21 @@ public class VoleDuMissile : MonoBehaviour {
 
     void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag != "Player") {
-			Instantiate(Explosion, other.contacts[0].point, Quaternion.LookRotation(other.contacts[0].normal));
-            Destroy(gameObject);
+            if (other.gameObject.GetComponent<ArmoireScript>() != null)
+            {
+                armoirescript = other.gameObject.GetComponent<ArmoireScript>();
+
+                if (armoirescript.Ouvert == false)
+                {
+                    Instantiate(Explosion, other.contacts[0].point, Quaternion.LookRotation(other.contacts[0].normal));
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                Instantiate(Explosion, other.contacts[0].point, Quaternion.LookRotation(other.contacts[0].normal));
+                Destroy(gameObject);
+            }
         }
     }
 }

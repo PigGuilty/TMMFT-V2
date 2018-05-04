@@ -29,7 +29,7 @@ public class Attaque : MonoBehaviour {
         BalleRestante = TailleChargeur;
         AnimationLength = 45;
         AnimationWaitEnd = 0;
-        furry = 100;
+        furry = 0;
         furryMax = 100;
 }
 

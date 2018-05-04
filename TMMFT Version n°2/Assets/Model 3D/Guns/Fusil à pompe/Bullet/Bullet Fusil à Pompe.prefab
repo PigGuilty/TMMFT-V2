@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114969812589821948}
   m_Layer: 2
   m_Name: "Bullet Fusil \xE0 Pompe"
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
