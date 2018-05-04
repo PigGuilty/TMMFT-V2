@@ -35,7 +35,7 @@ namespace UnityStandardAssets.Effects
                 {
                     float OldPos = rb.velocity.magnitude;
                     rb.AddExplosionForce(explosionForce*multiplier, transform.position, r, 1*multiplier, ForceMode.Impulse);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
                     float NewPos = rb.velocity.magnitude;
 
                     if (NewPos > OldPos)
@@ -52,7 +52,7 @@ namespace UnityStandardAssets.Effects
                     print(NewPos);
                     print(Degat);
 
-                    target.TakeDamage(Degat * explosionForce *2);
+                    target.TakeDamage(Degat * explosionForce);
                 }
                 else
                 {

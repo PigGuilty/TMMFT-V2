@@ -37,7 +37,7 @@ public class Furry : MonoBehaviour {
         AnimCouteauVersBaguette = false;
         AnimBaguetteVersCouteau = false;
         AnimationLengthCouteau = 162;
-        AnimationLengthBaguette = 162;
+        AnimationLengthBaguette = 200;
         AnimationWaitEnd = 0;
         baguette.enabled = false;
     }
@@ -81,18 +81,20 @@ public class Furry : MonoBehaviour {
 
             }
         }
-        if (attaque.furry <= -1)
+
+        else if (attaque.furry <= -1)
         {
-            baguette.enabled = false;
             AnimBaguetteVersCouteau = true;
             if (AnimBaguetteVersCouteau == true)
             {
                 if (AnimationWaitEnd == 0)
                 {
+                    baguette.enabled = false;
+
                     animator.Rebind();
                     animator.SetFloat("Attaque Couteau", 1f);
 
-                    StartCoroutine(FadeOut(AmenoPlayer, 5.0f));
+                    StartCoroutine(FadeOut(AmenoPlayer, 5f));
                 }
 
                 AnimationWaitEnd = AnimationWaitEnd + 1;
@@ -107,7 +109,6 @@ public class Furry : MonoBehaviour {
                     attaque.furry = 0;
                     weaponchange.BlockLeChangementDArme = false;
                 }
-
             }
         }
      }
@@ -126,5 +127,10 @@ public class Furry : MonoBehaviour {
         audioSource.Stop();
         audioSource.volume = startVolume;
         audioSource.enabled = false;
+    }
+
+    private void OnEnable()
+    {      
+        AmenoPlayer.enabled = false;
     }
 }
