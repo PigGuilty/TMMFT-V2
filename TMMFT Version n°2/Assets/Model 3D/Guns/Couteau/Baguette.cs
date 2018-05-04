@@ -4,16 +4,43 @@ using UnityEngine;
 
 public class Baguette : MonoBehaviour {
 
-	public GameObject LASER;
+    public float DegatArme;
+
+    private Camera fpsCam;
+
+    public GameObject LASER;
 	public GameObject player;
 
     private Attaque attaque;
     private float ok;
+    private float lengthOfRaycast;
 
-	private void Awake() {
+    RaycastHit hit;
+
+    public GameObject GameObjectparticleSystemLaser1;
+    public GameObject GameObjectparticleSystemLaser2;
+
+    private ParticleSystem particleSystemLaser1;
+    private ParticleSystem particleSystemLaser2;
+
+    private AudioSource Audio;
+    public AudioClip SonMagique;
+
+    private bool alreadyActiveted;
+
+    private void Awake() {
 		attaque = GetComponent<Attaque> ();
-		ok = 0.05f;
-	}
+        particleSystemLaser1 = GameObjectparticleSystemLaser1.GetComponent<ParticleSystem>();
+        particleSystemLaser2 = GameObjectparticleSystemLaser2.GetComponent<ParticleSystem>();
+
+        ok = 0.05f;
+
+        fpsCam = Camera.main;
+
+        Audio = gameObject.GetComponent<AudioSource>();
+
+        alreadyActiveted = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,19 +55,70 @@ public class Baguette : MonoBehaviour {
 			ok += Time.deltaTime;
         }
 
-		if (Input.GetButton ("Fire1")) {
-			player.transform.SendMessage ("Shake", SendMessageOptions.DontRequireReceiver);
-			LASER.SetActive (true);
-		}
+        if (Input.GetButton("Fire1"))
+        {
+            if (alreadyActiveted == false)
+            {
+                Audio.clip = SonMagique;
+                Audio.Play();
+                alreadyActiveted = true;
+            }
 
-		if (Input.GetButtonUp ("Fire1")) {
+            player.transform.SendMessage("Shake", SendMessageOptions.DontRequireReceiver);
+            particleSystemLaser1.enableEmission = true;
+            particleSystemLaser2.enableEmission = true;
+
+            Ray ShootingDirection = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
+
+            lengthOfRaycast = hit.distance;
+            particleSystemLaser1.startLifetime = lengthOfRaycast / 15;
+            particleSystemLaser2.startLifetime = lengthOfRaycast / 15;
+
+
+            if (Physics.Raycast(ShootingDirection, out hit))
+            {
+
+                Target target = hit.transform.GetComponent<Target>();
+
+                if (hit.collider.tag == "Decor interractif")
+                {
+                    hit.transform.SendMessage("HitByRaycast", SendMessageOptions.DontRequireReceiver);
+                }
+
+                if (hit.collider.tag == "Vache")
+                {
+                    target.TakeDamage(DegatArme);
+
+
+                    if (hit.rigidbody != null)
+                    {
+                        hit.rigidbody.AddForce(-hit.normal * DegatArme * 50);
+                    }
+                }
+
+            }
+        }
+
+            if (Input.GetButtonUp ("Fire1")) {
 			player.transform.SendMessage ("Stop", SendMessageOptions.DontRequireReceiver);
-			LASER.SetActive (false);
-		}
+            particleSystemLaser1.enableEmission = false;
+            particleSystemLaser2.enableEmission = false;
+            Audio.Stop();
+            alreadyActiveted = false;
+        }
     }
 
 	void OnDisable(){
 		player.transform.SendMessage ("Stop", SendMessageOptions.DontRequireReceiver);
 		LASER.SetActive (false);
-	}
+        particleSystemLaser1.enableEmission = false;
+        particleSystemLaser2.enableEmission = false;
+        Audio.Stop();
+        alreadyActiveted = false;
+    }
+
+    private void OnEnable()
+    {
+        LASER.SetActive(true);
+    }
 }
