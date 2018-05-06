@@ -2,19 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PointDeVieJoueur : MonoBehaviour {
+
+    private Camera fpsCam;
 
     private int PVMax;
     public int PV;
     public int DegatReçus;
     public int PVReçus;
+    private bool Mort;
 
     private float widthOfLiveBar;
+
+    private GameObject NouvelleVersion;
 
     public GameObject SpawnQuandMort;
     public GameObject Canvas;
     public GameObject BarreDeVie;
+
+    private Attaque attaque;
+    private Baguette baguette;
+    private WeaponChange weaponchange;
+    private Furry furryScript;
 
     public GameObject pistolet;
     public GameObject fusil;
@@ -29,62 +40,93 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     private float BloodScreenOpacity;
     private bool FullOpaque;
-    private int increase;
+    private float increase;
 
     // Use this for initialization
     void Start () {
+
         PVMax = 100;
         PV = PVMax;
+        Mort = false;
 
         bloodImage = BloodScreen.GetComponent<Image>();
         BloodScreenOpacity = 0f;
         couleurBloodScreen = new Color(1f, 1f, 1f, 0f);
+
+        attaque = Couteau.GetComponent<Attaque>();
+        furryScript = Couteau.GetComponent<Furry>();
+        baguette = Couteau.GetComponent<Baguette>();
+        weaponchange = gameObject.GetComponent<WeaponChange>();
+
+        fpsCam = Camera.main;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if ( PV <= 0)
+        if (Mort == true)
         {
-            meurt();
-        }
+            transform.position = SpawnQuandMort.transform.position;
 
-        if (PV > PVMax)
-        {
-            PV = PVMax;
-        }
-
-        var theBarRectTransform = BarreDeVie.transform as RectTransform;
-        theBarRectTransform.sizeDelta = new Vector2(PV, theBarRectTransform.sizeDelta.y);
-
-        if(FullOpaque == false)
-        {
-            float Pv = PV;
-            BloodScreenOpacity = ((Pv / 100) * -1) + 1;
-
-            couleurBloodScreen.a = BloodScreenOpacity;
-            bloodImage.color = couleurBloodScreen;
-        }
-
-        if(FullOpaque == true)
-        {
-            if(increase == 0)
+            if (Input.GetButtonDown("Fire1"))
             {
-                bloodImage.color = Color.white;
-            }
+                RaycastHit hit;
+                Ray ShootingDirection = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
 
-            increase++;
-
-            if (increase >= 4)
-            {
-                increase = 0;
-                FullOpaque = false;
+                if (Physics.Raycast(ShootingDirection, out hit))
+                {
+                    if (hit.collider.tag == "Decor interractif")
+                    {
+                        hit.transform.SendMessage("HitByRaycast", SendMessageOptions.DontRequireReceiver);
+                    }
+                }
             }
         }
-}
+
+        else
+        {
+            if (PV <= 0)
+            {
+                meurt();
+            }
+
+            if (PV > PVMax)
+            {
+                PV = PVMax;
+            }
+
+            var theBarRectTransform = BarreDeVie.transform as RectTransform;
+            theBarRectTransform.sizeDelta = new Vector2(PV, theBarRectTransform.sizeDelta.y);
+
+            if (FullOpaque == false)
+            {
+                float Pv = PV;
+                BloodScreenOpacity = ((Pv / 100) * -1) + 1;
+
+                couleurBloodScreen.a = BloodScreenOpacity;
+                bloodImage.color = couleurBloodScreen;
+            }
+
+            else if (FullOpaque == true)
+            {
+                if (increase == 0.0f)
+                {
+                    bloodImage.color = Color.white;
+                }
+
+                increase += Time.deltaTime;
+
+                if (increase >= 0.2f)
+                {
+                    increase = 0.0f;
+                    FullOpaque = false;
+                }
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Vache")
+        if (other.gameObject.tag == "Vache" && FullOpaque == false)
         {
             PV = PV - DegatReçus;
             FullOpaque = true;
@@ -94,11 +136,26 @@ public class PointDeVieJoueur : MonoBehaviour {
         {
             PV = PV + PVReçus;
         }
+
+        if (other.gameObject.tag == "KillZone")
+        {
+            meurt();
+        }
     }
 
     void meurt()
     {
-        transform.position = SpawnQuandMort.transform.position;
+        var theBarRectTransform = furryScript.BarreDeFurry.transform as RectTransform;
+        theBarRectTransform.sizeDelta = new Vector2(0, theBarRectTransform.sizeDelta.y);
+        furryScript.animator.SetFloat("Attaque Couteau", 0f);
+        furryScript.AnimationWaitEnd = 0;
+        attaque.enabled = true;
+        furryScript.AnimBaguetteVersCouteau = false;
+        furryScript.AnimCouteauVersBaguette = false;
+        attaque.furry = 0;
+        weaponchange.BlockLeChangementDArme = true;
+        furryScript.AmenoPlayer.enabled = false;
+        baguette.enabled = false;
 
         Canvas.SetActive(false);
         pistolet.SetActive(false);
@@ -107,5 +164,17 @@ public class PointDeVieJoueur : MonoBehaviour {
         mitrailleur2.SetActive(false);
         bazooka.SetActive(false);
         Couteau.SetActive(false);
+
+        Mort = true;
+    }
+
+    public void Appuyé()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        //Canvas.SetActive(true);
+
+        //NouvelleVersion = Instantiate(gameObject);
+        //Destroy(gameObject);
     }
 }

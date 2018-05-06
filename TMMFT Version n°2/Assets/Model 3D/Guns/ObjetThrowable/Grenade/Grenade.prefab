@@ -526,6 +526,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 100010, guid: 36b1e5546835fa44f85830bf37b1b8a9, type: 2}
-  grenade: {fileID: 1417951601806490}
-  Player: {fileID: 0}
   canExplode: 0
+  boxTrigger: {fileID: 65819479544976678}

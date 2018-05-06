@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ArmoireScript : MonoBehaviour {
 
-    public GameObject Player;
+    private GameObject Player;
 
     public GameObject SpawnTéléport;
 
@@ -30,6 +30,8 @@ public class ArmoireScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Player = GameObject.FindWithTag("Player");
+
         animator = GetComponent<Animator>();
         PortailUtilisablee = Player.GetComponent<PortailUtilisable>();
         prendreobjet = Player.GetComponent<PrendreObjet>();

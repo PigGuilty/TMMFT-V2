@@ -69,7 +69,7 @@ public class ShootP_M : MonoBehaviour
                     }
 
                     if (hit.collider.tag == "Vache") {
-						target.TakeDamage (DegatArme);
+						target.TakeDamage (DegatArme,true);
 
 						if (hit.rigidbody != null) {
 							hit.rigidbody.AddForce (-hit.normal * DegatArme * 10);

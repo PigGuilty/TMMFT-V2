@@ -6,23 +6,46 @@ public class EffetGrenade : MonoBehaviour {
 
     public GameObject Explosion;
 
-    public GameObject grenade;
-    public GameObject Player;
+    private GameObject Player;
     private PrendreObjet prendreobjet;
 
     public bool canExplode;
+    private bool DébutDeLAction;
+
+    private float timer;
+
+    public BoxCollider boxTrigger;
 
     // Use this for initialization
     void Start () {
+        Player = GameObject.FindWithTag("Player");
+
+        DébutDeLAction = false;
         canExplode = false;
         prendreobjet = Player.GetComponent<PrendreObjet>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if(prendreobjet.ObjetPris == false)
+        if (boxTrigger.enabled == true)
+        {
+            DébutDeLAction = true;
+        }
+
+        if (prendreobjet.ObjetPris == false && DébutDeLAction == true)
         {
             canExplode = true;
+        }
+
+        if (canExplode == true)
+        {
+            if(timer >= 3)
+            {
+                GameObject Explo = Instantiate(Explosion);
+                Explo.transform.position = gameObject.transform.position;
+                Destroy(gameObject);
+            }
+            timer += Time.deltaTime;
         }
     }
 
@@ -30,9 +53,10 @@ public class EffetGrenade : MonoBehaviour {
     {
         if (canExplode == true)
         {
-			if (other.gameObject.tag != "Player") {
-				Instantiate(Explosion, other.contacts[0].point, Quaternion.LookRotation(other.contacts[0].normal));
-				Destroy(gameObject);
+			if (other.gameObject.tag == "Bullet") {
+                GameObject Explo = Instantiate(Explosion);
+                Explo.transform.position = gameObject.transform.position;
+                Destroy(gameObject);
 			}
         }
     }

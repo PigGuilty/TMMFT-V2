@@ -8,7 +8,7 @@ namespace UnityStandardAssets.Effects
     public class ExplosionPhysicsForce : MonoBehaviour
     {
         public float explosionForce = 4;
-
+        private float Degat;
 
         private IEnumerator Start()
         {
@@ -30,7 +30,34 @@ namespace UnityStandardAssets.Effects
             }
             foreach (var rb in rigidbodies)
             {
-                rb.AddExplosionForce(explosionForce*multiplier, transform.position, r, 1*multiplier, ForceMode.Impulse);
+                Target target = rb.transform.GetComponent<Target>();
+                if (target != null)
+                {
+                    float OldPos = rb.velocity.magnitude;
+                    rb.AddExplosionForce(explosionForce*multiplier, transform.position, r, 1*multiplier, ForceMode.Impulse);
+                    yield return new WaitForSeconds(0.1f);
+                    float NewPos = rb.velocity.magnitude;
+
+                    if (NewPos > OldPos)
+                    {
+                        Degat = NewPos - OldPos;
+                    }
+                    else
+                    {
+                        Degat =  OldPos - NewPos;
+                    }
+                    
+
+                    print(OldPos);
+                    print(NewPos);
+                    print(Degat);
+
+                    target.TakeDamage(Degat * explosionForce,true);
+                }
+                else
+                {
+                    rb.AddExplosionForce(explosionForce * multiplier, transform.position, r, 1 * multiplier, ForceMode.Impulse);
+                }
             }
         }
     }

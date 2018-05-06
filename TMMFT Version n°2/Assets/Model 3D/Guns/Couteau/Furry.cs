@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class Furry : MonoBehaviour {
 
+    public GameObject Player;
+
     private Attaque attaque;
     private Baguette baguette;
+    private WeaponChange weaponchange;
 
-    private Animator animator;
+    public Animator animator;
 
     private int AnimationLengthCouteau;
     private int AnimationLengthBaguette;
-    private int AnimationWaitEnd;
+    public int AnimationWaitEnd;
 
-    private bool AnimCouteauVersBaguette;
-    private bool AnimBaguetteVersCouteau;
+    public bool AnimCouteauVersBaguette;
+    public bool AnimBaguetteVersCouteau;
     public bool BlockLeChangementDArme;
 
     public GameObject BarreDeFurry;
 
     public AudioSource AmenoPlayer;
 
-    
-
     private void Awake()
     {
         attaque = GetComponent<Attaque>();
         baguette = GetComponent<Baguette>();
+        weaponchange = Player.GetComponent<WeaponChange>();
     }
 
     // Use this for initialization
@@ -35,10 +37,9 @@ public class Furry : MonoBehaviour {
         AnimCouteauVersBaguette = false;
         AnimBaguetteVersCouteau = false;
         AnimationLengthCouteau = 162;
-        AnimationLengthBaguette = 162;
+        AnimationLengthBaguette = 200;
         AnimationWaitEnd = 0;
         baguette.enabled = false;
-        BlockLeChangementDArme = false;
     }
 
     // Update is called once per frame
@@ -60,7 +61,7 @@ public class Furry : MonoBehaviour {
                     animator.Rebind();
                     animator.SetFloat("Attaque Couteau", 0.5f);
 
-                    BlockLeChangementDArme = true;
+                    weaponchange.BlockLeChangementDArme = true;
 
                     AmenoPlayer.enabled = true;
                     AmenoPlayer.Play();
@@ -80,18 +81,20 @@ public class Furry : MonoBehaviour {
 
             }
         }
-        if (attaque.furry <= -1)
+
+        else if (attaque.furry <= -1)
         {
-            baguette.enabled = false;
             AnimBaguetteVersCouteau = true;
             if (AnimBaguetteVersCouteau == true)
             {
                 if (AnimationWaitEnd == 0)
                 {
+                    baguette.enabled = false;
+
                     animator.Rebind();
                     animator.SetFloat("Attaque Couteau", 1f);
 
-                    StartCoroutine(FadeOut(AmenoPlayer, 5.0f));
+                    StartCoroutine(FadeOut(AmenoPlayer, 5f));
                 }
 
                 AnimationWaitEnd = AnimationWaitEnd + 1;
@@ -104,9 +107,8 @@ public class Furry : MonoBehaviour {
                     attaque.enabled = true;
                     AnimBaguetteVersCouteau = false;
                     attaque.furry = 0;
-                    BlockLeChangementDArme = false;
+                    weaponchange.BlockLeChangementDArme = false;
                 }
-
             }
         }
      }
@@ -125,5 +127,10 @@ public class Furry : MonoBehaviour {
         audioSource.Stop();
         audioSource.volume = startVolume;
         audioSource.enabled = false;
+    }
+
+    private void OnEnable()
+    {      
+        AmenoPlayer.enabled = false;
     }
 }

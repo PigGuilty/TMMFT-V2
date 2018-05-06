@@ -740,7 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e72bf1ea6b3f034bb83b6de7b6491a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vie: 50
+  Vie: 100
   mourir: {fileID: 198125781765161342, guid: b29346f11dd112745bdb31dd8b3fb392, type: 2}
   aie: {fileID: 8300000, guid: cc32018004ecb6242b6ae4002c592746, type: 3}
   meurt: {fileID: 8300000, guid: 7375cb4eb58c00b4dbaaf2d2f078b84a, type: 3}
