@@ -16,7 +16,6 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     private float widthOfLiveBar;
 
-    public GameObject SpawnDuJoueur;
     private GameObject NouvelleVersion;
 
     public GameObject SpawnQuandMort;
@@ -45,7 +44,6 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameObject.transform.position = SpawnDuJoueur.transform.position;
 
         PVMax = 100;
         PV = PVMax;
@@ -172,9 +170,11 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     public void Appuyé()
     {
-        Canvas.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-        NouvelleVersion = Instantiate(gameObject);
-        Destroy(gameObject);
+        //Canvas.SetActive(true);
+
+        //NouvelleVersion = Instantiate(gameObject);
+        //Destroy(gameObject);
     }
 }

@@ -50,7 +50,7 @@ public class Shoot : MonoBehaviour {
 
                 if (hit.collider.tag == "Vache")
                 {
-                    target.TakeDamage(DegatArme);
+                    target.TakeDamage(DegatArme,true);
 
 
                     if (hit.rigidbody != null)

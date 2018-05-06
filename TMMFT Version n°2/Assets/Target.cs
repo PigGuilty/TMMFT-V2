@@ -35,8 +35,9 @@ public class Target : MonoBehaviour {
     }
 
 
-    public void TakeDamage (float amount)
+    public void TakeDamage (float amount, bool PlaySound)
     {
+
         AudioSource audio = GetComponent<AudioSource>();
 
         Vie -= amount;
@@ -52,8 +53,11 @@ public class Target : MonoBehaviour {
 
         else
         {
-            audio.clip = aie;
-            audio.Play();
+            if(PlaySound == true)
+            {
+                audio.clip = aie;
+                audio.Play();
+            }
             SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
             Material[] mats = rend.materials;
             mats[1] = Red;

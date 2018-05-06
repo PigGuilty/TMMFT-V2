@@ -31,7 +31,7 @@ public class Baguette : MonoBehaviour {
 
     private bool alreadyActiveted;
 
-    private void Awake() {
+    private void Start() {
 		attaque = GetComponent<Attaque> ();
         particleSystemLaser1 = GameObjectparticleSystemLaser1.GetComponent<ParticleSystem>();
         particleSystemLaser2 = GameObjectparticleSystemLaser2.GetComponent<ParticleSystem>();
@@ -94,7 +94,7 @@ public class Baguette : MonoBehaviour {
 
                     FacteurMultiplicateur = (1.0f / Time.deltaTime) / 30;
                     NouveauDegat = DegatArme / FacteurMultiplicateur;
-                    target.TakeDamage(NouveauDegat);
+                    target.TakeDamage(NouveauDegat,true);
 
                     if (hit.rigidbody != null)
                     {

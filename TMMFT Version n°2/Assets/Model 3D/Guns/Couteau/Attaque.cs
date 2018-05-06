@@ -53,7 +53,7 @@ public class Attaque : MonoBehaviour {
 
                     if (hit.collider.tag == "Vache")
                     {
-                        target.TakeDamage(DegatArmeCouteau);
+                        target.TakeDamage(DegatArmeCouteau,true);
                         furry = furry + PointDeFurryGagnéParCoup;
                     }
 

@@ -52,7 +52,7 @@ namespace UnityStandardAssets.Effects
                     print(NewPos);
                     print(Degat);
 
-                    target.TakeDamage(Degat * explosionForce);
+                    target.TakeDamage(Degat * explosionForce,true);
                 }
                 else
                 {

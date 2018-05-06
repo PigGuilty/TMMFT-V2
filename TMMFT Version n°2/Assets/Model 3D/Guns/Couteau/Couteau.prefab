@@ -538,7 +538,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 1665a823ea46ebc4faca1372718efa54, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -589,6 +589,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484499d5b6e97564fad02c37dedda60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  animator: {fileID: 0}
+  AnimationWaitEnd: 0
+  AnimCouteauVersBaguette: 0
+  AnimBaguetteVersCouteau: 0
   BlockLeChangementDArme: 0
   BarreDeFurry: {fileID: 0}
   AmenoPlayer: {fileID: 82948233380909990}
