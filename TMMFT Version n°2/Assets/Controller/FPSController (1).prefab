@@ -2659,6 +2659,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1693954998694126}
+  animator: {fileID: 0}
+  AnimationWaitEnd: 0
+  AnimCouteauVersBaguette: 0
+  AnimBaguetteVersCouteau: 0
   BlockLeChangementDArme: 0
   BarreDeFurry: {fileID: 0}
   AmenoPlayer: {fileID: 82924869678562086}
@@ -2811,7 +2815,6 @@ MonoBehaviour:
   SpawnQuandMort: {fileID: 0}
   Canvas: {fileID: 0}
   BarreDeVie: {fileID: 0}
-  attaque: {fileID: 114416726749712878}
   pistolet: {fileID: 1420020601533276}
   fusil: {fileID: 1286130099301266}
   mitrailleur1: {fileID: 1508489047577386}
@@ -2888,7 +2891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b087b97a4e973c84eadd37b0ef1e7b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DegatArme: 3
+  DegatArme: 5
   LASER: {fileID: 1764435987098046}
   player: {fileID: 1187836245267072}
   GameObjectparticleSystemLaser1: {fileID: 1073876715840736}

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Baguette : MonoBehaviour {
 
     public float DegatArme;
+    private float NouveauDegat;
+    private float FacteurMultiplicateur;
 
     private Camera fpsCam;
 
@@ -46,7 +48,7 @@ public class Baguette : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (ok >= 0.052f && Input.GetButton ("Fire1"))
+        if (ok >= 0.052f && Input.GetButton ("Fire1"))
         {
             attaque.furry = attaque.furry - 1;
             ok = 0;
@@ -89,8 +91,10 @@ public class Baguette : MonoBehaviour {
 
                 if (hit.collider.tag == "Vache")
                 {
-                    target.TakeDamage(DegatArme);
 
+                    FacteurMultiplicateur = (1.0f / Time.deltaTime) / 30;
+                    NouveauDegat = DegatArme / FacteurMultiplicateur;
+                    target.TakeDamage(NouveauDegat);
 
                     if (hit.rigidbody != null)
                     {

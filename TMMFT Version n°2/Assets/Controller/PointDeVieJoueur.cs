@@ -41,7 +41,7 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     private float BloodScreenOpacity;
     private bool FullOpaque;
-    private int increase;
+    private float increase;
 
     // Use this for initialization
     void Start () {
@@ -108,18 +108,18 @@ public class PointDeVieJoueur : MonoBehaviour {
                 bloodImage.color = couleurBloodScreen;
             }
 
-            if (FullOpaque == true)
+            else if (FullOpaque == true)
             {
-                if (increase == 0)
+                if (increase == 0.0f)
                 {
                     bloodImage.color = Color.white;
                 }
 
-                increase++;
+                increase += Time.deltaTime;
 
-                if (increase >= 4)
+                if (increase >= 0.2f)
                 {
-                    increase = 0;
+                    increase = 0.0f;
                     FullOpaque = false;
                 }
             }
@@ -128,7 +128,7 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Vache")
+        if (other.gameObject.tag == "Vache" && FullOpaque == false)
         {
             PV = PV - DegatReçus;
             FullOpaque = true;
