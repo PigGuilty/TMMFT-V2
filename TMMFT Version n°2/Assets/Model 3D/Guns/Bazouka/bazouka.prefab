@@ -258,8 +258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TailleChargeur: 1
-  Missile: {fileID: 1455626842075426, guid: 52a988546c7cb0144a69074852400b5e, type: 2}
+  Missile: {fileID: 1889561412279214, guid: 648757e518fbb4749b3ae815aacbec63, type: 2}
   "PointDeD\xE9partDuMissile": {fileID: 1402809417844760}
+  tireBazooka: {fileID: 0}
 --- !u!137 &137214783394048114
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

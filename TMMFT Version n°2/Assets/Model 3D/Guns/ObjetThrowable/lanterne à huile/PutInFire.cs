@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class PutInFire : MonoBehaviour
 {
 
@@ -14,6 +16,11 @@ public class PutInFire : MonoBehaviour
 
     private bool BruleJoueur;
     private bool BruleVache;
+
+    public GameObject FeuPlayer;
+    private bool FeuPlayerDejaCree;
+
+    GameObject FeuPlayerInstanciate;
 
     // Use this for initialization
     void Start()
@@ -63,6 +70,13 @@ public class PutInFire : MonoBehaviour
                 StopCoroutine("BruleStopJoueur");
                 print("StartBurning");
                 BruleJoueur = true;
+
+                if(FeuPlayerDejaCree == false)
+                {
+                    FeuPlayerInstanciate = Instantiate(FeuPlayer, other.transform);
+                    FeuPlayerInstanciate.transform.position = other.transform.position;
+                    FeuPlayerDejaCree = true;
+                }
             }
         }
 
@@ -76,6 +90,8 @@ public class PutInFire : MonoBehaviour
             {
                 StopCoroutine("BruleStopVache");
                 BruleVache = true;
+                FeuPlayerInstanciate = Instantiate(FeuPlayer, other.transform);
+                FeuPlayerInstanciate.transform.position = other.transform.position;
             }
         }
     }
@@ -96,11 +112,14 @@ public class PutInFire : MonoBehaviour
     {
         yield return new WaitForSeconds(TempsPourArreterDeBruler);
         BruleJoueur = false;
+        FeuPlayerDejaCree = false;
+        Destroy(FeuPlayerInstanciate);
     }
 
     private IEnumerator BruleStopVache()
     {
         yield return new WaitForSeconds(TempsPourArreterDeBruler);
         BruleVache = false;
+        Destroy(FeuPlayerInstanciate);
     }
 }

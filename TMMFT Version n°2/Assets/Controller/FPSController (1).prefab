@@ -2811,7 +2811,6 @@ MonoBehaviour:
   PV: 0
   "DegatRe\xE7us": 20
   "PVRe\xE7us": 25
-  SpawnDuJoueur: {fileID: 0}
   SpawnQuandMort: {fileID: 0}
   Canvas: {fileID: 0}
   BarreDeVie: {fileID: 0}
@@ -2886,7 +2885,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163407913630246}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b087b97a4e973c84eadd37b0ef1e7b30, type: 3}
   m_Name: 
@@ -2980,7 +2979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TailleChargeur: 1
-  Missile: {fileID: 1455626842075426, guid: 52a988546c7cb0144a69074852400b5e, type: 2}
+  Missile: {fileID: 1616320010246750, guid: 648757e518fbb4749b3ae815aacbec63, type: 2}
   "PointDeD\xE9partDuMissile": {fileID: 1788450459760988}
   tireBazooka: {fileID: 8300000, guid: 6b6bb89953d43ab4aa217e3bc0293def, type: 3}
 --- !u!114 &114731181114512514
