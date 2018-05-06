@@ -1,29 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class VacheScript : MonoBehaviour {
 
-    Rigidbody rb;
+	public Transform goal;
+	private NavMeshAgent agent;
 
-    public float Speed;
-
-    // Use this for initialization
     void Start () {
-        rb = GetComponent<Rigidbody>();
+		agent = GetComponent<NavMeshAgent>();
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        Vector3 Newpos = Camera.main.transform.position - Vector3.up *3;
-
-        Vector3 PlayerDirection = Newpos - transform.position;
-
-        Quaternion rotation = Quaternion.LookRotation(PlayerDirection);
-        transform.rotation = rotation;
-
-        rb.AddForce(PlayerDirection * Speed);
-
-    }
-}
+	void Update() {
+		agent.destination = goal.position;
+	}
+}	

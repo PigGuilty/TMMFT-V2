@@ -20,7 +20,8 @@ public class Spawner : MonoBehaviour {
 		if (Counter <= 0) {
 			Counter = SpawnSpeed;
 
-			Instantiate(EnnemiPrefab, transform);
+			GameObject EnnemiPrefabInstanciate = Instantiate(EnnemiPrefab, transform);
+			EnnemiPrefabInstanciate.transform.position = transform.position;
 		}
 	}
 }
