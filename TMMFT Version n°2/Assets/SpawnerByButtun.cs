@@ -8,11 +8,13 @@ public class SpawnerByButtun : MonoBehaviour {
 
     public void Appuyé()
     {
-        Instantiate(EnnemiPrefab, transform);
+        GameObject EnnemiPrefabInstanciate = Instantiate(EnnemiPrefab, transform);
+        EnnemiPrefabInstanciate.transform.position = transform.position;
     }
 
     public void Relaché()
     {
-        Instantiate(EnnemiPrefab, transform);
+        GameObject EnnemiPrefabInstanciate = Instantiate(EnnemiPrefab, transform);
+        EnnemiPrefabInstanciate.transform.position = transform.position;
     }
 }

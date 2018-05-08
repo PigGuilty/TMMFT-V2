@@ -21,6 +21,7 @@ public class PutInFire : MonoBehaviour
     private bool FeuPlayerDejaCree;
 
     GameObject FeuPlayerInstanciate;
+    GameObject FeuVacheInstanciate;
 
     // Use this for initialization
     void Start()
@@ -68,7 +69,6 @@ public class PutInFire : MonoBehaviour
             }
             else {
                 StopCoroutine("BruleStopJoueur");
-                print("StartBurning");
                 BruleJoueur = true;
 
                 if(FeuPlayerDejaCree == false)
@@ -90,8 +90,11 @@ public class PutInFire : MonoBehaviour
             {
                 StopCoroutine("BruleStopVache");
                 BruleVache = true;
-                FeuPlayerInstanciate = Instantiate(FeuPlayer, other.transform);
-                FeuPlayerInstanciate.transform.position = other.transform.position;
+                if (other.GetComponentsInChildren<AudioSource>() != null)
+                {
+                    FeuVacheInstanciate = Instantiate(FeuPlayer, other.transform);
+                    FeuVacheInstanciate.transform.position = other.transform.position;
+                }
             }
         }
     }
@@ -120,6 +123,6 @@ public class PutInFire : MonoBehaviour
     {
         yield return new WaitForSeconds(TempsPourArreterDeBruler);
         BruleVache = false;
-        Destroy(FeuPlayerInstanciate);
+        Destroy(FeuVacheInstanciate);
     }
 }
