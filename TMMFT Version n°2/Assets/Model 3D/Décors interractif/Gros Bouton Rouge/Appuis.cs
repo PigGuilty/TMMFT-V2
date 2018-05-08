@@ -9,7 +9,7 @@ public class Appuis : MonoBehaviour {
     private bool appuyé;
     private bool EnAnimation;
 
-    private int AnimationWaitEnd;
+    private float AnimationWaitEnd;
     private int AnimationLength;
 
     public GameObject ObjetAvecLequelIlYAInterraction;
@@ -22,7 +22,6 @@ public class Appuis : MonoBehaviour {
         EnAnimation = false;
 
         AnimationWaitEnd = 0;
-        AnimationLength = 30;
 
         animator.SetFloat("Action", 1);
     }
@@ -54,9 +53,9 @@ public class Appuis : MonoBehaviour {
     void Update () {
         if (EnAnimation == true)
         {
-            AnimationWaitEnd = AnimationWaitEnd + 1;
-
-            if (AnimationWaitEnd >= AnimationLength)
+            AnimationWaitEnd += Time.deltaTime;
+            
+            if (AnimationWaitEnd >= 0.65f)
             {
                 AnimationWaitEnd = 0;
                 EnAnimation = false;

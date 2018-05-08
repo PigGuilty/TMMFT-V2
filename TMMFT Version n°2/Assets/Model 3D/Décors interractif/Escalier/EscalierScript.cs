@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EscalierScript : MonoBehaviour {
+public class EscalierScript : MonoBehaviour
+{
 
     private Animator animator;
 
@@ -10,10 +11,12 @@ public class EscalierScript : MonoBehaviour {
 
     private bool appuyé;
     private bool relaché;
+    private bool ChangementEtat;
 
-    private int increase;
-    // Use this for initialization
-    void Start () {
+    private float increase;
+
+    void Start()
+    {
         animator = GetComponent<Animator>();
 
         appuyé = false;
@@ -21,45 +24,57 @@ public class EscalierScript : MonoBehaviour {
 
         increase = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if (appuyé == true)
-        {
-            if(increase >= 2)
-            {
-                MarcheSuivante.transform.SendMessage("Appuyé", SendMessageOptions.DontRequireReceiver);
-                increase = 0;
-                appuyé = false;
-            }
-            increase++;
-        }
 
-        if (relaché == true)
+    void Update()
+    {
+        if(ChangementEtat == true)
         {
-            if (increase >= 2)
+            if(appuyé == true)
             {
-                MarcheSuivante.transform.SendMessage("Relaché", SendMessageOptions.DontRequireReceiver);
-                increase = 0;
-                relaché = false;
+                if(increase == 0)
+                {
+                    animator.Rebind();
+                    animator.SetFloat("Escalier", 1);
+                }
+
+                increase += Time.deltaTime;
+
+                if (increase >= 0.05f)
+                {
+                    MarcheSuivante.transform.SendMessage("Appuyé", SendMessageOptions.DontRequireReceiver);
+                    increase = 0;
+                    ChangementEtat = false;
+                }
             }
-            increase++;
+            else
+            {
+                if (increase == 0)
+                {
+                    animator.Rebind();
+                    animator.SetFloat("Escalier", 0);
+                }
+
+                increase += Time.deltaTime;
+
+                if (increase >= 0.05f)
+                {
+                    MarcheSuivante.transform.SendMessage("Relaché", SendMessageOptions.DontRequireReceiver);
+                    increase = 0;
+                    ChangementEtat = false;
+                }
+            }
         }
     }
 
     public void Appuyé()
     {
-        animator.Rebind();
-        animator.SetFloat("Escalier", 1);
-
-        appuyé = true;
+        ChangementEtat = true;
+        appuyé = !appuyé;
     }
 
     public void Relaché()
     {
-        animator.Rebind();
-        animator.SetFloat("Escalier", 0);
-
-        relaché = true;
+        ChangementEtat = true;
+        appuyé = !appuyé;
     }
 }

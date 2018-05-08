@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 114589474945140124}
   - component: {fileID: 23294408398469252}
   - component: {fileID: 195125645260051120}
+  - component: {fileID: 114425840579708480}
   m_Layer: 0
   m_Name: Vache
   m_TagString: Vache
@@ -717,6 +718,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114425840579708480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764770461818212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac9c3dfee8f0c24eb599707b1e7bac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeuPlayer: {fileID: 1026448641890638, guid: c0b242c3413ae294093014e2d32741f5, type: 2}
+  TempsPourArreterDeBruler: 5
+  TempsEntreChaquePvPerdu: 0.2
 --- !u!114 &114589474945140124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -817,7 +832,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 180
