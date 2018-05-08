@@ -5,14 +5,15 @@ using UnityEngine.AI;
 
 public class VacheScript : MonoBehaviour {
 
-	public Transform goal;
+	private GameObject goal;
 	private NavMeshAgent agent;
 
     void Start () {
 		agent = GetComponent<NavMeshAgent>();
+        goal = GameObject.FindWithTag("Player");
     }
 
 	void Update() {
-		agent.destination = goal.position;
+		agent.destination = goal.transform.position;
 	}
 }	
