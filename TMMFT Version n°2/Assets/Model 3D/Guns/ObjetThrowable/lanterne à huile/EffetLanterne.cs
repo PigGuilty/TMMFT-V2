@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EffetLanterne : MonoBehaviour {
 
+    public GameObject FireZone;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,6 +14,8 @@ public class EffetLanterne : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         //Effet De la lampe genre mettre du feu un peu partout
-        print("Effet De la lampe genre mettre du feu un peu partout");
+        GameObject FireZoneInstanciate = Instantiate(FireZone);
+        FireZoneInstanciate.transform.position = gameObject.transform.position;
+        Destroy(gameObject);
     }
 }

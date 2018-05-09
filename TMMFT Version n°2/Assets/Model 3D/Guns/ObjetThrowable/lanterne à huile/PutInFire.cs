@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(AudioSource))]
-
 public class PutInFire : MonoBehaviour
 {
 
@@ -19,14 +17,28 @@ public class PutInFire : MonoBehaviour
     public GameObject FeuPlayer;
     private bool FeuPlayerDejaCree;
 
+    public bool Desactivé;
+    public bool GoDestruction;
+    private bool Permission;
+
     GameObject FeuPlayerInstanciate;
 
-    public GameObject FlameLogo;
+    private GameObject FlameLogo;
 
     // Use this for initialization
     void Start()
     {
+        Desactivé = false;
         BruleJoueur = false;
+        Permission = true;
+        GameObject Canvas = GameObject.Find("Canvas");
+        foreach(Transform child in Canvas.transform)
+        {
+            if(child.name == "flame")
+            {
+                FlameLogo = child.gameObject;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -43,45 +55,68 @@ public class PutInFire : MonoBehaviour
                 increase += Time.deltaTime;
             }
         }
+
+        if(Desactivé == true && Permission == true)
+        {
+            GoDestruction = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (Desactivé == false)
         {
-            if (pvJoueur == null)
+            if (other.gameObject.tag == "Player")
             {
-                pvJoueur = other.gameObject.GetComponent<PointDeVieJoueur>();
-            }
-            else {
-                StopCoroutine("BruleStopJoueur");
-                BruleJoueur = true;
-                FlameLogo.SetActive(true);
-
-                if (FeuPlayerDejaCree == false)
+                if (pvJoueur == null)
                 {
-                    FeuPlayerInstanciate = Instantiate(FeuPlayer, other.transform);
-                    FeuPlayerInstanciate.transform.position = other.transform.position;
-                    FeuPlayerDejaCree = true;
+                    pvJoueur = other.gameObject.GetComponent<PointDeVieJoueur>();
+                }
+                else
+                {
+                    StopCoroutine("BruleStopJoueur");
+                    BruleJoueur = true;
+                    FlameLogo.SetActive(true);
+
+                    if (FeuPlayerDejaCree == false)
+                    {
+                        FeuPlayerInstanciate = Instantiate(FeuPlayer, other.transform);
+                        FeuPlayerInstanciate.transform.position = other.transform.position;
+                        FeuPlayerDejaCree = true;
+                    }
                 }
             }
-        }
 
-        if (other.gameObject.tag == "Vache")
-        {
-            other.gameObject.SendMessage("DébutBrule", SendMessageOptions.DontRequireReceiver);
+            if (other.gameObject.tag == "Vache")
+            {
+                other.gameObject.SendMessage("DébutBrule", SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (Desactivé == false)
+        {
+            Permission = false;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if(Desactivé == true)
         {
-            StartCoroutine("BruleStopJoueur");
+            GoDestruction = true;
         }
-        if (other.gameObject.tag == "Vache")
+        if (GoDestruction == false)
         {
-            other.gameObject.SendMessage("StopBrule", SendMessageOptions.DontRequireReceiver);
+            if (other.gameObject.tag == "Player")
+            {
+                StartCoroutine("BruleStopJoueur");
+            }
+            if (other.gameObject.tag == "Vache")
+            {
+                other.gameObject.SendMessage("StopBrule", SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 
