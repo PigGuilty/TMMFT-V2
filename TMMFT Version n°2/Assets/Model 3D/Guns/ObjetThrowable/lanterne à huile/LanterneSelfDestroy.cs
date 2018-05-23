@@ -11,7 +11,6 @@ public class LanterneSelfDestroy : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        print("d'acc");
         putinfire = gameObject.GetComponent<PutInFire>();
         starting = true;
         increaser = 0;
@@ -25,7 +24,6 @@ public class LanterneSelfDestroy : MonoBehaviour {
 
             if(increaser >= DuréeDeVie)
             {
-                print("oki");
                 starting = false;
                 putinfire.Desactivé = true;
                 increaser = 0;

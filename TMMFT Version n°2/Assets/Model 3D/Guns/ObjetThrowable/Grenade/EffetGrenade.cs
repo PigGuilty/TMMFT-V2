@@ -35,6 +35,7 @@ public class EffetGrenade : MonoBehaviour {
         if (prendreobjet.ObjetPris == false && DébutDeLAction == true)
         {
             canExplode = true;
+            gameObject.tag = "Untagged"; 
         }
 
         if (canExplode == true)
