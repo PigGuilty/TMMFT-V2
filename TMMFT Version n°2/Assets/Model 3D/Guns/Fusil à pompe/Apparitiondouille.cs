@@ -22,10 +22,4 @@ public class Apparitiondouille : MonoBehaviour
         rb.AddForce(rightForce * Random.Range(100f, 200f));
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

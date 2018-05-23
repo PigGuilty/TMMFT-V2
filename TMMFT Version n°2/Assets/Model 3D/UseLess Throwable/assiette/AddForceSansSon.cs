@@ -6,8 +6,8 @@ public class AddForceSansSon : MonoBehaviour {
 
     public assièteBreking assièteBreking;
 
-    private int RandomNumber;
-    private int increase;
+    private float RandomNumber;
+    private float increase;
 
     private int NombreDeFoisQuilAJoueLeSon;
 
@@ -19,7 +19,7 @@ public class AddForceSansSon : MonoBehaviour {
 
         rb.AddForce(assièteBreking.dir * 500);
 
-        RandomNumber = Random.Range(700, 740);
+        RandomNumber = Random.Range(29, 31);
     }
 
     private void Update()
@@ -28,7 +28,6 @@ public class AddForceSansSon : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
-        increase++;
+        increase += Time.deltaTime;
     }
 }

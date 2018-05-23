@@ -29,10 +29,4 @@ public class ApparitionP_M : MonoBehaviour
 			rb.AddForce (rightForce * Random.Range (-20f, -200f));
 		}
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

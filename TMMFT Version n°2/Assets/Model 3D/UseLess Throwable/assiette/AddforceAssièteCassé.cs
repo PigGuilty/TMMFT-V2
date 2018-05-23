@@ -8,8 +8,8 @@ public class AddforceAssièteCassé : MonoBehaviour {
 
     public assièteBreking assièteBreking;
 
-    private int RandomNumber;
-    private int increase;
+    private float RandomNumber;
+    private float increase;
 
     private int SelectionOfSound;
 
@@ -31,7 +31,7 @@ public class AddforceAssièteCassé : MonoBehaviour {
 
         rb.AddForce(assièteBreking.dir * 500);
 
-        RandomNumber = Random.Range(700, 740);
+        RandomNumber = Random.Range(29, 31);
 
         SelectionOfSound = Random.Range(0, 4);
         NombreDeFoisQuilAJoueLeSon = 0;
@@ -45,7 +45,7 @@ public class AddforceAssièteCassé : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        increase++;
+        increase += Time.deltaTime;
 
         if (NombreDeFoisQuilAJoueLeSon >= 10)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PortailUtilisable : MonoBehaviour {
 
     public bool PortailUtilisablee;
-    private int TempsPortailReload;
+    private float TempsPortailReload;
 
     // Use this for initialization
     void Start () {
@@ -17,12 +17,12 @@ public class PortailUtilisable : MonoBehaviour {
 	void Update () {
         if(PortailUtilisablee == false)
         {
-            if (TempsPortailReload >= 20)
+            if (TempsPortailReload >= 0.4f)
             {
                 PortailUtilisablee = true;
                 TempsPortailReload = 0;
             }
-            TempsPortailReload++;
+            TempsPortailReload += Time.deltaTime;
         }
 
     }

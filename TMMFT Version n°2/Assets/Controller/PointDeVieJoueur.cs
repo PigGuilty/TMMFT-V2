@@ -171,10 +171,5 @@ public class PointDeVieJoueur : MonoBehaviour {
     public void Appuyé()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-        //Canvas.SetActive(true);
-
-        //NouvelleVersion = Instantiate(gameObject);
-        //Destroy(gameObject);
     }
 }

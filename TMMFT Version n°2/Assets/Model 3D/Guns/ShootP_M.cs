@@ -7,9 +7,9 @@ public class ShootP_M : MonoBehaviour
 
     public float DegatArme;
     public int TailleChargeur;
-	public int shootPerFrame;
-	public string button;
-	private int Counter;
+	public float SecondsBetweenShot;
+	public string Button;
+	private float Counter;
     private int BalleRestante;
 
     public ParticleSystem Tire;
@@ -22,8 +22,8 @@ public class ShootP_M : MonoBehaviour
         
     private Animator animator;
 
-    private int AnimationLength;
-    private int AnimationWaitEnd;
+    private float AnimationLength;
+    private float AnimationWaitEnd;
 
     public GameObject DouilleAInstanciate;
     public GameObject PositionSpawnDouille;
@@ -34,9 +34,9 @@ public class ShootP_M : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
-        AnimationLength = 50;
+        AnimationLength = 1.25f;
         AnimationWaitEnd = 0;
-		Counter = shootPerFrame;
+		Counter = 0;
     }
 
     // Update is called once per frame
@@ -48,7 +48,7 @@ public class ShootP_M : MonoBehaviour
         if (BalleRestante > 0)
         {
 
-			if (Input.GetButton (button) && Counter == 0) {
+			if (Input.GetButton (Button) && Counter <= 0) {
 
 				Tire.Play ();
 
@@ -114,13 +114,12 @@ public class ShootP_M : MonoBehaviour
 
                 BalleRestante = BalleRestante - 1;
 
-				Counter = shootPerFrame;
-			} else if (Input.GetButton ("Fire1")) {
-				Counter--;
+				Counter = SecondsBetweenShot;
+			} else if (Input.GetButton (Button)) {
+				Counter -= Time.deltaTime;
 			} else {
 				Counter = 0;
 			}
-
         }
 
         if (BalleRestante <= 0)
@@ -136,7 +135,7 @@ public class ShootP_M : MonoBehaviour
                 Destroy(ClonePMGO, 10f);
             }
 
-            AnimationWaitEnd = AnimationWaitEnd + 1;
+            AnimationWaitEnd += Time.deltaTime;
 
             //attendre fin de l'annimation
             if (AnimationWaitEnd >= AnimationLength)

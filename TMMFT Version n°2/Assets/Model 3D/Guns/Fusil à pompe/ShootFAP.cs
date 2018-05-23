@@ -22,20 +22,23 @@ public class ShootFAP : MonoBehaviour
 
     private Animator animator;
 
-    private int AnimationLength;
-    private int AnimationWaitEnd;
+    private float AnimationLength;
+    private float AnimationWaitEnd;
 
     public AudioSource audioFAP;
 
     public AudioClip Paf;
     public AudioClip Rechargement;
 
+    private bool douilleApparue;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
-        AnimationLength = 50;
+        AnimationLength = 0.83f;
         AnimationWaitEnd = 0;
+        douilleApparue = false;
     }
     
     // Update is called once per frame
@@ -131,9 +134,9 @@ public class ShootFAP : MonoBehaviour
                 animator.SetFloat("Reload", 1);
             }
 
-            AnimationWaitEnd = AnimationWaitEnd + 1;
+            AnimationWaitEnd += Time.deltaTime;
 
-            if (AnimationWaitEnd == 10)
+            if (AnimationWaitEnd >= AnimationLength/4 && douilleApparue == false)
             {
                 Vector3 lookrot2 = new Vector3(lookRot.x + Random.Range(-0.4f, 0.4f), lookRot.y + Random.Range(-0.4f, 0.4f), lookRot.z + Random.Range(-0.4f, 0.4f));
 
@@ -143,6 +146,8 @@ public class ShootFAP : MonoBehaviour
                 audioFAP = gameObject.GetComponent<AudioSource>();
                 audioFAP.clip = Rechargement;
                 audioFAP.Play();
+
+                douilleApparue = true;
             }
                 //attendre fin de l'annimation
                 if (AnimationWaitEnd >= AnimationLength)
@@ -150,6 +155,7 @@ public class ShootFAP : MonoBehaviour
                 animator.SetFloat("Reload", 0);
                 BalleRestante = TailleChargeur;
                 AnimationWaitEnd = 0;
+                douilleApparue = false;
             }
             
         }

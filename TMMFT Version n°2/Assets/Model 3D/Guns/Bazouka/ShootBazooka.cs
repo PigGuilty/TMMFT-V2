@@ -11,8 +11,8 @@ public class ShootBazooka : MonoBehaviour
 
     private Animator animator;
 
-    private int AnimationLength;
-    private int AnimationWaitEnd;
+    private float AnimationLength;
+    private float AnimationWaitEnd;
 
     public GameObject Missile;
     public GameObject PointDeDépartDuMissile;
@@ -23,7 +23,7 @@ public class ShootBazooka : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
-        AnimationLength = 250;
+        AnimationLength = 4.17f;
         AnimationWaitEnd = 0;
     }
 
@@ -57,7 +57,7 @@ public class ShootBazooka : MonoBehaviour
                 animator.SetFloat("Reload", 1);
             }
 
-            AnimationWaitEnd = AnimationWaitEnd + 1;
+            AnimationWaitEnd += Time.deltaTime;
 
             //attendre fin de l'annimation
             if (AnimationWaitEnd >= AnimationLength)

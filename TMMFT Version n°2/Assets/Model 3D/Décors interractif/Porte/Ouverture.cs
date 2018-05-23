@@ -17,8 +17,8 @@ public class Ouverture : MonoBehaviour {
 
     private bool EnAnimation;
 
-    private int AnimationWaitEnd;
-    private int AnimationLength;
+    private float AnimationWaitEnd;
+    private float AnimationLength;
 
     public AudioClip SonOuverture;
     public AudioClip SonFermeture;
@@ -34,7 +34,7 @@ public class Ouverture : MonoBehaviour {
 
         EnAnimation = false;
         AnimationWaitEnd = 0;
-        AnimationLength = 30;
+        AnimationLength = 0.58f;
     }
 
     public void HitByRaycast()
@@ -78,7 +78,7 @@ public class Ouverture : MonoBehaviour {
     {
         if(EnAnimation == true)
         {
-            AnimationWaitEnd = AnimationWaitEnd + 1;
+            AnimationWaitEnd += Time.deltaTime;
 
             if (AnimationWaitEnd >= AnimationLength)
             {

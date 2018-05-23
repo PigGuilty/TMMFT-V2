@@ -36,7 +36,9 @@ public class Baguette : MonoBehaviour {
         particleSystemLaser1 = GameObjectparticleSystemLaser1.GetComponent<ParticleSystem>();
         particleSystemLaser2 = GameObjectparticleSystemLaser2.GetComponent<ParticleSystem>();
 
-        ok = 0.05f;
+        particleSystemLaser1.enableEmission = false;
+        particleSystemLaser2.enableEmission = false;
+        ok = 0f;
 
         fpsCam = Camera.main;
 
@@ -48,12 +50,12 @@ public class Baguette : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (ok >= 0.052f && Input.GetButton ("Fire1"))
+        if (ok >= 0.061f && Input.GetButton ("Fire1"))
         {
             attaque.furry = attaque.furry - 1;
             ok = 0;
         }
-		if (ok < 0.052f && Input.GetButton ("Fire1"))
+		if (ok < 0.061f && Input.GetButton ("Fire1"))
         {
 			ok += Time.deltaTime;
         }
@@ -117,7 +119,6 @@ public class Baguette : MonoBehaviour {
 
 	void OnDisable(){
 		player.transform.SendMessage ("Stop", SendMessageOptions.DontRequireReceiver);
-		LASER.SetActive (false);
         particleSystemLaser1.enableEmission = false;
         particleSystemLaser2.enableEmission = false;
         Audio.Stop();
@@ -128,5 +129,7 @@ public class Baguette : MonoBehaviour {
     private void OnEnable()
     {
         LASER.SetActive(true);
+        particleSystemLaser1.enableEmission = false;
+        particleSystemLaser2.enableEmission = false;
     }
 }

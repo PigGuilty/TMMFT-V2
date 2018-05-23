@@ -12,9 +12,9 @@ public class Furry : MonoBehaviour {
 
     public Animator animator;
 
-    private int AnimationLengthCouteau;
-    private int AnimationLengthBaguette;
-    public int AnimationWaitEnd;
+    private float AnimationLengthCouteau;
+    private float AnimationLengthBaguette;
+    public float AnimationWaitEnd;
 
     public bool AnimCouteauVersBaguette;
     public bool AnimBaguetteVersCouteau;
@@ -36,8 +36,8 @@ public class Furry : MonoBehaviour {
         animator = GetComponent<Animator>();
         AnimCouteauVersBaguette = false;
         AnimBaguetteVersCouteau = false;
-        AnimationLengthCouteau = 162;
-        AnimationLengthBaguette = 200;
+        AnimationLengthCouteau = 3.33f;
+        AnimationLengthBaguette = 3.33f;
         AnimationWaitEnd = 0;
         baguette.enabled = false;
     }
@@ -67,7 +67,7 @@ public class Furry : MonoBehaviour {
                     AmenoPlayer.Play();
                 }
 
-                AnimationWaitEnd = AnimationWaitEnd + 1;
+                AnimationWaitEnd += Time.deltaTime;
 
                 //attendre fin de l'annimation
                 if (AnimationWaitEnd >= AnimationLengthCouteau)
@@ -97,7 +97,7 @@ public class Furry : MonoBehaviour {
                     StartCoroutine(FadeOut(AmenoPlayer, 5f));
                 }
 
-                AnimationWaitEnd = AnimationWaitEnd + 1;
+                AnimationWaitEnd += Time.deltaTime;
 
                 //attendre fin de l'annimation
                 if (AnimationWaitEnd >= AnimationLengthBaguette)

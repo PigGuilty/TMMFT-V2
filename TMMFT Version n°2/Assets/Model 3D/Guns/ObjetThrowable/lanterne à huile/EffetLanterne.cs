@@ -6,11 +6,6 @@ public class EffetLanterne : MonoBehaviour {
 
     public GameObject FireZone;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-
     private void OnTriggerEnter(Collider other)
     {
         //Effet De la lampe genre mettre du feu un peu partout

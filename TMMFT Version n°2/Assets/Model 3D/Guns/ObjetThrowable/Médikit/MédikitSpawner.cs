@@ -7,14 +7,14 @@ public class MédikitSpawner : MonoBehaviour
 
     public int SpawnSpeed;
     public GameObject Médikit;
-    private int Counter;
+    private float Counter;
 
     private 
 
     // Use this for initialization
     void Start()
     {
-        Counter = SpawnSpeed + 1;
+        Counter = SpawnSpeed;
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class MédikitSpawner : MonoBehaviour
     {
         if (Médikit.activeSelf == false)
         {
-            Counter--;
+            Counter -= Time.deltaTime;
 
             if (Counter <= 0)
             {

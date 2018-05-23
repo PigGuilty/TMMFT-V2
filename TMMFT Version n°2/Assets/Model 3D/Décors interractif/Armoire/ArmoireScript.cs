@@ -17,11 +17,11 @@ public class ArmoireScript : MonoBehaviour {
     PortailUtilisable PortailUtilisablee;
     PrendreObjet prendreobjet;
 
-    private int AnimationLengthOuverture;
-    private int AnimationWaitEndOuverture;
+    private float AnimationLengthOuverture;
+    private float AnimationWaitEndOuverture;
 
-    private int AnimationLengthTremblement;
-    private int AnimationWaitEndTremblement;
+    private float AnimationLengthTremblement;
+    private float AnimationWaitEndTremblement;
 
     private int TempsPortailReload;
 
@@ -39,10 +39,10 @@ public class ArmoireScript : MonoBehaviour {
         AnimationOuverture = false;
         Ouvert = false;
 
-        AnimationLengthOuverture = 50;
+        AnimationLengthOuverture = 1.04f;
         AnimationWaitEndOuverture = 0;
 
-        AnimationLengthTremblement = 60;
+        AnimationLengthTremblement = 2f;
         AnimationWaitEndTremblement = 0;
 
         animator.SetFloat("Armoire", 0.0f);
@@ -65,7 +65,7 @@ public class ArmoireScript : MonoBehaviour {
                 audio.Play();
             }
 
-            AnimationWaitEndOuverture = AnimationWaitEndOuverture + 1;
+            AnimationWaitEndOuverture += Time.deltaTime;
 
             if (AnimationWaitEndOuverture >= AnimationLengthOuverture)
             {
@@ -90,7 +90,7 @@ public class ArmoireScript : MonoBehaviour {
                     animator.SetFloat("Armoire", 0.33f);
                 }
 
-                AnimationWaitEndTremblement = AnimationWaitEndTremblement + 1;
+                AnimationWaitEndTremblement += Time.deltaTime;
 
                 if (AnimationWaitEndTremblement >= AnimationLengthTremblement)
                 {

@@ -944,7 +944,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788450459760988}
   m_LocalRotation: {x: -0, y: 0.7071067, z: -0, w: 0.7071069}
-  m_LocalPosition: {x: 5.08, y: 0.2472535, z: 0.01}
+  m_LocalPosition: {x: 1.37, y: 0.2472535, z: 0.01}
   m_LocalScale: {x: 2.7533834, y: 2.7533834, z: 2.7533844}
   m_Children: []
   m_Father: {fileID: 4634864616351304}
@@ -2780,9 +2780,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DegatArme: 4
-  TailleChargeur: 20
-  shootPerFrame: 1
-  button: Fire1
+  TailleChargeur: 50
+  SecondsBetweenShot: 0.03
+  Button: Fire1
   Tire: {fileID: 198158507340071936}
   impactEffect1: {fileID: 1977401591996322, guid: fa108d22c4490394bb4ca6893425d43c,
     type: 2}
@@ -2921,9 +2921,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DegatArme: 4
-  TailleChargeur: 20
-  shootPerFrame: 1
-  button: Fire2
+  TailleChargeur: 50
+  SecondsBetweenShot: 0.03
+  Button: Fire2
   Tire: {fileID: 198158507340071936}
   impactEffect1: {fileID: 1977401591996322, guid: fa108d22c4490394bb4ca6893425d43c,
     type: 2}

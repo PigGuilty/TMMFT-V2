@@ -18,8 +18,8 @@ public class Attaque : MonoBehaviour {
 
     private Animator animator;
 
-    private int AnimationLength;
-    private int AnimationWaitEnd;
+    private float AnimationLength;
+    private float AnimationWaitEnd;
 
     public AudioClip SonAttaque;
 
@@ -27,7 +27,7 @@ public class Attaque : MonoBehaviour {
     {
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
-        AnimationLength = 45;
+        AnimationLength = 0.83f;
         AnimationWaitEnd = 0;
         furry = 0;
         furryMax = 100;
@@ -76,7 +76,7 @@ public class Attaque : MonoBehaviour {
                 animator.SetFloat("Attaque Couteau", 0.25f);
             }
 
-            AnimationWaitEnd = AnimationWaitEnd + 1;
+            AnimationWaitEnd += Time.deltaTime;
 
             //attendre fin de l'annimation
             if (AnimationWaitEnd >= AnimationLength)

@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d80d7c4abece8949b3ba71fe84698f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnSpeed: 720
+  SpawnSpeed: 30
   "M\xE9dikit": {fileID: 1054548672581252}
 --- !u!114 &114665728798371540
 MonoBehaviour:
