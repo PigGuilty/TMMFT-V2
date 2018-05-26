@@ -18,6 +18,7 @@ public class PrendreObjet : MonoBehaviour
     public GameObject mitrailleur2;
     public GameObject bazooka;
     public GameObject Couteau;
+    public GameObject Loupe;
 
     public bool ObjetPris;
 
@@ -59,6 +60,7 @@ public class PrendreObjet : MonoBehaviour
                     mitrailleur2.SetActive(false);
                     bazooka.SetActive(false);
                     Couteau.SetActive(false);
+                    Loupe.SetActive(false);
 
                     PositionObjet.transform.rotation = PlacePourObjet.transform.rotation;
                     PositionObjet.transform.position = PlacePourObjet.transform.position;

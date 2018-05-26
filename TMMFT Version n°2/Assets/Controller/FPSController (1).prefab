@@ -3035,6 +3035,7 @@ MonoBehaviour:
   mitrailleur2: {fileID: 1105693614715662}
   bazooka: {fileID: 1671012281084288}
   Couteau: {fileID: 1163407913630246}
+  Loupe: {fileID: 1087137234851380}
   ObjetPris: 0
 --- !u!114 &114457660726764738
 MonoBehaviour:
