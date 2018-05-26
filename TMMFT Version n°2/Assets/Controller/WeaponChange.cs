@@ -13,6 +13,8 @@ public class WeaponChange : MonoBehaviour {
     public GameObject bazooka;
     public GameObject Couteau;
 
+    public GameObject Loupe;
+
     private int IDWeaponDemandé;
     private bool DemandeChangementArme;
     public bool BlockLeChangementDArme;
@@ -21,6 +23,8 @@ public class WeaponChange : MonoBehaviour {
 
     public AudioClip changement;
 
+    public bool LoupeObtenue;
+
     // Use this for initialization
     void Start () {
         prendreobjet = gameObject.GetComponent<PrendreObjet>();
@@ -28,6 +32,7 @@ public class WeaponChange : MonoBehaviour {
         IDWeaponDemandé = 1;
         DemandeChangementArme = true;
         BlockLeChangementDArme = false;
+        LoupeObtenue = false;
     }
 	
 	// Update is called once per frame
@@ -40,6 +45,12 @@ public class WeaponChange : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Alpha5))
             {
                 DemandeChangementArme = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.L) && LoupeObtenue == true)
+            {
+                DemandeChangementArme = true;
+                IDWeaponDemandé = 6;
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -90,6 +101,7 @@ public class WeaponChange : MonoBehaviour {
                 mitrailleur2.SetActive(false);
                 bazooka.SetActive(false);
                 Couteau.SetActive(false);
+                Loupe.SetActive(false);
 
                 if (IDWeaponDemandé == 1)
                 {
@@ -111,6 +123,10 @@ public class WeaponChange : MonoBehaviour {
                 else if (IDWeaponDemandé == 5)
                 {
                     Couteau.SetActive(true);
+                }
+                else if (IDWeaponDemandé == 6)
+                {
+                    Loupe.SetActive(true);
                 }
 
                 AudioSource audio = gameObject.GetComponent<AudioSource>();

@@ -33,6 +33,7 @@ public class PointDeVieJoueur : MonoBehaviour {
     public GameObject mitrailleur2;
     public GameObject bazooka;
     public GameObject Couteau;
+    public GameObject Loupe;
 
     public GameObject BloodScreen;
     private Image bloodImage;
@@ -164,6 +165,7 @@ public class PointDeVieJoueur : MonoBehaviour {
         mitrailleur2.SetActive(false);
         bazooka.SetActive(false);
         Couteau.SetActive(false);
+        Loupe.SetActive(false);
 
         Mort = true;
     }

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65397091908891768}
   m_Layer: 0
   m_Name: Loupe
-  m_TagString: Objet
+  m_TagString: Loupe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3ef17c8563dca194b8228010f8b669f7, type: 2}
+  - {fileID: 2100000, guid: a7f2db57a1e7cea4981713460b6d01de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

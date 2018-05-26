@@ -24,10 +24,13 @@ public class PrendreObjet : MonoBehaviour
     private string ObjectName;
     private GameObject ObjectQuiEstPris;
 
+    private WeaponChange weaponChange;
+
     // Use this for initialization
     void Start()
     {
         ObjetPris = false;
+        weaponChange = gameObject.GetComponent<WeaponChange>();
     }
 
     // Update is called once per frame
@@ -61,6 +64,13 @@ public class PrendreObjet : MonoBehaviour
                     PositionObjet.transform.position = PlacePourObjet.transform.position;
                     rigidbody.isKinematic = true;
                     PositionObjet.transform.parent = PlacePourObjet.transform;
+                }
+
+                if (hit.collider.tag == "Loupe")
+                {
+                    weaponChange.LoupeObtenue = true;
+
+                    Destroy(hit.collider.gameObject);
                 }
             }
 
