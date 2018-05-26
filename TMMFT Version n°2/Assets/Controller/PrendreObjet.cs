@@ -19,6 +19,7 @@ public class PrendreObjet : MonoBehaviour
     public GameObject bazooka;
     public GameObject Couteau;
     public GameObject Loupe;
+    public GameObject TextLoupe;
 
     public bool ObjetPris;
 
@@ -71,6 +72,7 @@ public class PrendreObjet : MonoBehaviour
                 if (hit.collider.tag == "Loupe")
                 {
                     weaponChange.LoupeObtenue = true;
+                    TextLoupe.SetActive(true);
 
                     Destroy(hit.collider.gameObject);
                 }
