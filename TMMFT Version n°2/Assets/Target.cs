@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 
@@ -21,6 +22,11 @@ public class Target : MonoBehaviour {
 
     private int waiting;
 
+	private int score;
+	private GameObject ScoreTextObject;
+	private Text ScoreText;
+	private string scoreEnText;
+
     public void Start()
     {
         SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
@@ -32,6 +38,11 @@ public class Target : MonoBehaviour {
         Trigger = GetComponent<Collider>();
 
         waiting = 0;
+
+		ScoreTextObject = GameObject.Find ("Score");
+		ScoreText = ScoreTextObject.GetComponent<Text> ();
+		scoreEnText = ScoreText.text.Replace ("Score : ", "");
+		score = int.Parse (scoreEnText);
     }
 
 
@@ -45,10 +56,16 @@ public class Target : MonoBehaviour {
         if(Vie <= 0)
         {
             Trigger.enabled = false;
+			gameObject.layer = 2;
+
             audio.clip = meurt;
             audio.Play();
             mourir.Play();
-            Destroy(gameObject, audio.clip.length);
+
+			score++;
+			ScoreText.text = "Score : " + score.ToString ();
+
+			Destroy(gameObject, audio.clip.length);
         }
 
         else
@@ -70,7 +87,6 @@ public class Target : MonoBehaviour {
 
     public void Update()
     {
-
         SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
         Material[] mats = rend.materials;
 
