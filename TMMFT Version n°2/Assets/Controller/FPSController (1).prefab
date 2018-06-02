@@ -3036,7 +3036,10 @@ MonoBehaviour:
   bazooka: {fileID: 1671012281084288}
   Couteau: {fileID: 1163407913630246}
   Loupe: {fileID: 1087137234851380}
+  TextLoupe: {fileID: 0}
   ObjetPris: 0
+  wood: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
+  metal: {fileID: 13400000, guid: 47aaf544ec8910948868df3ab15c0e70, type: 2}
 --- !u!114 &114457660726764738
 MonoBehaviour:
   m_ObjectHideFlags: 1

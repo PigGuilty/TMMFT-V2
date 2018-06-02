@@ -76,6 +76,18 @@ public class PrendreObjet : MonoBehaviour
 
                     Destroy(hit.collider.gameObject);
                 }
+
+				if (hit.collider.tag == "Meuble" && hit.collider.isTrigger == true)
+				{
+					print (hit.collider.material.name);
+					if (hit.collider.material.name == "Wood (Instance)") {
+						hit.transform.SendMessage ("OuvrirGauche", SendMessageOptions.DontRequireReceiver);
+					}
+
+					if (hit.collider.material.name == "Metal (Instance)") {
+						hit.transform.SendMessage ("OuvrirDroite", SendMessageOptions.DontRequireReceiver);
+					}
+				}
             }
 
         }
