@@ -135,8 +135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac407b734efb4980773631b50891c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyGauche: 0
+  keyDroite: 0
   BoxGauche: {fileID: 65634810211178900}
   BoxDroite: {fileID: 65436220300864148}
+  EnAnimationDroit: 0
+  EnAnimationGauche: 0
 --- !u!137 &137285396566804892
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

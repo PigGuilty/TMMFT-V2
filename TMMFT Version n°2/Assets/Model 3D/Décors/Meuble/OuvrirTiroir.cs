@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class OuvrirTiroir : MonoBehaviour {
 
-	private float keyGauche = 0.0f;
-	private float keyDroite = 0.0f;
+	public float keyGauche = 0.0f;
+	public float keyDroite = 0.0f;
 
 	private bool GaucheOuvert = false;
 	private bool DroiteOuvert = false;
@@ -13,15 +13,20 @@ public class OuvrirTiroir : MonoBehaviour {
 	public BoxCollider BoxGauche;
 	public BoxCollider BoxDroite;
 
+	private int VitesseAnimation = 60;
+
+	public bool EnAnimationDroit = false;
+	public bool EnAnimationGauche = false;
+
 	public void OuvrirGauche()
 	{
-		print ("Gauche");
+		EnAnimationGauche = true;
 		InvokeRepeating ("Gauche", 0.0f, 0.005f);
 	}
 
 	public void OuvrirDroite()
 	{
-		print ("Drote");
+		EnAnimationDroit = true;
 		InvokeRepeating ("Droite", 0.0f, 0.005f);
 	}
 
@@ -32,10 +37,11 @@ public class OuvrirTiroir : MonoBehaviour {
 				
 				GaucheOuvert = true;
 				BoxGauche.enabled = true;
+				EnAnimationGauche = false;
 				CancelInvoke ("Gauche");
 			}
 
-			GetComponent<SkinnedMeshRenderer> ().SetBlendShapeWeight (1, keyGauche++);
+			GetComponent<SkinnedMeshRenderer> ().SetBlendShapeWeight (1, keyGauche+= Time.deltaTime * VitesseAnimation);
 		}
 
 		if (GaucheOuvert == true) {
@@ -44,10 +50,11 @@ public class OuvrirTiroir : MonoBehaviour {
 				
 				GaucheOuvert = false;
 				BoxGauche.enabled = false;
+				EnAnimationGauche = false;
 				CancelInvoke ("Gauche");
 			}
 
-			GetComponent<SkinnedMeshRenderer> ().SetBlendShapeWeight (1, keyGauche--);
+			GetComponent<SkinnedMeshRenderer> ().SetBlendShapeWeight (1, keyGauche-= Time.deltaTime * VitesseAnimation);
 		}
 	}
 
@@ -58,10 +65,11 @@ public class OuvrirTiroir : MonoBehaviour {
 				
 				DroiteOuvert = true;
 				BoxDroite.enabled = true;
+				EnAnimationDroit = false;
 				CancelInvoke ("Droite");
 			}
 
-			GetComponent<SkinnedMeshRenderer> ().SetBlendShapeWeight (0, keyDroite++);
+			GetComponent<SkinnedMeshRenderer> ().SetBlendShapeWeight (0, keyDroite+= Time.deltaTime * VitesseAnimation);
 		}
 
 		if (DroiteOuvert == true) {
@@ -70,10 +78,11 @@ public class OuvrirTiroir : MonoBehaviour {
 				
 				DroiteOuvert = false;
 				BoxDroite.enabled = false;
+				EnAnimationDroit = false;
 				CancelInvoke ("Droite");
 			}
 
-			GetComponent<SkinnedMeshRenderer> ().SetBlendShapeWeight (0, keyDroite--);
+			GetComponent<SkinnedMeshRenderer> ().SetBlendShapeWeight (0, keyDroite-= Time.deltaTime * VitesseAnimation);
 		}
 	}
 }

@@ -55,6 +55,10 @@ public class Attaque : MonoBehaviour {
                     {
                         target.TakeDamage(DegatArmeCouteau,true);
                         furry = furry + PointDeFurryGagnéParCoup;
+
+						if (target.Vie <= 0) {
+							furry = furry + PointDeFurryGagnéParCoup;
+						}
                     }
 
                     if (hit.rigidbody != null)
