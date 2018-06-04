@@ -19,25 +19,51 @@ public class EffetLanterne : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.tag != "Feu")
-		{ 
-			//Effet De la lampe genre mettre du feu un peu partout
-			GameObject FireZoneInstanciate = Instantiate (FireZone);
-			FireZoneInstanciate.transform.position = gameObject.transform.position;
+		if (other.tag == "Untagged" || other.tag == "Vache" || other.tag == "Objet" || other.tag == "Decor interractif" || other.tag == "Escalier +x" || other.tag == "Escalier -x" || other.tag == "Escalier +y" || other.tag == "Escalier -y" || other.tag == "Meuble")
+		{
+			if (other.tag == "Decor interractif")
+			{ 
+				ArmoireScript armoire_script = other.GetComponent<ArmoireScript>();
 
-			Vector3 newPos = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z);
+				if (armoire_script != null && armoire_script.Ouvert == false){
+					
+					/*****Effet Feu****/
+					GameObject FireZoneInstanciate = Instantiate (FireZone);
+					FireZoneInstanciate.transform.position = gameObject.transform.position;
 
-			RaycastHit hit;
-			Ray ShootingDirection = new Ray (newPos, dir);
-			Debug.DrawRay (newPos, dir, Color.red, 2f);
+					Vector3 newPos = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z);
 
-			if (Physics.Raycast (ShootingDirection, out hit)) {
-				FireZoneInstanciate.transform.rotation = Quaternion.LookRotation (hit.normal);
-				FireZoneInstanciate.transform.Rotate (Vector3.right * 90);
+					RaycastHit hit;
+					Ray ShootingDirection = new Ray (newPos, dir);
+					Debug.DrawRay (newPos, dir, Color.red, 2f);
+
+					if (Physics.Raycast (ShootingDirection, out hit)) {
+						FireZoneInstanciate.transform.rotation = Quaternion.LookRotation (hit.normal);
+						FireZoneInstanciate.transform.Rotate (Vector3.right * 90);
+					}
+					Destroy (gameObject);
+					/*****Effet Feu****/
+				}
 			}
-			//Collision col = other.GetComponent<Collision>();
-			//FireZoneInstanciate.transform.rotation = Quaternion.LookRotation (col.contacts [0].normal);
-			Destroy (gameObject);
+
+			else{
+				/*****Effet Feu****/
+				GameObject FireZoneInstanciate = Instantiate (FireZone);
+				FireZoneInstanciate.transform.position = gameObject.transform.position;
+
+				Vector3 newPos = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z);
+
+				RaycastHit hit;
+				Ray ShootingDirection = new Ray (newPos, dir);
+				Debug.DrawRay (newPos, dir, Color.red, 2f);
+
+				if (Physics.Raycast (ShootingDirection, out hit)) {
+					FireZoneInstanciate.transform.rotation = Quaternion.LookRotation (hit.normal);
+					FireZoneInstanciate.transform.Rotate (Vector3.right * 90);
+				}
+				Destroy (gameObject);
+				/*****Effet Feu****/
+			}
 		}
 	}
 }

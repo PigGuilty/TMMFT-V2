@@ -7,8 +7,8 @@ using UnityEngine;
 public class ArmoireScript : MonoBehaviour {
 
     private GameObject Player;
-
     public GameObject SpawnTéléport;
+	public GameObject Portail;
 
     public bool Ouvert;
     private bool AnimationOuverture;
@@ -63,6 +63,8 @@ public class ArmoireScript : MonoBehaviour {
 
                 AudioSource audio = gameObject.GetComponent<AudioSource>();
                 audio.Play();
+
+				Portail.SetActive (true);
             }
 
             AnimationWaitEndOuverture += Time.deltaTime;
