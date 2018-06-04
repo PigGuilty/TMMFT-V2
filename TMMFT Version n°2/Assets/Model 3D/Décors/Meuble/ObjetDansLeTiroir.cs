@@ -27,6 +27,10 @@ public class ObjetDansLeTiroir : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (gameObject.GetComponent<Rigidbody>() != null && gameObject.GetComponent<Rigidbody>().isKinematic == false) {
+			Destroy (gameObject.GetComponent<ObjetDansLeTiroir> ());
+		}
+
 		if (ouvrirTiroir.EnAnimationDroit == true && TiroirDroit == true) {
 			Vector3 newPos = ((PosFinal - PosInitial) * ouvrirTiroir.keyDroite / 100) + PosInitial;
 			gameObject.transform.position = newPos;
