@@ -18,6 +18,7 @@ TagManager:
   - Fire
   - Loupe
   - Meuble
+  - Trampo
   layers:
   - Default
   - TransparentFX
