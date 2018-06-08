@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffetGrenade : MonoBehaviour {
+public class EffetGrenade4 : MonoBehaviour {
 
     public GameObject Explosion;
 
