@@ -87,8 +87,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
-
-		//********************MATTEO MATTEO MATTEO ***************************//
+		//********************FAIT PAR************************//
+		 //********************MATTEO************************//
         private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.tag == "Escalier +x")
@@ -111,17 +111,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 gameObject.transform.position += new Vector3(0, 0, -0.1f);
                 m_Jumping = false;
             }
-
-			if (other.gameObject.tag == "Trampo") {
-				//m_MoveDir.y = Math.Abs(rb.velocity.y) * 1000;
-				m_MoveDir.y = m_JumpSpeed * m_CharacterController.velocity.y / 4;
-				PlayJumpSound();
-				m_Jump = true;
-				m_Jumping = true;
-			}
         }
 
-		//********************MATTEO MATTEO MATTEO ***************************//
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.gameObject.tag == "Trampo") {
+				m_MoveDir.y = -m_MoveDir.y;
+				PlayJumpSound();
+				m_Jumping = true;
+			}
+		}
+		//********************FAIT PAR************************//
+		//********************MATTEO************************//
 
         private void PlayLandingSound()
         {
