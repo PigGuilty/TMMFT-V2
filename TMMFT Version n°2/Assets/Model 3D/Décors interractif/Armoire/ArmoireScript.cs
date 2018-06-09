@@ -77,7 +77,7 @@ public class ArmoireScript : MonoBehaviour {
             }
         }
 
-        if (Ouvert == false)
+		if (Ouvert == false && AnimationOuverture == false)
         {
             if (increase < TempsRandom)
             {
@@ -113,6 +113,7 @@ public class ArmoireScript : MonoBehaviour {
         if (Ouvert == false)
         {
             AnimationOuverture = true;
+			AnimationWaitEndOuverture = 0;
         }
     }
 
