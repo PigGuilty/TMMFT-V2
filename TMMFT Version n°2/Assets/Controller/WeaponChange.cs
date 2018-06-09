@@ -78,17 +78,28 @@ public class WeaponChange : MonoBehaviour {
 
             /****Début Changement D'arme par Souris****/
 
-            if (Input.GetAxis("Mouse ScrollWheel") > 0 && IDWeaponDemandé < 5)
+					/**scrool up**/
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 && IDWeaponDemandé < 5) 
             {
                 IDWeaponDemandé++;
                 DemandeChangementArme = true;
             }
+
+			if (Input.GetAxis("Mouse ScrollWheel") > 0 && IDWeaponDemandé > 5) 
+			{
+				IDWeaponDemandé = 5;
+				DemandeChangementArme = true;
+			}
+					/**scrool up**/
+
+					/**scrool down**/
 
             if (Input.GetAxis("Mouse ScrollWheel") < 0 && IDWeaponDemandé > 1)
             {
                 IDWeaponDemandé--;
                 DemandeChangementArme = true;
             }
+					/**scrool down**/
 
             /****Fin Changement D'arme par Souris****/
 
