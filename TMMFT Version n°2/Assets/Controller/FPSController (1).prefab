@@ -1327,7 +1327,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1693954998694126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.71, y: 4.38, z: -11.68}
+  m_LocalPosition: {x: 5.71, y: 4.38, z: -11.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4037920556078606}
@@ -2943,6 +2943,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  ReverseGravitySound: {fileID: 0}
 --- !u!114 &114296487030809676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3038,8 +3039,6 @@ MonoBehaviour:
   Loupe: {fileID: 1087137234851380}
   TextLoupe: {fileID: 0}
   ObjetPris: 0
-  wood: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
-  metal: {fileID: 13400000, guid: 47aaf544ec8910948868df3ab15c0e70, type: 2}
 --- !u!114 &114457660726764738
 MonoBehaviour:
   m_ObjectHideFlags: 1

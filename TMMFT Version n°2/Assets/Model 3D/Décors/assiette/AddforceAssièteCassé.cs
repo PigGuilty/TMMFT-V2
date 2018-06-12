@@ -31,7 +31,7 @@ public class AddforceAssièteCassé : MonoBehaviour {
 
         rb.AddForce(assièteBreking.dir * 500);
 
-        RandomNumber = Random.Range(29, 31);
+        RandomNumber = Random.Range(29.0f, 31.0f);
 
         SelectionOfSound = Random.Range(0, 4);
         NombreDeFoisQuilAJoueLeSon = 0;

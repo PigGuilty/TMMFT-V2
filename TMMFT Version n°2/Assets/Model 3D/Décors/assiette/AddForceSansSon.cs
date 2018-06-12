@@ -19,7 +19,7 @@ public class AddForceSansSon : MonoBehaviour {
 
         rb.AddForce(assièteBreking.dir * 500);
 
-        RandomNumber = Random.Range(29, 31);
+        RandomNumber = Random.Range(29.0f, 31.0f);
     }
 
     private void Update()
