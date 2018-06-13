@@ -14,6 +14,7 @@ public class WeaponChange : MonoBehaviour {
     public GameObject Couteau;
 
     public GameObject Loupe;
+	public GameObject PistoletLaser;
 
     private int IDWeaponDemandé;
     private bool DemandeChangementArme;
@@ -24,6 +25,7 @@ public class WeaponChange : MonoBehaviour {
     public AudioClip changement;
 
     public bool LoupeObtenue;
+	public bool PistoletLaserObtenue;
 
     // Use this for initialization
     void Start () {
@@ -52,6 +54,12 @@ public class WeaponChange : MonoBehaviour {
                 DemandeChangementArme = true;
                 IDWeaponDemandé = 6;
             }
+
+			if (Input.GetKeyDown(KeyCode.P) && PistoletLaserObtenue == true)
+			{
+				DemandeChangementArme = true;
+				IDWeaponDemandé = 7;
+			}
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -99,6 +107,12 @@ public class WeaponChange : MonoBehaviour {
                 IDWeaponDemandé--;
                 DemandeChangementArme = true;
             }
+
+			if (Input.GetAxis("Mouse ScrollWheel") < 0 && IDWeaponDemandé > 5) 
+			{
+				IDWeaponDemandé = 1;
+				DemandeChangementArme = true;
+			}
 					/**scrool down**/
 
             /****Fin Changement D'arme par Souris****/
@@ -113,6 +127,7 @@ public class WeaponChange : MonoBehaviour {
                 bazooka.SetActive(false);
                 Couteau.SetActive(false);
                 Loupe.SetActive(false);
+				PistoletLaser.SetActive (false);
 
                 if (IDWeaponDemandé == 1)
                 {
@@ -139,6 +154,11 @@ public class WeaponChange : MonoBehaviour {
                 {
                     Loupe.SetActive(true);
                 }
+
+				else if (IDWeaponDemandé == 7)
+				{
+					PistoletLaser.SetActive(true);
+				}
 
                 AudioSource audio = gameObject.GetComponent<AudioSource>();
                 audio.clip = changement;

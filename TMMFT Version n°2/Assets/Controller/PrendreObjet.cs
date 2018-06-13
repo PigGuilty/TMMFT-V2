@@ -20,6 +20,8 @@ public class PrendreObjet : MonoBehaviour
     public GameObject Couteau;
     public GameObject Loupe;
     public GameObject TextLoupe;
+	public GameObject PistoletLaser;
+	public GameObject TextPistoletLaser;
 
     public bool ObjetPris;
 
@@ -62,6 +64,7 @@ public class PrendreObjet : MonoBehaviour
                     bazooka.SetActive(false);
                     Couteau.SetActive(false);
                     Loupe.SetActive(false);
+					PistoletLaser.SetActive (false);
 
                     PositionObjet.transform.rotation = PlacePourObjet.transform.rotation;
                     PositionObjet.transform.position = PlacePourObjet.transform.position;
@@ -76,6 +79,14 @@ public class PrendreObjet : MonoBehaviour
 
                     Destroy(hit.collider.gameObject);
                 }
+
+				if (hit.collider.tag == "Pistolet Laser")
+				{
+					weaponChange.PistoletLaserObtenue = true;
+					TextPistoletLaser.SetActive(true);
+
+					Destroy(hit.collider.gameObject);
+				}
 
 				if (hit.collider.tag == "Meuble" && hit.collider.isTrigger == true)
 				{
