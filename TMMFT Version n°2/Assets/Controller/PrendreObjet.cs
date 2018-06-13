@@ -110,7 +110,12 @@ public class PrendreObjet : MonoBehaviour
             Collider ColliderDeLobjetPris = ObjectQuiEstPris.transform.GetComponent<Collider>();
 
             Rigidbody rigidbodyDeLObjetPris = ObjectQuiEstPris.transform.GetComponent<Rigidbody>();
-            DirectionForceJet = Camera.main.transform.forward + new Vector3(0f, 0.4f, 0f);
+
+			if (rigidbodyDeLObjetPris.useGravity == false) {
+				DirectionForceJet = Camera.main.transform.forward;
+			} else {
+				DirectionForceJet = Camera.main.transform.forward + new Vector3 (0f, 0.4f, 0f);
+			}
 
             Debug.DrawRay(transform.position, DirectionForceJet *4, Color.green);
 
