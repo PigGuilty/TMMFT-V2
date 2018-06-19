@@ -112,7 +112,15 @@ public class PrendreObjet : MonoBehaviour
             Rigidbody rigidbodyDeLObjetPris = ObjectQuiEstPris.transform.GetComponent<Rigidbody>();
 
 			if (rigidbodyDeLObjetPris.useGravity == false) {
-				DirectionForceJet = Camera.main.transform.forward;
+				RaycastHit hit;
+				Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+
+				if(Physics.Raycast(ShootingDirection, out hit)){
+					DirectionForceJet = hit.point - ObjectQuiEstPris.transform.position;
+					DirectionForceJet = DirectionForceJet / hit.distance;
+					//DirectionForceJet = Camera.main.transform.forward;
+				}
+
 			} else {
 				DirectionForceJet = Camera.main.transform.forward + new Vector3 (0f, 0.4f, 0f);
 			}
