@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -9,7 +9,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (CharacterController))]
     [RequireComponent(typeof (AudioSource))]
-    public class FirstPersonController : NetworkBehaviour
+    public class FirstPersonControllerOffline : MonoBehaviour
     {
         [SerializeField] public bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -65,12 +65,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         // Update is called once per frame
         private void Update()
-        {
-			if (!isLocalPlayer)
-			{
-				return;
-			}
-			
+        {		
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -140,10 +135,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
-			if (!isLocalPlayer)
-			{
-				return;
-			}
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
@@ -228,10 +219,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void UpdateCameraPosition(float speed)
         {
-			if (!isLocalPlayer)
-			{
-				return;
-			}
             Vector3 newCameraPosition;
             if (!m_UseHeadBob)
             {
