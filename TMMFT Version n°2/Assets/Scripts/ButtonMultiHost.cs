@@ -9,16 +9,17 @@ public class ButtonMultiHost : MonoBehaviour {
 	
 	public string SceneToLoad = "Main";
 	public Button button;
+	public Text info;
 	
 	void Start() {
+		DontDestroyOnLoad(info);
 		Button btnComponent = button.GetComponent<Button>();
 		
 		btnComponent.onClick.AddListener(OnClick);
 	}
 	
 	void OnClick(){
+		info.text = "Server";
 		SceneManager.LoadScene(SceneToLoad);
-		//NetworkManager.singleton.StartHost();
-		Debug.Log("Server Started !");
 	}
 }

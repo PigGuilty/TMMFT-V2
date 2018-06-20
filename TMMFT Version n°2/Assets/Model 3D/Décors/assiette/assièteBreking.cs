@@ -9,7 +9,7 @@ public class assièteBreking : MonoBehaviour {
 
     public Collider col;
 
-    public GameObject Player;
+    private GameObject Player;
     private PrendreObjet prendreobjet;
     private ArmoireScript armoirescript;
 
@@ -23,19 +23,28 @@ public class assièteBreking : MonoBehaviour {
     void Start () {
         OnALaDir = false;
         col = Assiète.GetComponent<Collider>();
-        prendreobjet = Player.GetComponent<PrendreObjet>();
+		
+		Player = GameObject.FindWithTag("Player");
+		if(Player != null)
+			prendreobjet = Player.GetComponent<PrendreObjet>();
     }
 
     private void Update()
     {
-        if(OnALaDir == false)
-        {
-            if(col.enabled == true)
-            {
-                dir = new Vector3(Camera.main.transform.forward.x, 0.05f, Camera.main.transform.forward.z);
-                OnALaDir = true;
-            }
-        }
+		if(Player == null){
+			Player = GameObject.FindWithTag("Player");
+			if(Player != null)
+				prendreobjet = Player.GetComponent<PrendreObjet>();
+		}else{
+			if(OnALaDir == false)
+			{
+				if(col.enabled == true)
+				{
+					dir = new Vector3(Camera.main.transform.forward.x, 0.05f, Camera.main.transform.forward.z);
+					OnALaDir = true;
+				}
+			}
+		}
     }
 
     private void OnTriggerEnter(Collider other)

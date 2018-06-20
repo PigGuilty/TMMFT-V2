@@ -20,6 +20,7 @@ TagManager:
   - Meuble
   - Trampo
   - Pistolet Laser
+  - INFO
   layers:
   - Default
   - TransparentFX
