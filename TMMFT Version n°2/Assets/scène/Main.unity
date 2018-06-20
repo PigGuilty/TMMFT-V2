@@ -589,7 +589,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneToLoad: Multi Testing
   button: {fileID: 420887451}
-  IPHolder: {fileID: 0}
+  IPHolder: {fileID: 173277011}
+  info: {fileID: 165936936}
 --- !u!1 &721465139
 GameObject:
   m_ObjectHideFlags: 0
