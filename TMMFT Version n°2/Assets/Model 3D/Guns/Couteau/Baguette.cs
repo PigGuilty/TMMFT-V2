@@ -21,9 +21,11 @@ public class Baguette : MonoBehaviour {
 
     public GameObject GameObjectparticleSystemLaser1;
     public GameObject GameObjectparticleSystemLaser2;
+	public GameObject GameObjectparticleSystemLaser3;
 
     private ParticleSystem particleSystemLaser1;
     private ParticleSystem particleSystemLaser2;
+	private ParticleSystem particleSystemLaser3;
 
     private AudioSource Audio;
     public AudioSource AudioAmeno;
@@ -35,9 +37,11 @@ public class Baguette : MonoBehaviour {
 		attaque = GetComponent<Attaque> ();
         particleSystemLaser1 = GameObjectparticleSystemLaser1.GetComponent<ParticleSystem>();
         particleSystemLaser2 = GameObjectparticleSystemLaser2.GetComponent<ParticleSystem>();
+		particleSystemLaser3 = GameObjectparticleSystemLaser3.GetComponent<ParticleSystem>();
 
         particleSystemLaser1.enableEmission = false;
         particleSystemLaser2.enableEmission = false;
+		particleSystemLaser3.enableEmission = false;
         ok = 0f;
 
         fpsCam = Camera.main;
@@ -73,6 +77,7 @@ public class Baguette : MonoBehaviour {
             player.transform.SendMessage("Shake", SendMessageOptions.DontRequireReceiver);
             particleSystemLaser1.enableEmission = true;
             particleSystemLaser2.enableEmission = true;
+			particleSystemLaser3.enableEmission = true;
 
             Ray ShootingDirection = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
 
@@ -111,6 +116,7 @@ public class Baguette : MonoBehaviour {
 			player.transform.SendMessage ("Stop", SendMessageOptions.DontRequireReceiver);
             particleSystemLaser1.enableEmission = false;
             particleSystemLaser2.enableEmission = false;
+			particleSystemLaser3.enableEmission = false;
             Audio.Stop();
             AudioAmeno.volume = 0.75f;
             alreadyActiveted = false;
@@ -121,6 +127,7 @@ public class Baguette : MonoBehaviour {
 		player.transform.SendMessage ("Stop", SendMessageOptions.DontRequireReceiver);
         particleSystemLaser1.enableEmission = false;
         particleSystemLaser2.enableEmission = false;
+		particleSystemLaser3.enableEmission = false;
         Audio.Stop();
         AudioAmeno.volume = 0.75f;
         alreadyActiveted = false;
@@ -131,5 +138,6 @@ public class Baguette : MonoBehaviour {
         LASER.SetActive(true);
         particleSystemLaser1.enableEmission = false;
         particleSystemLaser2.enableEmission = false;
+		particleSystemLaser3.enableEmission = false;
     }
 }
