@@ -24,26 +24,41 @@ public class PutInFire : MonoBehaviour
     GameObject FeuPlayerInstanciate;
 
     private GameObject FlameLogo;
-
+	private GameObject Canvas;
+	
     // Use this for initialization
     void Start()
     {
         Desactivé = false;
         BruleJoueur = false;
         Permission = true;
-        GameObject Canvas = GameObject.Find("Canvas");
-        foreach(Transform child in Canvas.transform)
-        {
-            if(child.name == "flame")
-            {
-                FlameLogo = child.gameObject;
-            }
-        }
+        Canvas = GameObject.Find("Canvas");
+		if(Canvas != null) {
+			foreach(Transform child in Canvas.transform)
+			{
+				if(child.name == "flame")
+				{
+					FlameLogo = child.gameObject;
+				}
+			}
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
+		if(Canvas == null){
+			Canvas = GameObject.Find("Canvas");
+			if(Canvas != null) {
+				foreach(Transform child in Canvas.transform)
+				{
+					if(child.name == "flame")
+					{
+						FlameLogo = child.gameObject;
+					}
+				}
+			}
+		}
         if(BruleJoueur == true)
         {
             if (increase >= TempsEntreChaquePvPerdu)

@@ -25,37 +25,44 @@ public class EffetFrag : MonoBehaviour {
 
         DébutDeLAction = false;
         canExplode = false;
-        prendreobjet = Player.GetComponent<PrendreObjet>();
+		if (Player != null)
+			prendreobjet = Player.GetComponent<PrendreObjet>();
     }
 
     private void Update()
     {
-        if (boxTrigger.enabled == true)
-        {
-            DébutDeLAction = true;
-        }
+		if (Player == null){//update player
+			Player = GameObject.FindWithTag("Player");
+			if(Player != null)
+				prendreobjet = Player.GetComponent<PrendreObjet>();
+		}else{
+			if (boxTrigger.enabled == true)
+			{
+				DébutDeLAction = true;
+			}
 
-        if (prendreobjet.ObjetPris == false && DébutDeLAction == true)
-        {
-            canExplode = true;
-            gameObject.tag = "Untagged"; 
-        }
+			if (prendreobjet.ObjetPris == false && DébutDeLAction == true)
+			{
+				canExplode = true;
+				gameObject.tag = "Untagged"; 
+			}
 
-        if (canExplode == true)
-        {
-            if(timer >= 3)
-            {
-				for (int i = 0; i < NombreDeGrenades; i++){
-					GameObject FragmentGrenadeInstantiate = Instantiate(FragmentGrenade);
-					FragmentGrenadeInstantiate.transform.position = gameObject.transform.position + new Vector3(Random.Range(-0.35f,0.35f), Random.Range(-0.35f,0.35f), Random.Range(-0.35f,0.35f));
+			if (canExplode == true)
+			{
+				if(timer >= 3)
+				{
+					for (int i = 0; i < NombreDeGrenades; i++){
+						GameObject FragmentGrenadeInstantiate = Instantiate(FragmentGrenade);
+						FragmentGrenadeInstantiate.transform.position = gameObject.transform.position + new Vector3(Random.Range(-0.35f,0.35f), Random.Range(-0.35f,0.35f), Random.Range(-0.35f,0.35f));
+					}
+
+					GameObject Explo = Instantiate(Explosion);
+					Explo.transform.position = gameObject.transform.position;
+					Destroy(gameObject);
 				}
-
-				GameObject Explo = Instantiate(Explosion);
-				Explo.transform.position = gameObject.transform.position;
-                Destroy(gameObject);
-            }
-            timer += Time.deltaTime;
-        }
+				timer += Time.deltaTime;
+			}
+		}
     }
 
     private void OnCollisionEnter(Collision other)

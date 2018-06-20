@@ -13,10 +13,18 @@ public class ApparitionP_M : MonoBehaviour
     {
         float randomX = Random.Range(0.50f, 0.20f);
         float randomZ = Random.Range(0.50f, 0.20f);
-
-        float finalX = Camera.main.transform.right.x + randomX;
-        float finalZ = Camera.main.transform.right.z + randomZ;
-
+		
+		float finalX = 0;
+		float finalZ = 0;
+		
+        if(Camera.main != null) {
+			finalX = Camera.main.transform.right.x + randomX;
+			finalZ = Camera.main.transform.right.z + randomZ;
+		}else {
+			finalX = randomX;
+			finalZ = randomZ;	
+		}
+		
 		if (right) {
 			Vector3 rightForce = new Vector3 (finalX, Random.Range (0.1f, 1f), finalZ);
 

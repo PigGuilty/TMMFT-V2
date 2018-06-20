@@ -33,9 +33,10 @@ public class ArmoireScript : MonoBehaviour {
         Player = GameObject.FindWithTag("Player");
 
         animator = GetComponent<Animator>();
-        PortailUtilisablee = Player.GetComponent<PortailUtilisable>();
-        prendreobjet = Player.GetComponent<PrendreObjet>();
-
+		if(Player != null) {
+			PortailUtilisablee = Player.GetComponent<PortailUtilisable>();
+			prendreobjet = Player.GetComponent<PrendreObjet>();
+		}
         AnimationOuverture = false;
         Ouvert = false;
 
@@ -53,57 +54,64 @@ public class ArmoireScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+		if (Player == null){//update player
+			Player = GameObject.FindWithTag("Player");
+			if(Player != null) {
+				PortailUtilisablee = Player.GetComponent<PortailUtilisable>();
+				prendreobjet = Player.GetComponent<PrendreObjet>();
+			}
+		}else{
+			if (AnimationOuverture == true)
+			{
+				if (AnimationWaitEndOuverture == 0)
+				{
+					animator.Rebind();
+					animator.SetFloat("Armoire", 0.66f);
 
-        if (AnimationOuverture == true)
-        {
-            if (AnimationWaitEndOuverture == 0)
-            {
-                animator.Rebind();
-                animator.SetFloat("Armoire", 0.66f);
+					AudioSource audio = gameObject.GetComponent<AudioSource>();
+					audio.Play();
 
-                AudioSource audio = gameObject.GetComponent<AudioSource>();
-                audio.Play();
+					Portail.SetActive (true);
+				}
 
-				Portail.SetActive (true);
-            }
+				AnimationWaitEndOuverture += Time.deltaTime;
 
-            AnimationWaitEndOuverture += Time.deltaTime;
+				if (AnimationWaitEndOuverture >= AnimationLengthOuverture)
+				{
+					Ouvert = true;
+					AnimationOuverture = false;
+					animator.SetFloat("Armoire", 1.0f);
+				}
+			}
 
-            if (AnimationWaitEndOuverture >= AnimationLengthOuverture)
-            {
-                Ouvert = true;
-                AnimationOuverture = false;
-                animator.SetFloat("Armoire", 1.0f);
-            }
-        }
+			if (Ouvert == false && AnimationOuverture == false)
+			{
+				if (increase < TempsRandom)
+				{
+					increase++;
+				}
 
-		if (Ouvert == false && AnimationOuverture == false)
-        {
-            if (increase < TempsRandom)
-            {
-                increase++;
-            }
+				if (increase >= TempsRandom)
+				{
+					if (AnimationWaitEndTremblement == 0)
+					{
+						animator.Rebind();
+						animator.SetFloat("Armoire", 0.33f);
+					}
 
-            if (increase >= TempsRandom)
-            {
-                if (AnimationWaitEndTremblement == 0)
-                {
-                    animator.Rebind();
-                    animator.SetFloat("Armoire", 0.33f);
-                }
+					AnimationWaitEndTremblement += Time.deltaTime;
 
-                AnimationWaitEndTremblement += Time.deltaTime;
+					if (AnimationWaitEndTremblement >= AnimationLengthTremblement)
+					{
+						animator.SetFloat("Armoire", 0.0f);
 
-                if (AnimationWaitEndTremblement >= AnimationLengthTremblement)
-                {
-                    animator.SetFloat("Armoire", 0.0f);
-
-                    AnimationWaitEndTremblement = 0;
-                    increase = 0;
-                    TempsRandom = Random.Range(120, 480);
-                }
-            }
-        }
+						AnimationWaitEndTremblement = 0;
+						increase = 0;
+						TempsRandom = Random.Range(120, 480);
+					}
+				}
+			}
+		}
     }
 
 
