@@ -7,15 +7,18 @@ public class LustreTombe : MonoBehaviour {
     public GameObject Explosion;
 
     Rigidbody rb;
+	AudioSource audio;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+		audio = GetComponent<AudioSource> ();
 	}
 
     public void HitByRaycast ()
     {
         rb.isKinematic = false;
+		audio.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
