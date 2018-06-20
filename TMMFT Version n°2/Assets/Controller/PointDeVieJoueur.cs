@@ -16,8 +16,6 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     private float widthOfLiveBar;
 
-    private GameObject NouvelleVersion;
-
     public GameObject SpawnQuandMort;
     public GameObject Canvas;
     public GameObject BarreDeVie;
