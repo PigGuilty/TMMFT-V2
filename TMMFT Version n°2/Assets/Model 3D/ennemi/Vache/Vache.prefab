@@ -760,6 +760,8 @@ MonoBehaviour:
   meurt: {fileID: 8300000, guid: 7375cb4eb58c00b4dbaaf2d2f078b84a, type: 3}
   Red: {fileID: 2100000, guid: 522d8c9e8c8b73440858c2947542aebd, type: 2}
   Origine: {fileID: 2100000, guid: 210e34d25ff5f5843bae2d984f493c66, type: 2}
+  indexOfColor1: 1
+  indexOfColor2: 7
 --- !u!137 &137775369810867260
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -832,7 +834,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 180

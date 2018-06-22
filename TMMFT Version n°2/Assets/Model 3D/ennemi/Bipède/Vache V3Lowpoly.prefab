@@ -186,10 +186,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4108510305605158}
   - component: {fileID: 95262164331841868}
-  - component: {fileID: 54572961981164438}
-  - component: {fileID: 65668744076968734}
   - component: {fileID: 65250746267994994}
-  - component: {fileID: 114793728819814050}
+  - component: {fileID: 65668744076968734}
+  - component: {fileID: 114918897870042800}
+  - component: {fileID: 54572961981164438}
   - component: {fileID: 82464855495902334}
   - component: {fileID: 114836760087914984}
   - component: {fileID: 114425464797560498}
@@ -993,7 +993,18 @@ MonoBehaviour:
   FeuPlayer: {fileID: 1026448641890638, guid: c0b242c3413ae294093014e2d32741f5, type: 2}
   TempsPourArreterDeBruler: 5
   TempsEntreChaquePvPerdu: 0.2
---- !u!114 &114793728819814050
+--- !u!114 &114836760087914984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566184869369602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01bb723ced56974fb2b8bbef1ba69f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114918897870042800
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1010,17 +1021,8 @@ MonoBehaviour:
   meurt: {fileID: 8300000, guid: 7375cb4eb58c00b4dbaaf2d2f078b84a, type: 3}
   Red: {fileID: 2100000, guid: 522d8c9e8c8b73440858c2947542aebd, type: 2}
   Origine: {fileID: 2100000, guid: 430a4d2a0f5f1f545bfafb0b136eae37, type: 2}
---- !u!114 &114836760087914984
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566184869369602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01bb723ced56974fb2b8bbef1ba69f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  indexOfColor1: 0
+  indexOfColor2: 0
 --- !u!137 &137903429077147104
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
