@@ -14,7 +14,18 @@ public class VacheScript : MonoBehaviour {
     }
 
 	void Update() {
-		agent.destination = goal.transform.position;
+		agent.enabled = true;
+
+		if (agent.isOnNavMesh)
+			agent.destination = goal.transform.position;
+		else {
+			Vector3 Point = gameObject.transform.position;
+			NavMeshHit hit;
+			if (NavMesh.SamplePosition (Point, out hit, 1.0f, NavMesh.AllAreas)) {
+				gameObject.transform.position = hit.position;
+			} else
+				print ("blabla");
+		}
 	}
 
     private void OnTriggerStay(Collider other)

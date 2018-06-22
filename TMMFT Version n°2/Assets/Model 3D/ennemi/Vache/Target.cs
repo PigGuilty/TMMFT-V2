@@ -88,26 +88,21 @@ public class Target : MonoBehaviour {
 
 
     public void Update()
-    {
-        SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
-        Material[] mats = rend.materials;
-
-		if (mats[indexOfColor1].color == Red.color)
-        {
-            if (waiting >= 2)
-            {
-				mats[indexOfColor1] = Origine;
-				mats[indexOfColor2] = Origine;
-                rend.materials = mats;
-                waiting = 0;
-            }
-
-            if (waiting < 2)
-            {
-                waiting++;
-            }
-
-        }
-    }
+	{
+		SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer> ();
+		Material[] mats = rend.materials;
+		if (mats [indexOfColor1].color == Red.color) {
+			if (waiting >= 2) {
+				mats [indexOfColor1] = Origine;
+				mats [indexOfColor2] = Origine;
+				rend.materials = mats;
+				waiting = 0;
+			}
+		
+			if (waiting < 2) {
+				waiting++;
+			}
+		}
+	}
 }
 	
