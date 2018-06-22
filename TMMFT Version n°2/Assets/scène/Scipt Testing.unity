@@ -11797,7 +11797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84e9f1c2b5a8a84d88aa562ca440d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnnemiPrefab: {fileID: 1566184869369602, guid: 53c4210d586e3c440a70fc3723e5a62b,
+  EnnemiPrefab: {fileID: 1986099864933384, guid: 2f168ba08d2cb16478ed26b05d73d28e,
     type: 2}
 --- !u!114 &283195372
 MonoBehaviour:
