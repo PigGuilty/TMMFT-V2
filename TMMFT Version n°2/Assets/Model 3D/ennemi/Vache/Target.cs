@@ -78,7 +78,7 @@ public class Target : MonoBehaviour {
 
 			if (IsVacheBipede == true) {
 				animator.Rebind ();
-				animator.SetFloat ("Blend", 1);
+				animator.SetFloat ("Blend", 1.5f);
 				gameObject.GetComponent<NavMeshAgent> ().speed = 0.0f;
 				Destroy (gameObject, 1.2f);
 			} else {
@@ -130,10 +130,11 @@ public class Target : MonoBehaviour {
 	}
 
 	IEnumerator FeelPain(){
-		animator.SetFloat ("Blend", 0.5f);
+		float floatOfAnim = Mathf.Abs ((Vie / VieMax) - 1);
+		animator.SetFloat ("Blend", floatOfAnim + 2.0f);
 		yield return new WaitForSeconds (0.5f);
 		if (Vie > 0) {
-			animator.SetFloat ("Blend", 0.0f);
+			animator.SetFloat ("Blend", floatOfAnim);
 		}
 	}
 }
