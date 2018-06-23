@@ -109,6 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4847074158663144}
+  - component: {fileID: 54380246950799372}
   m_Layer: 0
   m_Name: HaedRootBone
   m_TagString: Untagged
@@ -140,7 +141,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4376607229828656}
   - component: {fileID: 137089376614415342}
-  - component: {fileID: 114101001153404824}
   m_Layer: 1
   m_Name: Plane.005
   m_TagString: Untagged
@@ -451,7 +451,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986099864933384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1692443, y: -7.300001, z: -18.385153}
+  m_LocalPosition: {x: -3.613666, y: -7.300001, z: -17.363644}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4376607229828656}
@@ -760,14 +760,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298996246157620}
-  m_LocalRotation: {x: 0.7071068, y: 0.00000023040464, z: 0.00000023040467, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0.0047, z: 0.0654}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0, z: 0.0649}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4255744128395394}
   m_Father: {fileID: 4452682772930746}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4849028875110486
 Transform:
   m_ObjectHideFlags: 1
@@ -821,6 +821,21 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54380246950799372
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1298996246157620}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -971,18 +986,6 @@ MonoBehaviour:
   FeuPlayer: {fileID: 1026448641890638, guid: c0b242c3413ae294093014e2d32741f5, type: 2}
   TempsPourArreterDeBruler: 5
   TempsEntreChaquePvPerdu: 0.2
---- !u!114 &114101001153404824
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1324100338787212}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7a9199404781a4496ca9316f6cfeea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 114237891479224392}
 --- !u!114 &114237891479224392
 MonoBehaviour:
   m_ObjectHideFlags: 1

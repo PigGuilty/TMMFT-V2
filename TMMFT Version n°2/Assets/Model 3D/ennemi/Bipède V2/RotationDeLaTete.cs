@@ -15,7 +15,7 @@ public class RotationDeLaTete : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		TargetPoint = new Vector3 (player.transform.position.x, gameObject.transform.position.y, player.transform.position.z);
-		Root_HeadBone.transform.LookAt (player.transform.position ,Vector3.up);
+		TargetPoint = new Vector3 (player.transform.position.x, player.transform.position.y+1.0f, player.transform.position.z);
+		Root_HeadBone.transform.LookAt (TargetPoint);
 	}
 }

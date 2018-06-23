@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65426902632154242}
   - component: {fileID: 54784000834400346}
   - component: {fileID: 114665728798371540}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "M\xE9dikit"
   m_TagString: Heal
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4318270405415354}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4439904416979218}
   - component: {fileID: 114189143818584384}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Medikit Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4644133784122886}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4533099460317628}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4490844272347436}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bone_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4666160399191670}
   - component: {fileID: 137858080951559016}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4774636008402534}
   - component: {fileID: 137488020398511822}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "M\xE9dikit": {fileID: 1054548672581252}
-  Player: {fileID: 0}
 --- !u!137 &137488020398511822
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
