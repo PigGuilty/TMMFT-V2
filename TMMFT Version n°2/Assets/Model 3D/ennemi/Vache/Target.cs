@@ -100,8 +100,7 @@ public class Target : MonoBehaviour {
             rend.materials = mats;
 
 			if (IsVacheBipede == true) {
-				GetComponentInChildren<SkinnedMeshRenderer> ().SetBlendShapeWeight (0, 100.0f);
-				GetComponentInChildren<SkinnedMeshRenderer> ().SetBlendShapeWeight (1, Mathf.Abs ((Vie / VieMax * 100) - 100));
+				StartCoroutine("FeelPain");
 			}
         }
 
@@ -127,6 +126,14 @@ public class Target : MonoBehaviour {
 			if (waiting < 2) {
 				waiting++;
 			}
+		}
+	}
+
+	IEnumerator FeelPain(){
+		animator.SetFloat ("Blend", 0.5f);
+		yield return new WaitForSeconds (0.5f);
+		if (Vie > 0) {
+			animator.SetFloat ("Blend", 0.0f);
 		}
 	}
 }

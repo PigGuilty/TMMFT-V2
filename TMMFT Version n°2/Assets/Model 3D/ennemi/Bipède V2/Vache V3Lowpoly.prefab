@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4376607229828656}
   - component: {fileID: 137089376614415342}
   - component: {fileID: 114101001153404824}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Plane.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986099864933384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6202722, y: 0.5799999, z: -15.003056}
+  m_LocalPosition: {x: -6.1692443, y: -7.300001, z: -18.385153}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4376607229828656}
@@ -936,7 +936,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986099864933384}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 25fcb40e5f74849489f8b81ea04d9d68, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 79598c6c689c74241a0a25136a925ad0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
