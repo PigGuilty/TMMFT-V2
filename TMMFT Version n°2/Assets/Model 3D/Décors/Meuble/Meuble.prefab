@@ -27,6 +27,9 @@ GameObject:
   - component: {fileID: 65436220300864148}
   - component: {fileID: 65028652948433142}
   - component: {fileID: 114104496415744442}
+  - component: {fileID: 114479939678702960}
+  - component: {fileID: 114871851373943582}
+  - component: {fileID: 208879393726644342}
   m_Layer: 0
   m_Name: Meuble
   m_TagString: Meuble
@@ -41,8 +44,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822307559604578}
   m_LocalRotation: {x: -0.6532815, y: -0.27059805, z: -0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: 12.77, y: 1.968, z: -19.64}
-  m_LocalScale: {x: 95.2, y: 40, z: 40}
+  m_LocalPosition: {x: 11.623, y: 1.968, z: -18.493}
+  m_LocalScale: {x: 95.2, y: 40, z: 40.000046}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,8 +60,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0085, y: 0.018, z: 0.005}
-  m_Center: {x: -0, y: -0.0030372324, z: 0.00029855745}
+  m_Size: {x: 0.0085, y: 0.018, z: 0.0049999994}
+  m_Center: {x: -6.9431925e-11, y: -0.0030372322, z: 0.00029855728}
 --- !u!65 &65236569336187648
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -69,8 +72,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0085, y: 0.018, z: 0.005}
-  m_Center: {x: 0.010141733, y: -0.0030372324, z: 0.00029855745}
+  m_Size: {x: 0.0085, y: 0.018, z: 0.005000001}
+  m_Center: {x: 0.01014173, y: -0.003037228, z: 0.00029855652}
 --- !u!65 &65363152518878710
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -141,6 +144,59 @@ MonoBehaviour:
   BoxDroite: {fileID: 65436220300864148}
   EnAnimationDroit: 0
   EnAnimationGauche: 0
+--- !u!114 &114479939678702960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822307559604578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 55
+    i1: 87
+    i2: 70
+    i3: 7
+    i4: 145
+    i5: 243
+    i6: 72
+    i7: 52
+    i8: 122
+    i9: 203
+    i10: 33
+    i11: 240
+    i12: 38
+    i13: 24
+    i14: 42
+    i15: 11
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114871851373943582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822307559604578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!137 &137285396566804892
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -191,3 +247,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0049920883, y: 0.005525207, z: -0.015722154}
     m_Extent: {x: 0.010326404, y: 0.016547116, z: 0.018979104}
   m_DirtyAABB: 0
+--- !u!208 &208879393726644342
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822307559604578}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.017, z: 0.019000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.0050000004, y: 0.006, z: -0.016}
+  m_TimeToStationary: 0.5

@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 65021464358045956}
   - component: {fileID: 65140385491901340}
   - component: {fileID: 114652093367557192}
+  - component: {fileID: 114026071988976980}
+  - component: {fileID: 114352928409851812}
   m_Layer: 0
   m_Name: "Assi\xE8te"
   m_TagString: Objet
@@ -38,9 +40,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1333514519669764}
-  m_LocalRotation: {x: 0.4200996, y: 0.5687835, z: 0.5687861, w: -0.42010006}
-  m_LocalPosition: {x: 9.9, y: 1.7, z: 0.32}
-  m_LocalScale: {x: 50, y: 50.00001, z: 50.00002}
+  m_LocalRotation: {x: 0.42009956, y: 0.5687835, z: 0.5687861, w: -0.42010006}
+  m_LocalPosition: {x: -0.84521675, y: 0.4961548, z: 0.061455846}
+  m_LocalScale: {x: 67.01075, y: 67.010704, z: 50.00005}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -125,6 +127,59 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.013945021, y: 0.013945017, z: 0.00042901564}
   m_Center: {x: 4.656613e-10, y: 9.313224e-10, z: 0.00021450782}
+--- !u!114 &114026071988976980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333514519669764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 64
+    i1: 192
+    i2: 176
+    i3: 248
+    i4: 236
+    i5: 170
+    i6: 232
+    i7: 52
+    i8: 8
+    i9: 65
+    i10: 6
+    i11: 195
+    i12: 240
+    i13: 196
+    i14: 28
+    i15: 16
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114352928409851812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333514519669764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114652093367557192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,6 +195,6 @@ MonoBehaviour:
   "Assi\xE8teCass\xE9": {fileID: 1037675397726862, guid: 1c0a6a6f91fe21045af5b77d649bea9a,
     type: 2}
   col: {fileID: 0}
-  Player: {fileID: 0}
   JoueurDeSon: {fileID: 1678354051373234, guid: 1284b1d04a830ed4897c1a2f0c8a16f5,
     type: 2}
+  m_isServer: 0

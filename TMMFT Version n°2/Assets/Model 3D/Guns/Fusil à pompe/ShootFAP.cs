@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class ShootFAP : MonoBehaviour
+public class ShootFAP : NetworkBehaviour
 {
 
-    // Use this for initialization
     public float DegatArme;
 	public float nbProjctiles;
 	public float Dispertion;
@@ -31,9 +32,21 @@ public class ShootFAP : MonoBehaviour
     public AudioClip Rechargement;
 
     private bool douilleApparue;
-
+	
+	public bool m_isServer;
+	
+	private NetworkSpawner netSpawner;
+    private Camera fpsCam;
+	
     void Start()
     {
+		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		{
+			return;
+		}
+		netSpawner = gameObject.transform.parent.parent.GetComponent<NetworkSpawner>();
+		fpsCam = GameObject.FindWithTag("localCamera").GetComponent<Camera>();
+		
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
         AnimationLength = 0.83f;
@@ -44,8 +57,13 @@ public class ShootFAP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Vector3 lookRot = Camera.main.transform.forward;
+		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		{
+			return;
+		}
+		m_isServer = gameObject.transform.parent.parent.GetComponent<FirstPersonController>().isServer;
+		
+        Vector3 lookRot = fpsCam.transform.forward;
 
         if (BalleRestante > 0)
         {
@@ -61,14 +79,18 @@ public class ShootFAP : MonoBehaviour
 
                 RaycastHit hit;
 				for (int i = 0; i < nbProjctiles; i++) {
-					Vector3 dir = Camera.main.transform.forward;
+					Vector3 dir = fpsCam.transform.forward;
 					dir.x = dir.x * (Dispertion / 100) + Random.Range (-0.01f, 0.01f);
 					dir.y = dir.y * (Dispertion / 100) + Random.Range (-0.01f, 0.01f);
 					dir.z = dir.z * (Dispertion / 100) + Random.Range (-0.01f, 0.01f);
 
-					Ray ShootingDirection = new Ray (Camera.main.transform.position, dir);
-
-					Debug.DrawRay(Camera.main.transform.position, dir * 1000000f, Color.red,3);
+					Ray ShootingDirection = new Ray (fpsCam.transform.position, dir);
+					
+					if(!m_isServer){
+						netSpawner.CmdShoot(fpsCam.transform.position, dir, DegatArme);
+					}else{
+						netSpawner.RpcShoot(fpsCam.transform.position, dir, DegatArme);
+					}
 
 					if (Physics.Raycast (ShootingDirection, out hit)) {
 
@@ -89,34 +111,66 @@ public class ShootFAP : MonoBehaviour
 
 						if (hit.collider.tag != "Player" && hit.collider.tag != "Vache" && hit.collider.tag != "Decor interractif") {
                             float x = Random.Range(0.0f, 4.0f);
-                            if (x <= 1)
-                            {
-                                GameObject impactGO1 = Instantiate(impactEffect1, hit.point, Quaternion.LookRotation(hit.normal));
-                                impactGO1.transform.Translate(hit.normal / 1000, Space.World);
-                                impactGO1.transform.parent = hit.transform;
-                                Destroy(impactGO1, 20f);
-                            }
-                            else if (x > 1 && x <= 2)
-                            {
-                                GameObject impactGO2 = Instantiate(impactEffect2, hit.point, Quaternion.LookRotation(hit.normal));
-                                impactGO2.transform.Translate(hit.normal / 1000, Space.World);
-                                impactGO2.transform.parent = hit.transform;
-                                Destroy(impactGO2, 20f);
-                            }
-                            else if (x > 2 && x <= 3)
-                            {
-                                GameObject impactGO3 = Instantiate(impactEffect3, hit.point, Quaternion.LookRotation(hit.normal));
-                                impactGO3.transform.Translate(hit.normal / 1000, Space.World);
-                                impactGO3.transform.parent = hit.transform;
-                                Destroy(impactGO3, 20f);
-                            }
-                            else if (x > 3 && x <= 4)
-                            {
-                                GameObject impactGO4 = Instantiate(impactEffect4, hit.point, Quaternion.LookRotation(hit.normal));
-                                impactGO4.transform.Translate(hit.normal / 1000, Space.World);
-                                impactGO4.transform.parent = hit.transform;
-                                Destroy(impactGO4, 20f);
-                            }
+						if (x <= 1)
+						{
+							if(m_isServer){
+								GameObject impactGO1 = Instantiate(impactEffect1, hit.point, Quaternion.LookRotation(hit.normal));
+								impactGO1.transform.Translate(hit.normal / 1000, Space.World);
+								impactGO1.transform.parent = hit.transform;
+								
+								NetworkServer.Spawn(impactGO1);
+								netSpawner.RpcSyncImpact(impactGO1, GetGameObjectPath(hit.transform.gameObject));
+								
+								Destroy(impactGO1, 20f);
+							}else{
+								netSpawner.Spawn(impactEffect1, hit.point, Quaternion.LookRotation(hit.normal), 10, "impact:"+hit.normal+":"+GetGameObjectPath(hit.transform.gameObject));
+							}
+						}
+						else if (x > 1 && x <= 2)
+						{
+							if(m_isServer){
+								GameObject impactGO2 = Instantiate(impactEffect2, hit.point, Quaternion.LookRotation(hit.normal));
+								impactGO2.transform.Translate(hit.normal / 1000, Space.World);
+								impactGO2.transform.parent = hit.transform;
+								
+								NetworkServer.Spawn(impactGO2);
+								netSpawner.RpcSyncImpact(impactGO2, GetGameObjectPath(hit.transform.gameObject));
+								
+								Destroy(impactGO2, 20f);
+							}else{
+								netSpawner.Spawn(impactEffect2, hit.point, Quaternion.LookRotation(hit.normal), 10, "impact:"+hit.normal+":"+GetGameObjectPath(hit.transform.gameObject));
+							}
+						}
+						else if (x > 2 && x <= 3)
+						{
+							if(m_isServer){
+								GameObject impactGO3 = Instantiate(impactEffect3, hit.point, Quaternion.LookRotation(hit.normal));
+								impactGO3.transform.Translate(hit.normal / 1000, Space.World);
+								impactGO3.transform.parent = hit.transform;
+								
+								NetworkServer.Spawn(impactGO3);
+								netSpawner.RpcSyncImpact(impactGO3, GetGameObjectPath(hit.transform.gameObject));
+								
+								Destroy(impactGO3, 20f);
+							}else{
+								netSpawner.Spawn(impactEffect3, hit.point, Quaternion.LookRotation(hit.normal), 10, "impact:"+hit.normal+":"+GetGameObjectPath(hit.transform.gameObject));
+							}
+						}
+						else if (x > 3 && x <= 4)
+						{                        
+							if(m_isServer){
+								GameObject impactGO4 = Instantiate(impactEffect4, hit.point, Quaternion.LookRotation(hit.normal));
+								impactGO4.transform.Translate(hit.normal / 1000, Space.World);
+								impactGO4.transform.parent = hit.transform;
+								
+								NetworkServer.Spawn(impactGO4);
+								netSpawner.RpcSyncImpact(impactGO4, GetGameObjectPath(hit.transform.gameObject));
+								
+								Destroy(impactGO4, 20f);
+							}else{
+								netSpawner.Spawn(impactEffect4, hit.point, Quaternion.LookRotation(hit.normal), 10, "impact:"+hit.normal+":"+GetGameObjectPath(hit.transform.gameObject));
+							}
+						}
                         }
 					}
 				}
@@ -139,9 +193,16 @@ public class ShootFAP : MonoBehaviour
             if (AnimationWaitEnd >= AnimationLength/4 && douilleApparue == false)
             {
                 Vector3 lookrot2 = new Vector3(lookRot.x + Random.Range(-0.4f, 0.4f), lookRot.y + Random.Range(-0.4f, 0.4f), lookRot.z + Random.Range(-0.4f, 0.4f));
-
-                GameObject balleGO = Instantiate(balle, SpawnBullet.transform.position, Quaternion.LookRotation(lookrot2));
-                Destroy(balleGO, 10f);
+				
+				if(m_isServer){
+					GameObject balleGO = Instantiate(balle, SpawnBullet.transform.position, Quaternion.LookRotation(lookrot2));
+					NetworkServer.Spawn(balleGO);
+					balleGO.GetComponent<Apparitiondouille>().camToFollow = fpsCam.gameObject;
+					
+					Destroy(balleGO, 10f);
+				}else{
+					netSpawner.Spawn(balle, SpawnBullet.transform.position, Quaternion.LookRotation(lookrot2), 10, "apparitionFAP:"+fpsCam.transform.parent.GetComponent<NetworkIdentity>().netId.Value);
+				}
 
                 audioFAP = gameObject.GetComponent<AudioSource>();
                 audioFAP.clip = Rechargement;
@@ -160,4 +221,15 @@ public class ShootFAP : MonoBehaviour
             
         }
     }
+	
+	public static string GetGameObjectPath(GameObject obj)
+	{
+		string path = "/" + obj.name;
+		while (obj.transform.parent != null)
+		{
+			obj = obj.transform.parent.gameObject;
+			path = "/" + obj.name + path;
+		}
+		return path;
+	}
 }

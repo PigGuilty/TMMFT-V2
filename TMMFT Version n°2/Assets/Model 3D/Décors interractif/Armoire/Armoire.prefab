@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 65293070413819802}
   - component: {fileID: 114934207979597314}
   - component: {fileID: 82335536911797296}
+  - component: {fileID: 114321433195016608}
+  - component: {fileID: 114428393537835768}
   m_Layer: 0
   m_Name: Armoire
   m_TagString: Decor interractif
@@ -462,8 +464,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1521534767251900}
   m_LocalRotation: {x: -0, y: 0.70710593, z: -0, w: 0.7071076}
-  m_LocalPosition: {x: 5.769996, y: 0.5899999, z: -19.889494}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 21.639996, y: -4.3099995, z: -16.808313}
+  m_LocalScale: {x: 0.59999955, y: 0.6, z: 0.59999955}
   m_Children:
   - {fileID: 4917199437793678}
   - {fileID: 4760956322050882}
@@ -609,6 +611,59 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114321433195016608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521534767251900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 12
+    i1: 86
+    i2: 149
+    i3: 176
+    i4: 123
+    i5: 38
+    i6: 19
+    i7: 52
+    i8: 72
+    i9: 7
+    i10: 194
+    i11: 187
+    i12: 209
+    i13: 74
+    i14: 250
+    i15: 188
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114428393537835768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521534767251900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114934207979597314
 MonoBehaviour:
   m_ObjectHideFlags: 1

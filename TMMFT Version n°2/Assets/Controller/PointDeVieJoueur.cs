@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PointDeVieJoueur : MonoBehaviour {
+public class PointDeVieJoueur : NetworkBehaviour {
 
     private Camera fpsCam;
 
     private int PVMax;
+	[SyncVar]
     public int PV;
     public int DegatReçus;
     public int PVReçus;
@@ -16,7 +18,6 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     private float widthOfLiveBar;
 
-    public GameObject SpawnQuandMort;
     public GameObject Canvas;
     public GameObject BarreDeVie;
 
@@ -41,10 +42,13 @@ public class PointDeVieJoueur : MonoBehaviour {
     private float BloodScreenOpacity;
     private bool FullOpaque;
     private float increase;
-
+	
     // Use this for initialization
-    void Start () {
-
+    void Start () {		
+		if (gameObject.tag != "localPlayer")
+		{
+			return;
+		}
         PVMax = 100;
         PV = PVMax;
         Mort = false;
@@ -58,14 +62,18 @@ public class PointDeVieJoueur : MonoBehaviour {
         baguette = Couteau.GetComponent<Baguette>();
         weaponchange = gameObject.GetComponent<WeaponChange>();
 
-        fpsCam = Camera.main;
+        fpsCam = GameObject.FindWithTag("localCamera").GetComponent<Camera>();
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {		
+		if (gameObject.tag != "localPlayer")
+		{
+			return;
+		}
         if (Mort == true)
         {
-            transform.position = SpawnQuandMort.transform.position;
+            transform.position = GameObject.FindWithTag("SpawnDead").transform.position;
 
             if (Input.GetButtonDown("Fire1"))
             {
@@ -126,6 +134,10 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+		if (!isLocalPlayer)
+		{
+			return;
+		}
         if (other.gameObject.tag == "Vache" && FullOpaque == false)
         {
             PV = PV - DegatReçus;
@@ -145,9 +157,13 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     void meurt()
     {
+		if (!isLocalPlayer)
+		{
+			return;
+		}
         var theBarRectTransform = furryScript.BarreDeFurry.transform as RectTransform;
         theBarRectTransform.sizeDelta = new Vector2(0, theBarRectTransform.sizeDelta.y);
-        furryScript.animator.SetFloat("Attaque Couteau", 0f);
+        //furryScript.animator.SetFloat("Attaque Couteau", 0f); //TODO animator inexistant ?
         furryScript.AnimationWaitEnd = 0;
         attaque.enabled = true;
         furryScript.AnimBaguetteVersCouteau = false;
@@ -172,6 +188,21 @@ public class PointDeVieJoueur : MonoBehaviour {
 
     public void Appuyé()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		if(isServer)
+			NetworkManager.singleton.ServerChangeScene(SceneManager.GetActiveScene().name);
+		else{
+			Mort = false;
+			weaponchange.BlockLeChangementDArme = false;
+			furryScript.AmenoPlayer.enabled = true;
+			
+			if(isServer){
+				weaponchange.RpcWSetPistoletActive();
+			}else{
+				weaponchange.CmdWSetPistoletActive();
+			}
+			
+			PV = PVMax;
+			transform.position = GameObject.FindWithTag("SpawnPt").transform.position;
+		}
     }
 }

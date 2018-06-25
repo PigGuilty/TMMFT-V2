@@ -227,6 +227,8 @@ GameObject:
   - component: {fileID: 23294408398469252}
   - component: {fileID: 195125645260051120}
   - component: {fileID: 114425840579708480}
+  - component: {fileID: 114710819318537444}
+  - component: {fileID: 114767270569325376}
   m_Layer: 0
   m_Name: Vache
   m_TagString: Vache
@@ -760,8 +762,59 @@ MonoBehaviour:
   meurt: {fileID: 8300000, guid: 7375cb4eb58c00b4dbaaf2d2f078b84a, type: 3}
   Red: {fileID: 2100000, guid: 522d8c9e8c8b73440858c2947542aebd, type: 2}
   Origine: {fileID: 2100000, guid: 210e34d25ff5f5843bae2d984f493c66, type: 2}
-  indexOfColor1: 1
-  indexOfColor2: 7
+--- !u!114 &114710819318537444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764770461818212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 111
+    i1: 23
+    i2: 133
+    i3: 152
+    i4: 65
+    i5: 61
+    i6: 222
+    i7: 100
+    i8: 88
+    i9: 86
+    i10: 149
+    i11: 141
+    i12: 140
+    i13: 78
+    i14: 125
+    i15: 241
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114767270569325376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764770461818212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!137 &137775369810867260
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -834,7 +887,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 180

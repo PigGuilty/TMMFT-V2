@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class EffetGrenade1 : MonoBehaviour {
 
@@ -16,10 +18,15 @@ public class EffetGrenade1 : MonoBehaviour {
 	private float randNumb;
 
     public BoxCollider boxTrigger;
+	public bool m_isServer;
+	
+	private NetworkSpawner netSpawner;
 
     // Use this for initialization
     void Start () {
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindWithTag("localPlayer");
+		netSpawner = Player.GetComponent<NetworkSpawner>();
+		m_isServer = Player.GetComponent<FirstPersonController>().isServer;
 
         DébutDeLAction = false;
         canExplode = false;
@@ -45,8 +52,12 @@ public class EffetGrenade1 : MonoBehaviour {
         {
 			if(timer >= randNumb)
             {
-                GameObject Explo = Instantiate(Explosion);
-                Explo.transform.position = gameObject.transform.position;
+				if(m_isServer){
+					GameObject Explo = Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
+					NetworkServer.Spawn(Explo);
+				}else{
+					netSpawner.Spawn(Explosion, gameObject.transform.position, Quaternion.identity, -1, "");
+				}
                 Destroy(gameObject);
             }
             timer += Time.deltaTime;
@@ -58,8 +69,12 @@ public class EffetGrenade1 : MonoBehaviour {
         if (canExplode == true)
         {
 			if (other.gameObject.tag == "Bullet") {
-                GameObject Explo = Instantiate(Explosion);
-                Explo.transform.position = gameObject.transform.position;
+                if(m_isServer){
+					GameObject Explo = Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
+					NetworkServer.Spawn(Explo);
+				}else{
+					netSpawner.Spawn(Explosion, gameObject.transform.position, Quaternion.identity, -1, "");
+				}
                 Destroy(gameObject);
 			}
         }

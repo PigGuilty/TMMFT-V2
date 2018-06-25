@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class EffetGrenade4 : MonoBehaviour {
 
@@ -15,23 +17,34 @@ public class EffetGrenade4 : MonoBehaviour {
     private float timer;
 	
     public BoxCollider boxTrigger;
+	public bool m_isServer;
+	
+	private NetworkSpawner netSpawner;
 
     // Use this for initialization
     void Start () {
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindWithTag("localPlayer");
 
         DébutDeLAction = false;
         canExplode = false;
-		if(Player != null)
+		if(Player != null){
 			prendreobjet = Player.GetComponent<PrendreObjet>();
+			
+			netSpawner = Player.GetComponent<NetworkSpawner>();
+			m_isServer = Player.GetComponent<FirstPersonController>().isServer;
+		}
     }
 
     private void Update()
     {
 		if (Player == null){//update player
-			Player = GameObject.FindWithTag("Player");
-			if(Player != null)
+			Player = GameObject.FindWithTag("localPlayer");
+			if(Player != null){
 				prendreobjet = Player.GetComponent<PrendreObjet>();
+				
+				netSpawner = Player.GetComponent<NetworkSpawner>();
+				m_isServer = Player.GetComponent<FirstPersonController>().isServer;
+			}
 		}else{
 			if (boxTrigger.enabled == true)
 			{
@@ -48,8 +61,12 @@ public class EffetGrenade4 : MonoBehaviour {
 			{
 				if(timer >= 3)
 				{
-					GameObject Explo = Instantiate(Explosion);
-					Explo.transform.position = gameObject.transform.position;
+					if(m_isServer){
+						GameObject Explo = Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
+						NetworkServer.Spawn(Explo);
+					}else{
+						netSpawner.Spawn(Explosion, gameObject.transform.position, Quaternion.identity, -1, "");
+					}
 					Destroy(gameObject);
 				}
 				timer += Time.deltaTime;
@@ -62,8 +79,12 @@ public class EffetGrenade4 : MonoBehaviour {
         if (canExplode == true)
         {
 			if (other.gameObject.tag == "Bullet") {
-                GameObject Explo = Instantiate(Explosion);
-                Explo.transform.position = gameObject.transform.position;
+                if(m_isServer){
+					GameObject Explo = Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
+					NetworkServer.Spawn(Explo);
+				}else{
+					netSpawner.Spawn(Explosion, gameObject.transform.position, Quaternion.identity, -1, "");
+				}
                 Destroy(gameObject);
 			}
         }

@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 54941410952920558}
   - component: {fileID: 136429010264775954}
   - component: {fileID: 114494642226505060}
+  - component: {fileID: 114222211503567868}
+  - component: {fileID: 114894737137328086}
   m_Layer: 2
   m_Name: Douille P-M right
   m_TagString: Bullet
@@ -100,6 +102,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114222211503567868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259925652426246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 153
+    i1: 55
+    i2: 95
+    i3: 115
+    i4: 118
+    i5: 63
+    i6: 197
+    i7: 68
+    i8: 8
+    i9: 119
+    i10: 136
+    i11: 175
+    i12: 37
+    i13: 59
+    i14: 209
+    i15: 106
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114494642226505060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +146,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   right: 1
+--- !u!114 &114894737137328086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259925652426246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!136 &136429010264775954
 CapsuleCollider:
   m_ObjectHideFlags: 1

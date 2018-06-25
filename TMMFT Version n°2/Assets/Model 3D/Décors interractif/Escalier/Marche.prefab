@@ -83,6 +83,9 @@ GameObject:
   - component: {fileID: 95193892930417860}
   - component: {fileID: 65198061238135334}
   - component: {fileID: 114736691265450520}
+  - component: {fileID: 114413809325655772}
+  - component: {fileID: 114009311188502888}
+  - component: {fileID: 114831612725295442}
   m_Layer: 0
   m_Name: Marche
   m_TagString: Untagged
@@ -188,6 +191,59 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114009311188502888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973810681654360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114413809325655772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973810681654360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 140
+    i1: 160
+    i2: 35
+    i3: 186
+    i4: 186
+    i5: 252
+    i6: 104
+    i7: 116
+    i8: 218
+    i9: 116
+    i10: 142
+    i11: 98
+    i12: 160
+    i13: 42
+    i14: 94
+    i15: 88
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114736691265450520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,6 +255,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c137a8d889cadb44fa1e962b699aff7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MarcheSuivante: {fileID: 0}
+--- !u!114 &114831612725295442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973810681654360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 95193892930417860}
+  m_ParameterSendBits: 0
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
 --- !u!137 &137129816594727396
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

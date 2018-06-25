@@ -57,6 +57,8 @@ GameObject:
   - component: {fileID: 65819479544976678}
   - component: {fileID: 65874931037833448}
   - component: {fileID: 114613161970649708}
+  - component: {fileID: 114178045471016584}
+  - component: {fileID: 114686885144377864}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Objet
@@ -151,9 +153,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417951601806490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.385, y: 2.077, z: 2.875}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0.32160926, z: -0, w: 0.94687253}
+  m_LocalPosition: {x: -0.093844265, y: 1.1620007, z: -0.0846706}
+  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
   m_Children:
   - {fileID: 4502148835984154}
   - {fileID: 4934604531941438}
@@ -514,6 +516,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.819025, y: 9.066624, z: 5.138073}
   m_Center: {x: 0.33174515, y: 4.5047383, z: 0.02619028}
+--- !u!114 &114178045471016584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417951601806490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 131
+    i1: 48
+    i2: 23
+    i3: 236
+    i4: 185
+    i5: 49
+    i6: 184
+    i7: 116
+    i8: 250
+    i9: 152
+    i10: 162
+    i11: 87
+    i12: 125
+    i13: 222
+    i14: 224
+    i15: 59
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114613161970649708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,3 +562,25 @@ MonoBehaviour:
   Explosion: {fileID: 100010, guid: 36b1e5546835fa44f85830bf37b1b8a9, type: 2}
   canExplode: 0
   boxTrigger: {fileID: 65819479544976678}
+  m_isServer: 0
+--- !u!114 &114686885144377864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417951601806490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1

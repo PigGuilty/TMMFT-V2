@@ -114,6 +114,8 @@ GameObject:
   - component: {fileID: 95668307257082572}
   - component: {fileID: 136425307417907276}
   - component: {fileID: 114508204422751236}
+  - component: {fileID: 114639797747627246}
+  - component: {fileID: 114181616558536522}
   m_Layer: 0
   m_Name: Gros Bouton Rouge
   m_TagString: Decor interractif
@@ -235,6 +237,27 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114181616558536522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865658213455582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114508204422751236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,6 +270,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjetAvecLequelIlYAInterraction: {fileID: 0}
+--- !u!114 &114639797747627246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865658213455582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 221
+    i1: 62
+    i2: 134
+    i3: 158
+    i4: 72
+    i5: 240
+    i6: 166
+    i7: 164
+    i8: 152
+    i9: 212
+    i10: 49
+    i11: 157
+    i12: 13
+    i13: 98
+    i14: 32
+    i15: 96
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!136 &136425307417907276
 CapsuleCollider:
   m_ObjectHideFlags: 1

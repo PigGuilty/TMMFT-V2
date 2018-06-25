@@ -84,6 +84,8 @@ GameObject:
   - component: {fileID: 65857519005698928}
   - component: {fileID: 54963501097355218}
   - component: {fileID: 114519161394708436}
+  - component: {fileID: 114084751089496434}
+  - component: {fileID: 114606802802699886}
   m_Layer: 0
   m_Name: "M\xE9dikit"
   m_TagString: Heal
@@ -263,6 +265,38 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114084751089496434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743296509699956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 235
+    i1: 162
+    i2: 54
+    i3: 132
+    i4: 140
+    i5: 78
+    i6: 247
+    i7: 36
+    i8: 250
+    i9: 22
+    i10: 242
+    i11: 252
+    i12: 51
+    i13: 119
+    i14: 155
+    i15: 116
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114519161394708436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,7 +309,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "M\xE9dikit": {fileID: 1743296509699956}
-  Player: {fileID: 0}
+--- !u!114 &114606802802699886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743296509699956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!137 &137461188679653546
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

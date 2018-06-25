@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4432374550728752}
   - component: {fileID: 212866495718791938}
+  - component: {fileID: 114967059634847044}
+  - component: {fileID: 114380410537886494}
   m_Layer: 0
   m_Name: Impact_1
   m_TagString: Untagged
@@ -40,6 +42,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114380410537886494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977401591996322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.00001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114967059634847044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977401591996322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 250
+    i1: 16
+    i2: 141
+    i3: 34
+    i4: 196
+    i5: 73
+    i6: 3
+    i7: 148
+    i8: 187
+    i9: 76
+    i10: 166
+    i11: 137
+    i12: 52
+    i13: 37
+    i14: 212
+    i15: 60
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212866495718791938
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class Attaque : MonoBehaviour {
+public class Attaque : NetworkBehaviour {
 
     public int TailleChargeur;
     private int BalleRestante;
@@ -22,9 +23,15 @@ public class Attaque : MonoBehaviour {
     private float AnimationWaitEnd;
 
     public AudioClip SonAttaque;
+    private Camera fpsCam;
 
     void Start()
     {
+		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		{
+			return;
+		}
+		fpsCam = GameObject.FindWithTag("localCamera").GetComponent<Camera>();
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
         AnimationLength = 0.83f;
@@ -35,6 +42,10 @@ public class Attaque : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		{
+			return;
+		}
         if (BalleRestante > 0)
         {
 
@@ -45,7 +56,7 @@ public class Attaque : MonoBehaviour {
                 audio.Play();
 
                 RaycastHit hit;
-                Ray ShootingDirection = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                Ray ShootingDirection = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
 
                 if(Physics.Raycast(ShootingDirection, out hit, PortéeCouteau)){
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PutInFire : MonoBehaviour
 {
@@ -25,10 +27,19 @@ public class PutInFire : MonoBehaviour
 
     private GameObject FlameLogo;
 	private GameObject Canvas;
+	private GameObject Player;
+	public bool m_isServer;
+	
+	private NetworkSpawner netSpawner;
 	
     // Use this for initialization
     void Start()
     {
+        Player = GameObject.FindWithTag("localPlayer");
+		if(Player != null){
+			netSpawner = Player.GetComponent<NetworkSpawner>();
+			m_isServer = Player.GetComponent<FirstPersonController>().isServer;
+		}
         Desactivé = false;
         BruleJoueur = false;
         Permission = true;
@@ -47,6 +58,13 @@ public class PutInFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(Player == null){
+			Player = GameObject.FindWithTag("localPlayer");
+			if(Player != null){
+				netSpawner = Player.GetComponent<NetworkSpawner>();
+				m_isServer = Player.GetComponent<FirstPersonController>().isServer;
+			}
+		}
 		if(Canvas == null){
 			Canvas = GameObject.Find("Canvas");
 			if(Canvas != null) {
@@ -95,8 +113,14 @@ public class PutInFire : MonoBehaviour
 
                     if (FeuPlayerDejaCree == false)
                     {
-                        FeuPlayerInstanciate = Instantiate(FeuPlayer, other.transform);
-                        FeuPlayerInstanciate.transform.position = other.transform.position;
+						if(m_isServer){
+							FeuPlayerInstanciate = Instantiate(FeuPlayer, other.transform);
+							FeuPlayerInstanciate.transform.position = other.transform.position;
+							
+							NetworkServer.Spawn(FeuPlayerInstanciate);
+						}else{
+							netSpawner.Spawn(FeuPlayer, other.transform.position, Quaternion.identity, -1, "");
+						}						
                         FeuPlayerDejaCree = true;
                     }
                 }

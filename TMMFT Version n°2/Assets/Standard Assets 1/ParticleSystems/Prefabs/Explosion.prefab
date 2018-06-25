@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 11400000}
   - component: {fileID: 82643598313670890}
   - component: {fileID: 114802563275009528}
+  - component: {fileID: 114251493509777350}
+  - component: {fileID: 114054926751322512}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -30927,6 +30929,59 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114054926751322512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114251493509777350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 37
+    i1: 49
+    i2: 123
+    i3: 208
+    i4: 72
+    i5: 11
+    i6: 71
+    i7: 52
+    i8: 42
+    i9: 133
+    i10: 130
+    i11: 159
+    i12: 89
+    i13: 79
+    i14: 230
+    i15: 109
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114802563275009528
 MonoBehaviour:
   m_ObjectHideFlags: 1

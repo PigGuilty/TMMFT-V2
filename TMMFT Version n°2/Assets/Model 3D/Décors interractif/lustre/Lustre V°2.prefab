@@ -280,6 +280,8 @@ GameObject:
   - component: {fileID: 54491162613425518}
   - component: {fileID: 114175701627586590}
   - component: {fileID: 82357317423833150}
+  - component: {fileID: 114210789660189916}
+  - component: {fileID: 114754670580347966}
   m_Layer: 0
   m_Name: Lustre
   m_TagString: Decor interractif
@@ -1323,6 +1325,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 100010, guid: 6b589e4920d64b1409d112e4deef9e1d, type: 2}
+  m_isServer: 0
+--- !u!114 &114210789660189916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825092355311854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 223
+    i1: 53
+    i2: 109
+    i3: 161
+    i4: 63
+    i5: 221
+    i6: 107
+    i7: 196
+    i8: 186
+    i9: 129
+    i10: 139
+    i11: 74
+    i12: 92
+    i13: 10
+    i14: 98
+    i15: 211
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114754670580347966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825092355311854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!212 &212225734515593906
 SpriteRenderer:
   m_ObjectHideFlags: 1

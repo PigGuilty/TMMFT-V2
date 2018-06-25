@@ -233,11 +233,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 122373039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0534a80ae46b6c478393f0aed7c4000, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e1a588e1db94fe4684383408caaa9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToLoad: Scipt Testing
   button: {fileID: 122373041}
+  info: {fileID: 165936936}
 --- !u!1 &165936935
 GameObject:
   m_ObjectHideFlags: 0
