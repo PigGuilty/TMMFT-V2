@@ -46,11 +46,6 @@ namespace UnityStandardAssets.Effects
                     {
                         Degat =  OldPos - NewPos;
                     }
-                    
-
-                    print(OldPos);
-                    print(NewPos);
-                    print(Degat);
 
                     target.TakeDamage(Degat * explosionForce,true);
                 }
