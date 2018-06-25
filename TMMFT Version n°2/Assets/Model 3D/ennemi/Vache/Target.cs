@@ -32,6 +32,9 @@ public class Target : MonoBehaviour {
 	private string scoreEnText;
 
 	public bool IsVacheBipede = false;
+	public bool IsMeuleDeFromage = false;
+
+	public GameObject ExplosionMeule;
 
 	private Animator animator;
 
@@ -43,8 +46,11 @@ public class Target : MonoBehaviour {
 		mats[indexOfColor2] = Origine;
         rend.materials = mats;
 
-        Trigger = GetComponent<Collider>();
-
+		if (IsMeuleDeFromage == true) {
+			Trigger = GetComponentInChildren<Transform> ().GetComponentInChildren<Transform> ().GetComponentInChildren<Collider> ();
+		} else {
+			Trigger = GetComponent<Collider> ();
+		}
         waiting = 0;
 
 		ScoreTextObject = GameObject.Find ("Score");
@@ -54,7 +60,11 @@ public class Target : MonoBehaviour {
 
 		Vie = VieMax;
 
-		animator = GetComponent<Animator> ();
+		if (IsMeuleDeFromage == true) {
+			animator = GetComponentInChildren<Animator> ();
+		} else {
+			animator = GetComponent<Animator> ();
+		}
     }
 
 
@@ -81,7 +91,12 @@ public class Target : MonoBehaviour {
 				animator.SetFloat ("Blend", 1.5f);
 				gameObject.GetComponent<NavMeshAgent> ().speed = 0.0f;
 				Destroy (gameObject, 1.2f);
-			} else {
+			} else if (IsMeuleDeFromage == true) {
+				GameObject ExplosionMeuleGO = Instantiate (ExplosionMeule);
+				ExplosionMeuleGO.transform.position = gameObject.transform.position;
+				Destroy (gameObject);
+			}
+			else {
 				Destroy (gameObject, audio.clip.length);
 			}
 		}
@@ -101,6 +116,9 @@ public class Target : MonoBehaviour {
 
 			if (IsVacheBipede == true) {
 				StartCoroutine("FeelPain");
+			}
+			if (IsMeuleDeFromage == true) {
+				animator.SetFloat ("Blend", Mathf.Abs ((Vie / VieMax) - 1));
 			}
         }
 
