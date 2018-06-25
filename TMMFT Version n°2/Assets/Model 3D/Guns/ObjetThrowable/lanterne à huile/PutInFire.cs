@@ -43,7 +43,7 @@ public class PutInFire : MonoBehaviour
         Desactivé = false;
         BruleJoueur = false;
         Permission = true;
-        Canvas = GameObject.Find("Canvas");
+        Canvas = GameObject.Find("GUI");
 		if(Canvas != null) {
 			foreach(Transform child in Canvas.transform)
 			{
@@ -66,7 +66,7 @@ public class PutInFire : MonoBehaviour
 			}
 		}
 		if(Canvas == null){
-			Canvas = GameObject.Find("Canvas");
+			Canvas = GameObject.Find("GUI");
 			if(Canvas != null) {
 				foreach(Transform child in Canvas.transform)
 				{
