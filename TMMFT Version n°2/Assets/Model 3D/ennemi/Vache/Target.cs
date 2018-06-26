@@ -1,26 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-<<<<<<< HEAD
 using UnityEngine.Networking;
-=======
 using UnityEngine.AI;
->>>>>>> ee6977bfa153c9f8336b72b4a1b868ecddc38823
 
 [RequireComponent(typeof(AudioSource))]
 
 public class Target : NetworkBehaviour {
 
     // Use this for initialization
-<<<<<<< HEAD
 	
 	[SyncVar]
     public float Vie;
-=======
 
-	public float Vie;
 	public float VieMax;
->>>>>>> ee6977bfa153c9f8336b72b4a1b868ecddc38823
 
     public ParticleSystem mourir;
 
@@ -134,46 +127,21 @@ public class Target : NetworkBehaviour {
 
 
     public void Update()
-<<<<<<< HEAD
     {
-        SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
-        Material[] mats = rend.materials;
-
-        if (mats[1].color == Red.color)
-        {
-            if (waiting >= 2)
-            {
-                mats[1] = Origine;
-                mats[7] = Origine;
-                rend.materials = mats;
-                waiting = 0;
-            }
-
-            if (waiting < 2)
-            {
-                waiting++;
-            }
-
-        }
-    }
-=======
-	{
-		if (IsVacheBipede == true) {
+		if (IsVacheBipede == true) {			
+			SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer> ();
+			Material[] mats = rend.materials;
+			if (mats [0].color == Red.color) {//[indexOfColor1]
+				if (waiting >= 2) {
+					mats [0] = Origine;//[indexOfColor1]
+					mats [0] = Origine;//[indexOfColor2]
+					rend.materials = mats;
+					waiting = 0;
+				}
 			
-		}
-
-		SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer> ();
-		Material[] mats = rend.materials;
-		if (mats [indexOfColor1].color == Red.color) {
-			if (waiting >= 2) {
-				mats [indexOfColor1] = Origine;
-				mats [indexOfColor2] = Origine;
-				rend.materials = mats;
-				waiting = 0;
-			}
-		
-			if (waiting < 2) {
-				waiting++;
+				if (waiting < 2) {
+					waiting++;
+				}
 			}
 		}
 	}
@@ -186,6 +154,5 @@ public class Target : NetworkBehaviour {
 			animator.SetFloat ("Blend", floatOfAnim);
 		}
 	}
->>>>>>> ee6977bfa153c9f8336b72b4a1b868ecddc38823
 }
 	
