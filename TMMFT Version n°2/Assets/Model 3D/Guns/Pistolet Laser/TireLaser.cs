@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class TireLaser : MonoBehaviour {
+public class TireLaser : NetworkBehaviour {
 
-	// Use this for initialization
 	private Camera fpsCam;
 
 	public AudioClip Bziou;
-
+	
 	void Start() {
+		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		{
+			return;
+		}
 		fpsCam = Camera.main;
 	}
 
-	// Update is called once per frame
-	void Update () {
-
+	void Update () {	
+		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		{
+			return;
+		}
 		Vector3 lookRot = fpsCam.transform.forward;
 
 		if (Input.GetButtonDown("Fire1"))

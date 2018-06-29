@@ -21,6 +21,11 @@ TagManager:
   - Trampo
   - Pistolet Laser
   - INFO
+  - localPlayer
+  - isLP
+  - localCamera
+  - SpawnDead
+  - SpawnPt
   layers:
   - Default
   - TransparentFX

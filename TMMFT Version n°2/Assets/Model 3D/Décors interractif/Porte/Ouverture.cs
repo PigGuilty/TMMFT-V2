@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class Ouverture : MonoBehaviour {
+public class Ouverture : NetworkBehaviour {
 
     private Animator animator;
-
+	
+	[SyncVar]
     private float FloatDeLAnimation;
 
     public float FloatDeDépartPourAnimation;
@@ -15,6 +17,7 @@ public class Ouverture : MonoBehaviour {
     public BoxCollider boxOuvert;
     public BoxCollider boxFermé;
 
+	[SyncVar]
     private bool EnAnimation;
 
     private float AnimationWaitEnd;
@@ -41,7 +44,6 @@ public class Ouverture : MonoBehaviour {
     {
         if (EnAnimation == false)
         {
-
             FloatDeLAnimation = animator.GetFloat("Ouverture");
 
             EnAnimation = true;

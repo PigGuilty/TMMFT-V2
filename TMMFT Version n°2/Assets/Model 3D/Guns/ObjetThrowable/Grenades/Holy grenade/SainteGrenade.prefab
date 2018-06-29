@@ -125,6 +125,8 @@ GameObject:
   - component: {fileID: 65688880807353994}
   - component: {fileID: 65835955241336944}
   - component: {fileID: 114296795455618404}
+  - component: {fileID: 114509445208184680}
+  - component: {fileID: 114731767059735794}
   m_Layer: 0
   m_Name: SainteGrenade
   m_TagString: Objet
@@ -603,3 +605,57 @@ MonoBehaviour:
   Explosion: {fileID: 100010, guid: 36b1e5546835fa44f85830bf37b1b8a9, type: 2}
   canExplode: 0
   boxTrigger: {fileID: 65688880807353994}
+  m_isServer: 0
+--- !u!114 &114509445208184680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854454234099946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 139
+    i1: 149
+    i2: 117
+    i3: 112
+    i4: 155
+    i5: 199
+    i6: 39
+    i7: 36
+    i8: 120
+    i9: 21
+    i10: 116
+    i11: 139
+    i12: 112
+    i13: 194
+    i14: 219
+    i15: 128
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114731767059735794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854454234099946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1

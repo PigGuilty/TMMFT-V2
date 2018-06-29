@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Appuis : MonoBehaviour {
+public class Appuis : NetworkBehaviour {
 
     private Animator animator;
-
+	
+	[SyncVar]
     private bool appuyé;
-    private bool EnAnimation;
+    [SyncVar]
+	private bool EnAnimation;
 
     private float AnimationWaitEnd;
     private int AnimationLength;

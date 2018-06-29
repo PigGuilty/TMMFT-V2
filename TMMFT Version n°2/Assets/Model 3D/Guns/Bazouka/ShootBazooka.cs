@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class ShootBazooka : MonoBehaviour
+public class ShootBazooka : NetworkBehaviour
 {
 
     // Use this for initialization
@@ -18,19 +20,34 @@ public class ShootBazooka : MonoBehaviour
     public GameObject PointDeDépartDuMissile;
 
     public AudioClip tireBazooka;
-
+	private NetworkSpawner netSpawner;
+	public bool m_isServer;
+    private Camera fpsCam;
+	
     void Start()
     {
+		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		{
+			return;
+		}
+		m_isServer = gameObject.transform.parent.parent.GetComponent<FirstPersonController>().isServer;
+		fpsCam = GameObject.FindWithTag("localCamera").GetComponent<Camera>();
+		
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
         AnimationLength = 4.17f;
         AnimationWaitEnd = 0;
+		netSpawner = gameObject.transform.parent.parent.GetComponent<NetworkSpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 lookRot = Camera.main.transform.forward;
+		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		{
+			return;
+		}
+        Vector3 lookRot = fpsCam.transform.forward;
 
 
         if (BalleRestante > 0)
@@ -38,8 +55,13 @@ public class ShootBazooka : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1"))
             {
-                Instantiate(Missile, PointDeDépartDuMissile.transform.position , Quaternion.LookRotation(-lookRot));
-                BalleRestante = BalleRestante - 1;
+                if(m_isServer){
+					GameObject item = Instantiate(Missile, PointDeDépartDuMissile.transform.position , Quaternion.LookRotation(-lookRot));
+					NetworkServer.Spawn(item);
+				}else{
+					netSpawner.Spawn(Missile, PointDeDépartDuMissile.transform.position, Quaternion.LookRotation(-lookRot), -1, "");
+				}
+				BalleRestante = BalleRestante - 1;
 
                 AudioSource audio = gameObject.GetComponent<AudioSource>();
                 audio.clip = tireBazooka;

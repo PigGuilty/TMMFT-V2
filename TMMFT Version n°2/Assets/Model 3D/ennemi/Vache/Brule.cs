@@ -1,24 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
-public class Brule : MonoBehaviour {
+public class Brule : NetworkBehaviour {
 
     private Target target;
 
     public GameObject FeuPlayer;
 
     GameObject FeuVacheInstanciate;
-
+	
+	[SyncVar]
     private bool BruleVache;
 
     public float TempsPourArreterDeBruler;
     public float TempsEntreChaquePvPerdu;
     private float increase;
 
+	public bool m_isServer;
+	
+	private NetworkSpawner netSpawner;
+	
     // Use this for initialization
     void Start () {
         BruleVache = false;
+		netSpawner = GameObject.FindWithTag("localPlayer").GetComponent<NetworkSpawner>();
+		
+		m_isServer = GameObject.FindWithTag("localPlayer").GetComponent<FirstPersonController>().isServer;
     }
 	
 	// Update is called once per frame
@@ -59,8 +69,13 @@ public class Brule : MonoBehaviour {
             }
             if (NePasInstantiate == false)
             {
-                FeuVacheInstanciate = Instantiate(FeuPlayer, transform);
-                FeuVacheInstanciate.transform.position = transform.position;
+				if(m_isServer){
+					FeuVacheInstanciate = Instantiate(FeuPlayer, transform);
+					NetworkServer.Spawn(FeuVacheInstanciate);
+					FeuVacheInstanciate.transform.position = transform.position;
+				}else{
+					netSpawner.Spawn(FeuPlayer, transform.position, Quaternion.identity, -1, "");
+				}
             }
         }
     }

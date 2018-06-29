@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class ArmoireScript : MonoBehaviour {
+public class ArmoireScript : NetworkBehaviour {
 
     private GameObject Player;
     public GameObject SpawnTéléport;
 	public GameObject Portail;
 
+	[SyncVar]
     public bool Ouvert;
     private bool AnimationOuverture;
 
@@ -30,7 +32,7 @@ public class ArmoireScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindWithTag("localPlayer");
 
         animator = GetComponent<Animator>();
 		if(Player != null) {
@@ -55,7 +57,7 @@ public class ArmoireScript : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 		if (Player == null){//update player
-			Player = GameObject.FindWithTag("Player");
+			Player = GameObject.FindWithTag("localPlayer");
 			if(Player != null) {
 				PortailUtilisablee = Player.GetComponent<PortailUtilisable>();
 				prendreobjet = Player.GetComponent<PrendreObjet>();
@@ -129,15 +131,14 @@ public class ArmoireScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (prendreobjet.ObjetPris == true && Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet" || other.tag == "Bullet"))
+        if (prendreobjet != null && prendreobjet.ObjetPris == true && Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet" || other.tag == "Bullet"))
         {
             PortailUtilisablee.PortailUtilisablee = false;
             TempsPortailReload = 0;
             Player.transform.position = SpawnTéléport.transform.position;
         }
 
-        else if (Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "Player" || other.tag == "Objet" || other.tag == "Bullet"))
+        else if (Ouvert == true && PortailUtilisablee.PortailUtilisablee == true && (other.tag == "localPlayer" || other.tag == "Player" || other.tag == "Objet" || other.tag == "Bullet"))
         {
             PortailUtilisablee.PortailUtilisablee = false;
             TempsPortailReload = 0;

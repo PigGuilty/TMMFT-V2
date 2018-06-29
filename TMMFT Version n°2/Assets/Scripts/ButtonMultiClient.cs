@@ -19,7 +19,12 @@ public class ButtonMultiClient : MonoBehaviour {
 	}
 	
 	void OnClick(){
-		info.text = "Client:"+IPHolder.text;
+		string ip = IPHolder.text;
+		if(string.IsNullOrEmpty(ip)){
+			ip = "localhost";
+		}
+		
+		info.text = "Client:"+ip;
 		SceneManager.LoadScene(SceneToLoad);
 	}
 }

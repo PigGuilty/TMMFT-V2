@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class Target : MonoBehaviour {
+public class Target : NetworkBehaviour {
 
     // Use this for initialization
+	
+	[SyncVar]
+    public float Vie;
 
-	public float Vie;
 	public float VieMax;
 
     public ParticleSystem mourir;
@@ -21,8 +24,6 @@ public class Target : MonoBehaviour {
 
     public Material Red;
     public Material Origine;
-	public int indexOfColor1;
-	public int indexOfColor2;
 
     private int waiting;
 
@@ -42,8 +43,8 @@ public class Target : MonoBehaviour {
     {
         SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
         Material[] mats = rend.materials;
-		mats[indexOfColor1] = Origine;
-		mats[indexOfColor2] = Origine;
+        mats[1] = Origine;
+        mats[7] = Origine;
         rend.materials = mats;
 
 		if (IsMeuleDeFromage == true) {
@@ -110,8 +111,8 @@ public class Target : MonoBehaviour {
             }
             SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
             Material[] mats = rend.materials;
-			mats[indexOfColor1] = Red;
-			mats[indexOfColor2] = Red;
+            mats[1] = Red;
+            mats[7] = Red;
             rend.materials = mats;
 
 			if (IsVacheBipede == true) {
@@ -126,23 +127,21 @@ public class Target : MonoBehaviour {
 
 
     public void Update()
-	{
-		if (IsVacheBipede == true) {
+    {
+		if (IsVacheBipede == true) {			
+			SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer> ();
+			Material[] mats = rend.materials;
+			if (mats [0].color == Red.color) {//[indexOfColor1]
+				if (waiting >= 2) {
+					mats [0] = Origine;//[indexOfColor1]
+					mats [0] = Origine;//[indexOfColor2]
+					rend.materials = mats;
+					waiting = 0;
+				}
 			
-		}
-
-		SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer> ();
-		Material[] mats = rend.materials;
-		if (mats [indexOfColor1].color == Red.color) {
-			if (waiting >= 2) {
-				mats [indexOfColor1] = Origine;
-				mats [indexOfColor2] = Origine;
-				rend.materials = mats;
-				waiting = 0;
-			}
-		
-			if (waiting < 2) {
-				waiting++;
+				if (waiting < 2) {
+					waiting++;
+				}
 			}
 		}
 	}

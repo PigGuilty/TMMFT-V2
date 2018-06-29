@@ -9,7 +9,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (CharacterController))]
     [RequireComponent(typeof (AudioSource))]
-    public class FirstPersonController : MonoBehaviour
+    public class FirstPersonController : NetworkBehaviour
     {
         [SerializeField] public bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -30,7 +30,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
         private Camera m_Camera;
-        private bool m_Jump;
+		private bool m_Jump;
         private float m_YRotation;
         private Vector2 m_Input;
         private Vector3 m_MoveDir = Vector3.zero;
@@ -45,11 +45,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		private Rigidbody rb;
 
-        // Use this for initialization
+		
         private void Start()
         {
+			m_Camera = GetComponentInChildren<Camera>();
+			
+			if (!isLocalPlayer)
+			{
+				GetComponentInChildren<AudioListener>().enabled = false;
+				m_Camera.enabled = false;
+				return;
+			}
+			gameObject.tag = "localPlayer";
+			m_Camera.tag = "localCamera";
+			
             m_CharacterController = GetComponent<CharacterController>();
-            m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
@@ -65,11 +75,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         // Update is called once per frame
         private void Update()
-        {
-			/*if (!isLocalPlayer)
+        {	
+			if (!isLocalPlayer)
 			{
 				return;
-			}*/
+			}
 			
             RotateView();
             // the jump state needs to read here to make sure it is not missed
@@ -140,10 +150,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
-			/*if (!isLocalPlayer)
+			if (!isLocalPlayer)
 			{
 				return;
-			}*/
+			}
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
@@ -228,10 +238,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void UpdateCameraPosition(float speed)
         {
-			/*if (!isLocalPlayer)
+			if (!isLocalPlayer)
 			{
 				return;
-			}*/
+			}
             Vector3 newCameraPosition;
             if (!m_UseHeadBob)
             {
@@ -295,6 +305,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
+			if(hit == null)
+				return;
+			
+			if(hit.collider == null)
+				return;
+			
+			if(m_CharacterController == null)
+				return;
+			
             Rigidbody body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it
             if (m_CollisionFlags == CollisionFlags.Below)

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class WeaponChange : MonoBehaviour {
+public class WeaponChange : NetworkBehaviour {
 
 	public GameObject pistolet;
 	public GameObject fusil;
@@ -26,9 +27,13 @@ public class WeaponChange : MonoBehaviour {
 
     public bool LoupeObtenue;
 	public bool PistoletLaserObtenue;
-
+	
     // Use this for initialization
     void Start () {
+		if (gameObject.tag != "localPlayer")
+		{
+			return;
+		}
         prendreobjet = gameObject.GetComponent<PrendreObjet>();
 
         IDWeaponDemandé = 1;
@@ -38,8 +43,12 @@ public class WeaponChange : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update () {		
+		if (gameObject.tag != "localPlayer")
+		{
+			return;
+		}
+		
         if (prendreobjet.ObjetPris != true && BlockLeChangementDArme != true)
         {
             /****Début Changement D'arme par Clavier****/
@@ -120,44 +129,84 @@ public class WeaponChange : MonoBehaviour {
 
             if (DemandeChangementArme == true)
             {
-                pistolet.SetActive(false);
-                fusil.SetActive(false);
-                mitrailleur1.SetActive(false);
-                mitrailleur2.SetActive(false);
-                bazooka.SetActive(false);
-                Couteau.SetActive(false);
-                Loupe.SetActive(false);
-				PistoletLaser.SetActive (false);
+				if(isServer){
+					RpcWSetPistoletPassive();
+					RpcWSetFusilPassive();
+					RpcWSetMitrailleur1Passive();
+					RpcWSetMitrailleur2Passive();
+					RpcWSetBazookaPassive();
+					RpcWSetCouteauPassive();
+					RpcWSetLoupePassive();
+					RpcWSetPistoletLaserPassive();
+				}else{
+					CmdWSetPistoletPassive();
+					CmdWSetFusilPassive();
+					CmdWSetMitrailleur1Passive();
+					CmdWSetMitrailleur2Passive();
+					CmdWSetBazookaPassive();
+					CmdWSetCouteauPassive();
+					CmdWSetLoupePassive();
+					CmdWSetPistoletLaserPassive();
+				}
 
                 if (IDWeaponDemandé == 1)
                 {
-                    pistolet.SetActive(true);
+					if(isServer){
+						RpcWSetPistoletActive();
+                    }else{
+						CmdWSetPistoletActive();
+					}
                 }
                 else if (IDWeaponDemandé == 2)
                 {
-                    fusil.SetActive(true);
+					if(isServer){
+						RpcWSetFusilActive();
+                    }else{
+						CmdWSetFusilActive();
+					}
                 }
                 else if (IDWeaponDemandé == 3)
                 {
-                    mitrailleur1.SetActive(true);
-                    mitrailleur2.SetActive(true);
+					if(isServer){
+						RpcWSetMitrailleur1Active();
+						RpcWSetMitrailleur2Active();
+                    }else{
+						CmdWSetMitrailleur1Active();
+						CmdWSetMitrailleur2Active();
+					}
                 }
                 else if (IDWeaponDemandé == 4)
                 {
-                    bazooka.SetActive(true);
+					if(isServer){
+						RpcWSetBazookaActive();
+                    }else{
+						CmdWSetBazookaActive();
+					}
                 }
                 else if (IDWeaponDemandé == 5)
                 {
-                    Couteau.SetActive(true);
+					if(isServer){
+						RpcWSetCouteauActive();
+                    }else{
+						CmdWSetCouteauActive();
+					}
                 }
                 else if (IDWeaponDemandé == 6)
                 {
-                    Loupe.SetActive(true);
+					if(isServer){
+						RpcWSetLoupeActive();
+                    }else{
+						CmdWSetLoupeActive();
+					}
                 }
 
 				else if (IDWeaponDemandé == 7)
 				{
-					PistoletLaser.SetActive(true);
+					if(isServer){
+						RpcWSetPistoletLaserActive();
+                    }else{
+						CmdWSetPistoletLaserActive();
+					}
 				}
 
                 AudioSource audio = gameObject.GetComponent<AudioSource>();
@@ -168,4 +217,197 @@ public class WeaponChange : MonoBehaviour {
             }
         }
 	}
+	
+	//PISTOLET
+	
+	[Command]
+	public void CmdWSetPistoletActive(){
+		pistolet.SetActive(true);
+		RpcWSetPistoletActive();
+	}
+	
+	[Command]
+	public void CmdWSetPistoletPassive(){
+		pistolet.SetActive(false);
+		RpcWSetPistoletPassive();
+	}
+	
+	[ClientRpc]
+	public void RpcWSetPistoletActive(){
+		pistolet.SetActive(true);
+	}
+	
+	[ClientRpc]
+	public void RpcWSetPistoletPassive(){
+		pistolet.SetActive(false);
+	}
+	
+	// FUSIL
+	
+	[Command]
+	public void CmdWSetFusilActive(){
+		fusil.SetActive(true);
+		RpcWSetFusilActive();
+	}
+	
+	[Command]
+	public void CmdWSetFusilPassive(){
+		fusil.SetActive(false);
+		RpcWSetFusilPassive();
+	}
+	
+	[ClientRpc]
+	public void RpcWSetFusilActive(){
+		fusil.SetActive(true);
+	}
+	
+	[ClientRpc]
+	public void RpcWSetFusilPassive(){
+		fusil.SetActive(false);
+	}
+	
+	// MIT 1
+	
+	[Command]
+	public void CmdWSetMitrailleur1Active(){
+		mitrailleur1.SetActive(true);
+		RpcWSetMitrailleur1Active();
+	}
+	
+	[Command]
+	public void CmdWSetMitrailleur1Passive(){
+		mitrailleur1.SetActive(false);
+		RpcWSetMitrailleur1Passive();
+	}
+	
+	[ClientRpc]
+	public void RpcWSetMitrailleur1Active(){
+		mitrailleur1.SetActive(true);
+	}
+	
+	[ClientRpc]
+	public void RpcWSetMitrailleur1Passive(){
+		mitrailleur1.SetActive(false);
+	}
+	
+	// MIT 2
+	
+	[Command]
+	public void CmdWSetMitrailleur2Active(){
+		mitrailleur2.SetActive(true);
+		RpcWSetMitrailleur2Active();
+	}
+	
+	[Command]
+	public void CmdWSetMitrailleur2Passive(){
+		mitrailleur2.SetActive(false);
+		RpcWSetMitrailleur2Passive();
+	}
+	
+	[ClientRpc]
+	public void RpcWSetMitrailleur2Active(){
+		mitrailleur2.SetActive(true);
+	}
+	
+	[ClientRpc]
+	public void RpcWSetMitrailleur2Passive(){
+		mitrailleur2.SetActive(false);
+	}
+	
+	// BAZOOOKA
+	
+	[Command]
+	public void CmdWSetBazookaActive(){
+		bazooka.SetActive(true);
+		RpcWSetBazookaActive();
+	}
+	
+	[Command]
+	public void CmdWSetBazookaPassive(){
+		bazooka.SetActive(false);
+		RpcWSetBazookaPassive();
+	}
+	
+	[ClientRpc]
+	public void RpcWSetBazookaActive(){
+		bazooka.SetActive(true);
+	}
+	
+	[ClientRpc]
+	public void RpcWSetBazookaPassive(){
+		bazooka.SetActive(false);
+	}
+	
+	// COUTEAU
+	
+	[Command]
+	public void CmdWSetCouteauActive(){
+		Couteau.SetActive(true);
+		RpcWSetCouteauActive();
+	}
+	
+	[Command]
+	public void CmdWSetCouteauPassive(){
+		Couteau.SetActive(false);
+		RpcWSetCouteauPassive();
+	}
+	
+	[ClientRpc]
+	public void RpcWSetCouteauActive(){
+		Couteau.SetActive(true);
+	}
+	
+	[ClientRpc]
+	public void RpcWSetCouteauPassive(){
+		Couteau.SetActive(false);
+	}
+	
+	// LOUPE
+	
+	[Command]
+	public void CmdWSetLoupeActive(){
+		Loupe.SetActive(true);
+		RpcWSetLoupeActive();
+	}
+	
+	[Command]
+	public void CmdWSetLoupePassive(){
+		Loupe.SetActive(false);
+		RpcWSetLoupePassive();
+	}
+	
+	[ClientRpc]
+	public void RpcWSetLoupeActive(){
+		Loupe.SetActive(true);
+	}
+	
+	[ClientRpc]
+	public void RpcWSetLoupePassive(){
+		Loupe.SetActive(false);
+	}
+	
+	// PISTOLET LASER
+	
+	[Command]
+	public void CmdWSetPistoletLaserActive(){
+		PistoletLaser.SetActive(true);
+		RpcWSetPistoletLaserActive();
+	}
+	
+	[Command]
+	public void CmdWSetPistoletLaserPassive(){
+		PistoletLaser.SetActive(false);
+		RpcWSetPistoletLaserPassive();
+	}
+	
+	[ClientRpc]
+	public void RpcWSetPistoletLaserActive(){
+		PistoletLaser.SetActive(true);
+	}
+	
+	[ClientRpc]
+	public void RpcWSetPistoletLaserPassive(){
+		PistoletLaser.SetActive(false);
+	}
+
 }

@@ -12,7 +12,6 @@ public class Network : NetworkManager {
 		GameObject infoGameObject = GameObject.FindWithTag("INFO");
 		
 		if(infoGameObject != null) {
-			
 			Text info = infoGameObject.GetComponent<Text>();
 			if(info.text == "Server"){
 				StartHost();
@@ -22,7 +21,6 @@ public class Network : NetworkManager {
 				networkPort = 7777;
 				StartClient();
 			}
-			
 		}else{ // If started directly from Game scene or info text missing, be host
 			StartHost();
 		}

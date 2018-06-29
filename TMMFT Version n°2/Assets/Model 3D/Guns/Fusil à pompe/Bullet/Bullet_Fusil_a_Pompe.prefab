@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 54401306837186948}
   - component: {fileID: 136910103463023374}
   - component: {fileID: 114671520646164246}
+  - component: {fileID: 114340598565409918}
+  - component: {fileID: 114407935339704248}
   m_Layer: 2
   m_Name: Bullet_Fusil_a_Pompe
   m_TagString: Bullet
@@ -101,6 +103,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114340598565409918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1057371870655994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 71
+    i1: 19
+    i2: 182
+    i3: 186
+    i4: 38
+    i5: 247
+    i6: 147
+    i7: 244
+    i8: 219
+    i9: 90
+    i10: 108
+    i11: 36
+    i12: 128
+    i13: 190
+    i14: 82
+    i15: 209
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114407935339704248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1057371870655994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114671520646164246
 MonoBehaviour:
   m_ObjectHideFlags: 1

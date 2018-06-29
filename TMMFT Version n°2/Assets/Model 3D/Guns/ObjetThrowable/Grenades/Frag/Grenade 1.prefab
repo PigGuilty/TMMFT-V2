@@ -57,6 +57,8 @@ GameObject:
   - component: {fileID: 65819479544976678}
   - component: {fileID: 65874931037833448}
   - component: {fileID: 114978211334738474}
+  - component: {fileID: 114996554676667850}
+  - component: {fileID: 114274437743846394}
   m_Layer: 0
   m_Name: Grenade 1
   m_TagString: Objet
@@ -151,9 +153,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417951601806490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.74448, y: 1.6836135, z: 6.2400618}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0.32160926, z: -0, w: 0.94687253}
+  m_LocalPosition: {x: -2.0221016, y: 1.1096134, z: -0.12197699}
+  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
   m_Children:
   - {fileID: 4502148835984154}
   - {fileID: 4934604531941438}
@@ -514,6 +516,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.819025, y: 9.066624, z: 5.138073}
   m_Center: {x: 0.33174515, y: 4.5047383, z: 0.02619028}
+--- !u!114 &114274437743846394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417951601806490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114978211334738474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -531,3 +554,36 @@ MonoBehaviour:
   Explosion: {fileID: 100010, guid: 25317bd0480b47342a85829f594fe66d, type: 2}
   canExplode: 0
   boxTrigger: {fileID: 65819479544976678}
+  m_isServer: 0
+--- !u!114 &114996554676667850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417951601806490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 84
+    i1: 172
+    i2: 156
+    i3: 81
+    i4: 70
+    i5: 185
+    i6: 250
+    i7: 100
+    i8: 168
+    i9: 98
+    i10: 84
+    i11: 161
+    i12: 137
+    i13: 94
+    i14: 22
+    i15: 102
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1

@@ -63,6 +63,8 @@ GameObject:
   - component: {fileID: 4317474903608424}
   - component: {fileID: 54031557732449142}
   - component: {fileID: 65253978304134574}
+  - component: {fileID: 114279420803181234}
+  - component: {fileID: 114499437240010474}
   m_Layer: 2
   m_Name: "Assi\xE8te (Cass\xE9)"
   m_TagString: Objet
@@ -9353,6 +9355,38 @@ MonoBehaviour:
   Son1: {fileID: 8300000, guid: 8721e72f00d38314a85e7abe8d128e4c, type: 3}
   Son2: {fileID: 8300000, guid: 080ab757776c8ff498109acde76571ef, type: 3}
   Son3: {fileID: 8300000, guid: 7a4552c37d8c4a74ea7b9ed038499dda, type: 3}
+--- !u!114 &114279420803181234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1037675397726862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 28
+    i1: 10
+    i2: 106
+    i3: 111
+    i4: 145
+    i5: 254
+    i6: 33
+    i7: 4
+    i8: 90
+    i9: 245
+    i10: 183
+    i11: 125
+    i12: 100
+    i13: 155
+    i14: 234
+    i15: 154
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114305078162087272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9563,6 +9597,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "assi\xE8teBreking": {fileID: 114652093367557192, guid: 40c0b0f8ecaae834084106c3f0c41c10,
     type: 2}
+--- !u!114 &114499437240010474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1037675397726862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114505303616197330
 MonoBehaviour:
   m_ObjectHideFlags: 1

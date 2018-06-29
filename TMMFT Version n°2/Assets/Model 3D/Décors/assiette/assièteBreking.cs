@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class assièteBreking : MonoBehaviour {
 
@@ -19,28 +21,45 @@ public class assièteBreking : MonoBehaviour {
 
     public GameObject JoueurDeSon;
 
+	public bool m_isServer;
+	
+	private NetworkSpawner netSpawner;
+	private FirstPersonController controller;
+	
+	private GameObject cam;
+	
     // Use this for initialization
     void Start () {
         OnALaDir = false;
         col = Assiète.GetComponent<Collider>();
 		
-		Player = GameObject.FindWithTag("Player");
-		if(Player != null)
+		Player = GameObject.FindWithTag("localPlayer");
+		if(Player != null){
 			prendreobjet = Player.GetComponent<PrendreObjet>();
+			controller = Player.GetComponent<FirstPersonController>();
+			netSpawner = Player.GetComponent<NetworkSpawner>();
+			
+			cam = GameObject.FindWithTag("localCamera");
+		}
     }
 
     private void Update()
     {
 		if(Player == null){
-			Player = GameObject.FindWithTag("Player");
-			if(Player != null)
+			Player = GameObject.FindWithTag("localPlayer");
+			if(Player != null){
 				prendreobjet = Player.GetComponent<PrendreObjet>();
+				controller = Player.GetComponent<FirstPersonController>();
+				netSpawner = Player.GetComponent<NetworkSpawner>();
+				
+				cam = GameObject.FindWithTag("localCamera");
+			}
 		}else{
 			if(OnALaDir == false)
 			{
 				if(col.enabled == true)
 				{
-					dir = new Vector3(Camera.main.transform.forward.x, 0.05f, Camera.main.transform.forward.z);
+					dir = new Vector3(cam.transform.forward.x, 0.05f, cam.transform.forward.z);
 					OnALaDir = true;
 				}
 			}
@@ -69,8 +88,13 @@ public class assièteBreking : MonoBehaviour {
 
     private void SeCasse()
     {
-        GameObject Assièteinvoqué = Instantiate(AssièteCassé);
-        Assièteinvoqué.transform.position = Assiète.transform.position;
+		if(m_isServer){
+			GameObject Assièteinvoqué = Instantiate(AssièteCassé);
+			Assièteinvoqué.transform.position = Assiète.transform.position;
+			NetworkServer.Spawn(Assièteinvoqué);
+		}else{
+			netSpawner.Spawn(AssièteCassé, Assiète.transform.position, Quaternion.identity, -1, "");
+		}
 
         GameObject JoueurDeSonInvok = Instantiate(JoueurDeSon);
         JoueurDeSonInvok.transform.position = Assiète.transform.position;

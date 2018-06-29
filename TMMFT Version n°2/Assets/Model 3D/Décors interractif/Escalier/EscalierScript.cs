@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class EscalierScript : MonoBehaviour
+public class EscalierScript : NetworkBehaviour
 {
 
     private Animator animator;
 
     public GameObject MarcheSuivante;
-
+	
+	[SyncVar]
     private bool appuyé;
-    private bool relaché;
+    [SyncVar]
+	private bool relaché;
     private bool ChangementEtat;
 
     private float increase;

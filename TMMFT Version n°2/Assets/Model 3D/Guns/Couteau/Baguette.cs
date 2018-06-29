@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Baguette : MonoBehaviour {
+public class Baguette : NetworkBehaviour {
 
     public float DegatArme;
     private float NouveauDegat;
@@ -34,6 +35,10 @@ public class Baguette : MonoBehaviour {
     private bool alreadyActiveted;
 
     private void Start() {
+		if (gameObject.tag != "localPlayer")
+		{
+			return;
+		}
 		attaque = GetComponent<Attaque> ();
         particleSystemLaser1 = GameObjectparticleSystemLaser1.GetComponent<ParticleSystem>();
         particleSystemLaser2 = GameObjectparticleSystemLaser2.GetComponent<ParticleSystem>();
@@ -53,7 +58,10 @@ public class Baguette : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (gameObject.tag != "localPlayer")
+		{
+			return;
+		}
         if (ok >= 0.061f && Input.GetButton ("Fire1"))
         {
             attaque.furry = attaque.furry - 1;

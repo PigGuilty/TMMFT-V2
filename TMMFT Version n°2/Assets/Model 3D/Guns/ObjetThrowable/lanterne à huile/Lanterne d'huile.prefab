@@ -74,6 +74,8 @@ GameObject:
   - component: {fileID: 65907173878905438}
   - component: {fileID: 65314731761801872}
   - component: {fileID: 114531185379106484}
+  - component: {fileID: 114480882508364208}
+  - component: {fileID: 114126289563412422}
   m_Layer: 0
   m_Name: Lanterne d'huile
   m_TagString: Objet
@@ -486,8 +488,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1031197834973852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.168431, y: 2.0542858, z: 2.3597465}
+  m_LocalRotation: {x: -0, y: -0.32160926, z: -0, w: 0.94687253}
+  m_LocalPosition: {x: 0.8413346, y: 1.1790009, z: -0.016191289}
   m_LocalScale: {x: 0.17406434, y: 0.1740644, z: 0.1740644}
   m_Children:
   - {fileID: 4451147420961754}
@@ -1876,6 +1878,59 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114126289563412422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031197834973852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114480882508364208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031197834973852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 53
+    i1: 139
+    i2: 57
+    i3: 133
+    i4: 213
+    i5: 83
+    i6: 33
+    i7: 100
+    i8: 27
+    i9: 24
+    i10: 0
+    i11: 45
+    i12: 150
+    i13: 59
+    i14: 244
+    i15: 195
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114531185379106484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1888,3 +1943,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireZone: {fileID: 1865840057898176, guid: b6fee54cfb3c80146a20d2fc2c785a0b, type: 2}
+  m_isServer: 0

@@ -8,7 +8,7 @@ public class AppuisRespawn : MonoBehaviour
 
     public void HitByRaycast()
     {
-        ObjetAvecLequelIlYAInterraction = GameObject.FindWithTag("Player");
+        ObjetAvecLequelIlYAInterraction = GameObject.FindWithTag("localPlayer");
 
         ObjetAvecLequelIlYAInterraction.transform.SendMessage("Appuyé", SendMessageOptions.DontRequireReceiver);
     }

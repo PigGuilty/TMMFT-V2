@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/sc\xE8ne/Main.unity"
     guid: d7de023e1a4a0ad47b04ea99c6f1f8e7
-  - enabled: 1
-    path: "Assets/sc\xE8ne/Scipt Testing.unity"
-    guid: bf088220511ce0e48a1386743873b593
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: "Assets/sc\xE8ne/Multi Testing.unity"
     guid: 072ee97ee71b1c54889291134831e718

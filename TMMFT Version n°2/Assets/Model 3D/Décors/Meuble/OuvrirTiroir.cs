@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class OuvrirTiroir : MonoBehaviour {
+public class OuvrirTiroir : NetworkBehaviour {
 
+	[SyncVar]
 	public float keyGauche = 0.0f;
+	[SyncVar]
 	public float keyDroite = 0.0f;
 
+	[SyncVar]
 	private bool GaucheOuvert = false;
+	[SyncVar]
 	private bool DroiteOuvert = false;
 
 	public BoxCollider BoxGauche;
@@ -15,7 +20,9 @@ public class OuvrirTiroir : MonoBehaviour {
 
 	private int VitesseAnimation = 60;
 
+	[SyncVar]
 	public bool EnAnimationDroit = false;
+	[SyncVar]
 	public bool EnAnimationGauche = false;
 
 	public void OuvrirGauche()
