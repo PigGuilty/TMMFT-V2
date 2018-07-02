@@ -10,7 +10,7 @@ public class RotationDeLaTete : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = Camera.main;
+		player = GameObject.FindWithTag("localCamera").GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame

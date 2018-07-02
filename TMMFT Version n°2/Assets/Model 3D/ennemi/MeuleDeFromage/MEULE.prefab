@@ -56,6 +56,8 @@ GameObject:
   - component: {fileID: 54985520236641752}
   - component: {fileID: 82117839209796176}
   - component: {fileID: 114186029611974198}
+  - component: {fileID: 114306976470746810}
+  - component: {fileID: 114615571126321544}
   m_Layer: 0
   m_Name: MEULE
   m_TagString: Untagged
@@ -147,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324843961713658}
   m_LocalRotation: {x: -0, y: 0.70710146, z: -0, w: 0.7071122}
-  m_LocalPosition: {x: 11.047319, y: 1.5799998, z: -16.39}
+  m_LocalPosition: {x: 0, y: 2.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4877606934169370}
@@ -214,15 +216,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105704812431018}
-  m_LocalRotation: {x: -0, y: 0.7071066, z: -0, w: 0.70710707}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4704715852368680}
   - {fileID: 4154675245363896}
   m_Father: {fileID: 4170487480352738}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &54985520236641752
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -350,8 +352,8 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105704812431018}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0fa07b834c57e4643ac67de83f5f9b94, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2121e99d2c6a6b143b79b7034e469e82, type: 2}
+  m_Avatar: {fileID: 9000000, guid: b4bcabfbd9f499e4980612774b5bf1ca, type: 3}
+  m_Controller: {fileID: 9100000, guid: d87043948c9d3ff4396ce325229c0da0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -376,12 +378,42 @@ MonoBehaviour:
   aie: {fileID: 8300000, guid: cc32018004ecb6242b6ae4002c592746, type: 3}
   meurt: {fileID: 8300000, guid: 7375cb4eb58c00b4dbaaf2d2f078b84a, type: 3}
   Red: {fileID: 2100000, guid: 522d8c9e8c8b73440858c2947542aebd, type: 2}
-  Origine: {fileID: 2100000, guid: 65f9f3ed821efc2448f969f06b655343, type: 2}
-  indexOfColor1: 1
-  indexOfColor2: 1
+  Origine: {fileID: 2100002, guid: b4bcabfbd9f499e4980612774b5bf1ca, type: 3}
   IsVacheBipede: 0
   IsMeuleDeFromage: 1
   ExplosionMeule: {fileID: 100010, guid: 25317bd0480b47342a85829f594fe66d, type: 2}
+--- !u!114 &114306976470746810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324843961713658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 147
+    i1: 104
+    i2: 100
+    i3: 177
+    i4: 108
+    i5: 195
+    i6: 235
+    i7: 244
+    i8: 138
+    i9: 31
+    i10: 215
+    i11: 50
+    i12: 183
+    i13: 27
+    i14: 212
+    i15: 217
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114535712587646490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -396,6 +428,28 @@ MonoBehaviour:
   FeuPlayer: {fileID: 1026448641890638, guid: c0b242c3413ae294093014e2d32741f5, type: 2}
   TempsPourArreterDeBruler: 5
   TempsEntreChaquePvPerdu: 0.2
+  m_isServer: 0
+--- !u!114 &114615571126321544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324843961713658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114786526161588428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -421,8 +475,8 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0fa07b834c57e4643ac67de83f5f9b94, type: 3}
-  - {fileID: 2100002, guid: 0fa07b834c57e4643ac67de83f5f9b94, type: 3}
+  - {fileID: 2100000, guid: b4bcabfbd9f499e4980612774b5bf1ca, type: 3}
+  - {fileID: 2100002, guid: b4bcabfbd9f499e4980612774b5bf1ca, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -446,7 +500,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 0fa07b834c57e4643ac67de83f5f9b94, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b4bcabfbd9f499e4980612774b5bf1ca, type: 3}
   m_Bones:
   - {fileID: 4237581497552502}
   - {fileID: 4753932991227444}

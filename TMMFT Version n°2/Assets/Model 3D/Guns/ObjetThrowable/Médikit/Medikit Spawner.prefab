@@ -54,13 +54,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4439904416979218}
   - component: {fileID: 114189143818584384}
-<<<<<<< HEAD
   - component: {fileID: 114665268627785710}
   - component: {fileID: 114975923304035360}
   m_Layer: 0
-=======
-  m_Layer: 2
->>>>>>> ee6977bfa153c9f8336b72b4a1b868ecddc38823
   m_Name: Medikit Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "M\xE9dikit": {fileID: 1054548672581252}
-<<<<<<< HEAD
 --- !u!114 &114975923304035360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,8 +373,6 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
-=======
->>>>>>> ee6977bfa153c9f8336b72b4a1b868ecddc38823
 --- !u!137 &137488020398511822
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

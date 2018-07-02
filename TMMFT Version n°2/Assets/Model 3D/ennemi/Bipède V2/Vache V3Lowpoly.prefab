@@ -408,7 +408,9 @@ GameObject:
   - component: {fileID: 114311387580342400}
   - component: {fileID: 114064855809661014}
   - component: {fileID: 195125747057723192}
-  - component: {fileID: 114051915750046546}
+  - component: {fileID: 114073397407567438}
+  - component: {fileID: 114536260062765826}
+  - component: {fileID: 114280012300098178}
   m_Layer: 0
   m_Name: Vache V3Lowpoly
   m_TagString: Vache
@@ -951,8 +953,8 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986099864933384}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 25fcb40e5f74849489f8b81ea04d9d68, type: 3}
-  m_Controller: {fileID: 9100000, guid: 79598c6c689c74241a0a25136a925ad0, type: 2}
+  m_Avatar: {fileID: 9000000, guid: da31dd3571198344aa3787249fcddd24, type: 3}
+  m_Controller: {fileID: 9100000, guid: 41151c9bd1f6b0f459c3d6092baf3dbb, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -960,18 +962,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114051915750046546
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986099864933384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e354150554e1a4dacf041f202284cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Root_HeadBone: {fileID: 1298996246157620}
 --- !u!114 &114064855809661014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -986,6 +976,39 @@ MonoBehaviour:
   FeuPlayer: {fileID: 1026448641890638, guid: c0b242c3413ae294093014e2d32741f5, type: 2}
   TempsPourArreterDeBruler: 5
   TempsEntreChaquePvPerdu: 0.2
+  m_isServer: 0
+--- !u!114 &114073397407567438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986099864933384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 61
+    i1: 50
+    i2: 242
+    i3: 91
+    i4: 36
+    i5: 180
+    i6: 23
+    i7: 148
+    i8: 219
+    i9: 170
+    i10: 75
+    i11: 89
+    i12: 31
+    i13: 31
+    i14: 59
+    i15: 174
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114237891479224392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1003,10 +1026,22 @@ MonoBehaviour:
   aie: {fileID: 8300000, guid: cc32018004ecb6242b6ae4002c592746, type: 3}
   meurt: {fileID: 8300000, guid: 7375cb4eb58c00b4dbaaf2d2f078b84a, type: 3}
   Red: {fileID: 2100000, guid: 522d8c9e8c8b73440858c2947542aebd, type: 2}
-  Origine: {fileID: 2100000, guid: 48a465cd702a36e478eeebb88a3d4b8b, type: 2}
-  indexOfColor1: 0
-  indexOfColor2: 0
+  Origine: {fileID: 2100000, guid: 84dc8f0b3370aba4c95907afe0f10df1, type: 2}
   IsVacheBipede: 1
+  IsMeuleDeFromage: 0
+  ExplosionMeule: {fileID: 0}
+--- !u!114 &114280012300098178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986099864933384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5491abc75146aa489da4e08bcaa30c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Root_HeadBone: {fileID: 1298996246157620}
 --- !u!114 &114311387580342400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1018,6 +1053,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01bb723ced56974fb2b8bbef1ba69f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114536260062765826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986099864933384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!137 &137089376614415342
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1032,8 +1088,8 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 25fcb40e5f74849489f8b81ea04d9d68, type: 3}
-  - {fileID: 2100002, guid: 25fcb40e5f74849489f8b81ea04d9d68, type: 3}
+  - {fileID: 2100000, guid: 84dc8f0b3370aba4c95907afe0f10df1, type: 2}
+  - {fileID: 2100000, guid: 84dc8f0b3370aba4c95907afe0f10df1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1057,7 +1113,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 25fcb40e5f74849489f8b81ea04d9d68, type: 3}
+  m_Mesh: {fileID: 4300000, guid: da31dd3571198344aa3787249fcddd24, type: 3}
   m_Bones:
   - {fileID: 4713066497635750}
   - {fileID: 4285201447544480}
@@ -1098,7 +1154,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 25fcb40e5f74849489f8b81ea04d9d68, type: 3}
+  - {fileID: 2100000, guid: 84dc8f0b3370aba4c95907afe0f10df1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1122,7 +1178,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 25fcb40e5f74849489f8b81ea04d9d68, type: 3}
+  m_Mesh: {fileID: 4300002, guid: da31dd3571198344aa3787249fcddd24, type: 3}
   m_Bones:
   - {fileID: 4713066497635750}
   - {fileID: 4285201447544480}

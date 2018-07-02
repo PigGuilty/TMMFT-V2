@@ -19,6 +19,7 @@ public class VacheScript : MonoBehaviour {
 	
     void Start () {
 		agent = GetComponent<NavMeshAgent>();
+		agent.enabled = true;
         player = GameObject.FindWithTag("localPlayer");
 		if(player != null){
 			m_isServer = player.GetComponent<FirstPersonController>().isServer;
@@ -39,6 +40,8 @@ public class VacheScript : MonoBehaviour {
 			
 			if (elapsed > clock || agent.path == null) {
 				elapsed -= clock;
+				
+				paths.Clear();
 				foreach(GameObject p in players) {
 					NavMeshPath path = new NavMeshPath();
 					NavMesh.CalculatePath(transform.position, p.transform.position, NavMesh.AllAreas, path);
@@ -56,8 +59,10 @@ public class VacheScript : MonoBehaviour {
 					}
 				}
 				
-				agent.SetPath(shortestPath);
+				goal = players[paths.IndexOf(shortestPath)];
 			}
+			
+			agent.destination = goal.transform.position;
 		}else{
 			GameObject player = GameObject.FindWithTag("localPlayer");
 			if(player != null){

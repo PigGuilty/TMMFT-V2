@@ -44,7 +44,7 @@ public class Target : NetworkBehaviour {
         SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
         Material[] mats = rend.materials;
         mats[1] = Origine;
-        mats[7] = Origine;
+        //mats[7] = Origine;
         rend.materials = mats;
 
 		if (IsMeuleDeFromage == true) {
@@ -54,7 +54,7 @@ public class Target : NetworkBehaviour {
 		}
         waiting = 0;
 
-		ScoreTextObject = GameObject.Find ("Score");
+		ScoreTextObject = GameObject.FindWithTag ("localScore");
 		ScoreText = ScoreTextObject.GetComponent<Text> ();
 		scoreEnText = ScoreText.text.Replace ("Score : ", "");
 		score = int.Parse (scoreEnText);
@@ -84,7 +84,7 @@ public class Target : NetworkBehaviour {
 			audio.Play ();
 			mourir.Play ();
 
-			score++;
+			score++; //Nieh è_é
 			ScoreText.text = "Score : " + score.ToString ();
 
 			if (IsVacheBipede == true) {
@@ -96,8 +96,7 @@ public class Target : NetworkBehaviour {
 				GameObject ExplosionMeuleGO = Instantiate (ExplosionMeule);
 				ExplosionMeuleGO.transform.position = gameObject.transform.position;
 				Destroy (gameObject);
-			}
-			else {
+			} else {
 				Destroy (gameObject, audio.clip.length);
 			}
 		}
@@ -112,7 +111,7 @@ public class Target : NetworkBehaviour {
             SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer>();
             Material[] mats = rend.materials;
             mats[1] = Red;
-            mats[7] = Red;
+            //mats[7] = Red;
             rend.materials = mats;
 
 			if (IsVacheBipede == true) {

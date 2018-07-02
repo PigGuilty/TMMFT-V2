@@ -58,6 +58,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			}
 			gameObject.tag = "localPlayer";
 			m_Camera.tag = "localCamera";
+			transform.Find("GUI").Find("Score").tag = "localScore";
 			
             m_CharacterController = GetComponent<CharacterController>();
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
