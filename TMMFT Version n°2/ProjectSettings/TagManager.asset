@@ -26,6 +26,7 @@ TagManager:
   - localCamera
   - SpawnDead
   - SpawnPt
+  - localScore
   layers:
   - Default
   - TransparentFX

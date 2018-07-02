@@ -4803,7 +4803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f0c1c471bc94e44b6d2191e1d18c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceDeJeter: 500
+  ForceDeJeter: 300
   "Port\xE9ePourPrendreObjet": 2.5
   DirectionForceJet: {x: 0, y: 0, z: 0}
   PlacePourObjet: {fileID: 1471067127289670}
