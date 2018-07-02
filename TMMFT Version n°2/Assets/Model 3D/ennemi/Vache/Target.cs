@@ -85,6 +85,7 @@ public class Target : NetworkBehaviour {
 			mourir.Play ();
 
 			score++; //Nieh è_é
+			//Ben oui mais comment je suis censé savoir qui l'a tué moi
 			ScoreText.text = "Score : " + score.ToString ();
 
 			if (IsVacheBipede == true) {
