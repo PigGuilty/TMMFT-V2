@@ -24,18 +24,18 @@ public class Shoot : NetworkBehaviour {
 	private NetworkSpawner netSpawner;
 
     void Start() {
-		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		if (gameObject.transform.parent.parent.parent.parent.parent.parent.parent.parent.tag != "localPlayer")
 		{
 			return;
 		}
-		netSpawner = gameObject.transform.parent.parent.GetComponent<NetworkSpawner>();
+		netSpawner = gameObject.transform.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<NetworkSpawner>();
 		fpsCam = GameObject.FindWithTag("localCamera").GetComponent<Camera>();
     }
 
     void Update () {	
-		m_isServer = gameObject.transform.parent.parent.GetComponent<FirstPersonController>().isServer;
+		m_isServer = gameObject.transform.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<FirstPersonController>().isServer;
 		
-		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		if (gameObject.transform.parent.parent.parent.parent.parent.parent.parent.parent.tag != "localPlayer")
 		{
 			return;
 		}
