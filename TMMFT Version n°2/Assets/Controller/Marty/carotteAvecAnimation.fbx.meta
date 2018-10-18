@@ -181,7 +181,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|jumpPart2
       takeName: Armature|jumpPart2
-      firstFrame: 0
+      firstFrame: 2
       lastFrame: 5
       wrapMode: 0
       orientationOffsetY: 0
@@ -209,8 +209,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|jumpPart2_PM
       takeName: Armature|jumpPart2_PM
-      firstFrame: 0
-      lastFrame: 5
+      firstFrame: 5
+      lastFrame: 6
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

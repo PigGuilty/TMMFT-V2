@@ -45,6 +45,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		private Rigidbody rb;
 
+		public Animator animator;
+		private float FloatOfAnimator;
+
+		public GameObject mitralleuse;
+
+		public bool IsStatic;
+
         // Use this for initialization
         private void Start()
         {
@@ -60,6 +67,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
 
 			rb = GetComponent<Rigidbody> ();
+			FloatOfAnimator = -2.0f;
+			animator.SetFloat("Blend", FloatOfAnimator);
+			IsStatic = true;
         }
 
 
@@ -86,6 +96,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+
+			if (m_Jumping == false) {
+				if(IsStatic == true) {
+					FloatOfAnimator = -2.0f;
+				} else if (m_IsWalking == true) {
+					FloatOfAnimator = 0.0f;
+				} else if (m_IsWalking == false) {
+					FloatOfAnimator = 0.25f;
+				}
+			}
+			else if (m_Jumping == true) {
+				FloatOfAnimator = 0.5f;
+			}
+			
+			if (mitralleuse.activeInHierarchy == true) {
+				FloatOfAnimator = FloatOfAnimator + 1.0f;
+			}
+			animator.SetFloat("Blend", FloatOfAnimator);
         }
 
 		//********************FAIT PAR************************//
@@ -137,6 +166,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             float speed;
             GetInput(out speed);
+
+
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
@@ -172,6 +203,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             UpdateCameraPosition(speed);
 
             m_MouseLook.UpdateCursorLock();
+
+			if (desiredMove != Vector3.zero) {
+				IsStatic = false;
+			} else {
+				IsStatic = true;
+			}
         }
 
 
