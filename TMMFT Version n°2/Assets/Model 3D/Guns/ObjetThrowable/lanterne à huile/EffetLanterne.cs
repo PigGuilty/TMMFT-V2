@@ -45,7 +45,7 @@ public class EffetLanterne : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Untagged" || other.tag == "Vache" || other.tag == "Objet" || other.tag == "Decor interractif" || other.tag == "Escalier +x" || other.tag == "Escalier -x" || other.tag == "Escalier +y" || other.tag == "Escalier -y" || other.tag == "Meuble")
+		if (other.tag == "Untagged" || other.tag == "Vache" || other.tag == "Objet" || other.tag == "Decor interractif" || other.tag == "Escalier +x" || other.tag == "Escalier -x" || other.tag == "Escalier +y" || other.tag == "Escalier -y")
 		{
 			if (other.tag == "Decor interractif")
 			{ 

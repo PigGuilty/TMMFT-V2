@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿	using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -52,7 +52,7 @@ public class LustreTombe : MonoBehaviour {
     {
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Objet")
         {
-			if(m_isServer){
+			if(m_isServer){	
 				GameObject item = Instantiate(Explosion, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal));
 				NetworkServer.Spawn(item);
 			}else{
