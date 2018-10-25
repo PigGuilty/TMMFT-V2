@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42cd81aa71c30e47b4a7b6f82ceeca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoad: Multi Testing
+  SceneToLoad: Game
   button: {fileID: 420887451}
   IPHolder: {fileID: 173277011}
   info: {fileID: 165936936}
@@ -1488,6 +1488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1a588e1db94fe4684383408caaa9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoad: Multi Testing
+  SceneToLoad: Game
   button: {fileID: 2021585201}
   info: {fileID: 165936936}
