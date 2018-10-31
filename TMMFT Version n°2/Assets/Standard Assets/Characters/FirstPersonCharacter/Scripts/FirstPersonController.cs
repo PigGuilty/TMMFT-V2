@@ -52,6 +52,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		public bool IsStatic;
 
+		private Transform gun;
+		private Transform FAP;
+		private Transform Piou;
+		private Transform bazouka;
+		private Transform couteau;
+		private Transform Piou2;
 		
         private void Start()
         {
@@ -64,9 +70,52 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				transform.Find("GUI").gameObject.SetActive(false);
 				return;
 			}
+			
 			gameObject.tag = "localPlayer";
 			m_Camera.tag = "localCamera";
 			transform.Find("GUI").Find("Score").tag = "localScore";
+			
+			transform.Find("carotteAvecAnimation").Find("Cylinder").gameObject.GetComponent<SkinnedMeshRenderer>().enabled = false;
+			
+			Transform FPC = transform.Find("FirstPersonCharacter").Find("Spot");
+			
+			Transform Chest = transform.Find("carotteAvecAnimation").Find("Armature").Find("RootChest").Find("Chest");
+			Transform LeftHand = Chest.Find("Upper_Arm.L").Find("Lower_Arm.L").Find("Hand.L");
+			Transform RightHand = Chest.Find("Upper_Arm.R").Find("Lower_Arm.R").Find("Hand.R");
+			
+			Quaternion o = new Quaternion(0, 180, 0, 1);
+			Quaternion o2 = new Quaternion(0, -1, 0, 1);
+			
+			
+			gun = LeftHand.Find("Hand.L_end").Find("Gun");
+			gun.parent = FPC;
+			gun.localPosition = new Vector3(0.0f,0.05f,0.0f);
+			gun.localRotation = o;
+			
+			FAP = LeftHand.Find("Fusil_A_Pompe (2)");
+			FAP.parent = FPC;
+			FAP.localPosition = new Vector3(0.25f,0.25f,0.59f);
+			FAP.localRotation = o2;
+			
+			Piou = LeftHand.Find("Pistolet mitralleur");
+			Piou.parent = FPC;
+			Piou.localPosition = new Vector3(0.0f,0.2f,0.2f);
+			Piou.localRotation = o2;
+			
+			bazouka = LeftHand.Find("bazouka");
+			bazouka.parent = FPC;
+			bazouka.localPosition = new Vector3(-0.0572f, 0.7f, -0.15f);
+			bazouka.localRotation = o2;
+			
+			couteau = LeftHand.Find("Couteau");
+			couteau.parent = FPC;
+			couteau.localPosition = new Vector3(-0.24f, 0.33f, 0.0f);
+			couteau.localRotation = o2;
+			
+			Piou2 = RightHand.Find("Pistolet mitralleur (1)");
+			Piou2.parent = FPC;
+			Piou2.localPosition = new Vector3(-1.0f, 0.2f, 0.2f);
+			Piou2.localRotation = o2;
 			
             m_CharacterController = GetComponent<CharacterController>();
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -88,6 +137,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {	
+			//check weapons pos
+			/*if(gun.position != Vector3.zero || FAP.position != Vector3.zero || Piou.position != Vector3.zero
+			|| bazouka.position != Vector3.zero || couteau.position != Vector3.zero || Piou2.position != Vector3.zero){
+				gun.position = Vector3.zero;
+				FAP.position = Vector3.zero;
+				Piou.position = Vector3.zero;
+				bazouka.position = Vector3.zero;
+				couteau.position = Vector3.zero;
+				Piou2.position = Vector3.zero;
+			}*/
+			
 			if (!isLocalPlayer)
 			{
 				return;

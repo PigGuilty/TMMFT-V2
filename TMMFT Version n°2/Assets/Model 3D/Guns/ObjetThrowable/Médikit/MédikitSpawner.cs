@@ -9,8 +9,6 @@ public class MédikitSpawner : MonoBehaviour
     public GameObject Médikit;
     private float Counter;
 
-    private 
-
     // Use this for initialization
     void Start()
     {

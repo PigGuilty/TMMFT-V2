@@ -54,10 +54,6 @@ public class Target : NetworkBehaviour {
 		}
         waiting = 0;
 
-		ScoreTextObject = GameObject.FindWithTag ("localScore");
-		ScoreText = ScoreTextObject.GetComponent<Text> ();
-		scoreEnText = ScoreText.text.Replace ("Score : ", "");
-
 		Vie = VieMax;
 
 		if (IsMeuleDeFromage == true) {
@@ -82,6 +78,10 @@ public class Target : NetworkBehaviour {
 			audio.clip = meurt;
 			audio.Play ();
 			mourir.Play ();
+			
+			ScoreTextObject = GameObject.FindWithTag ("localScore");
+			ScoreText = ScoreTextObject.GetComponent<Text> ();
+			scoreEnText = ScoreText.text.Replace ("Score : ", "");
 			
 			score = int.Parse (scoreEnText);
 			score++; //Nieh è_é
@@ -136,13 +136,13 @@ public class Target : NetworkBehaviour {
 
     public void Update()
     {
-		if (IsVacheBipede == true) {			
+		if (true) {			
 			SkinnedMeshRenderer rend = GetComponentInChildren<SkinnedMeshRenderer> ();
 			Material[] mats = rend.materials;
-			if (mats [0].color == Red.color) {//[indexOfColor1]
+			if (mats [1].color == Red.color) {//[indexOfColor1]
 				if (waiting >= 2) {
-					mats [0] = Origine;//[indexOfColor1]
-					mats [0] = Origine;//[indexOfColor2]
+					mats [1] = Origine;//[indexOfColor1]
+					mats [1] = Origine;//[indexOfColor2]
 					rend.materials = mats;
 					waiting = 0;
 				}

@@ -26,24 +26,24 @@ public class ShootBazooka : NetworkBehaviour
 	
     void Start()
     {
-		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		if (gameObject.transform.parent.parent.parent.tag != "localPlayer")
 		{
 			return;
 		}
-		m_isServer = gameObject.transform.parent.parent.GetComponent<FirstPersonController>().isServer;
+		m_isServer = gameObject.transform.parent.parent.parent.GetComponent<FirstPersonController>().isServer;
 		fpsCam = GameObject.FindWithTag("localCamera").GetComponent<Camera>();
 		
         animator = GetComponent<Animator>();
         BalleRestante = TailleChargeur;
         AnimationLength = 4.17f;
         AnimationWaitEnd = 0;
-		netSpawner = gameObject.transform.parent.parent.GetComponent<NetworkSpawner>();
+		netSpawner = gameObject.transform.parent.parent.parent.GetComponent<NetworkSpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		if (gameObject.transform.parent.parent.parent.tag != "localPlayer")
 		{
 			return;
 		}

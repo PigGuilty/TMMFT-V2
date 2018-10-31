@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class TireLaser : NetworkBehaviour {
 
-	private Camera fpsCam;
+	private Transform fpsCam;
 
 	public AudioClip Bziou;
 	
@@ -14,7 +14,7 @@ public class TireLaser : NetworkBehaviour {
 		{
 			return;
 		}
-		fpsCam = Camera.main;
+		fpsCam = gameObject.transform.parent;
 	}
 
 	void Update () {	
@@ -45,7 +45,7 @@ public class TireLaser : NetworkBehaviour {
 				if (hit.transform.tag != "Player" && hit.transform.tag != "Vache" && hit.transform.tag != "Decor interractif" && hit.rigidbody != null)
 				{
 					hit.rigidbody.useGravity = !hit.rigidbody.useGravity;
-					hit.rigidbody.AddForce(Vector3.up *3);
+					hit.rigidbody.AddForce(Vector3.up);
 				}
 			}
 		}

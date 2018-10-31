@@ -99,7 +99,7 @@ public class PutInFire : MonoBehaviour
     {
         if (Desactivé == false)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "localPlayer")
             {
                 if (pvJoueur == null)
                 {
@@ -148,7 +148,7 @@ public class PutInFire : MonoBehaviour
         }
         if (GoDestruction == false)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "localPlayer")
             {
                 StartCoroutine("BruleStopJoueur");
             }

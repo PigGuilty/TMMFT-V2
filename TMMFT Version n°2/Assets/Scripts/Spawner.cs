@@ -6,50 +6,54 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Spawner : MonoBehaviour {
 
-	public int SpawnSpeed;
-	public GameObject EnnemiPrefab;
-	private GameObject Player;
-	private int Counter;
-	public bool m_isServer;
-	
-	private NetworkSpawner netSpawner;
+	public int[] probas;
+	public bool isEntered;
 
-	// Use this for initialization
-	void Start () {
-		Counter = SpawnSpeed+1;
+	public GameObject[] EnnemiPrefab;
+	
+	private GameObject Player;
+	private bool m_isServer;
+	private NetworkSpawner netSpawner;
+	
+	public void Call () {
+		if(Player == null){
+			Player = GameObject.FindWithTag("localPlayer");
+			if(Player != null){
+				netSpawner = Player.GetComponent<NetworkSpawner>();
+				m_isServer = Player.GetComponent<FirstPersonController>().isServer;
+			}
+		}
 		
-		Player = GameObject.FindWithTag("localPlayer");
-		if(Player != null){
-			netSpawner = Player.GetComponent<NetworkSpawner>();
-			m_isServer = Player.GetComponent<FirstPersonController>().isServer;
+		if(m_isServer){
+			int random = Random.Range(0,100);
+			
+			if(random < probas[0]){
+				GameObject EnnemiPrefabInstanciate = Instantiate(EnnemiPrefab[0], transform);
+				EnnemiPrefabInstanciate.transform.position = transform.position;
+				NetworkServer.Spawn(EnnemiPrefabInstanciate);
+			}else if(random < probas[1] + probas[0]){
+				GameObject EnnemiPrefabInstanciate = Instantiate(EnnemiPrefab[1], transform);
+				EnnemiPrefabInstanciate.transform.position = transform.position;
+				NetworkServer.Spawn(EnnemiPrefabInstanciate);
+			}else if(random < probas[2] + probas[1] + probas[0]){
+				GameObject EnnemiPrefabInstanciate = Instantiate(EnnemiPrefab[2], transform);
+				EnnemiPrefabInstanciate.transform.position = transform.position;
+				NetworkServer.Spawn(EnnemiPrefabInstanciate);
+			}
 		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if(EnnemiPrefab != null){
-			if(Player == null){
-				Player = GameObject.FindWithTag("localPlayer");
-				if(Player != null){
-					netSpawner = Player.GetComponent<NetworkSpawner>();
-					m_isServer = Player.GetComponent<FirstPersonController>().isServer;
-				}
-			}
-			
-			Counter--;
-
-			if (Counter <= 0) {
-				Counter = SpawnSpeed;
-				
-				if(m_isServer){
-					GameObject EnnemiPrefabInstanciate = Instantiate(EnnemiPrefab, transform);
-					EnnemiPrefabInstanciate.transform.position = transform.position;
-					NetworkServer.Spawn(EnnemiPrefabInstanciate);
-				}else{
-					//netSpawner.Spawn(EnnemiPrefab, transform.position, Quaternion.identity, -1, "");
-				}	
-				
-			}
+	private void OnTriggerStay(Collider other)
+    {
+		if(other.tag == "Player" || other.tag == "localPlayer"){
+			isEntered = true;
+		}
+	}
+	
+	private void OnTriggerExit(Collider other)
+    {
+		if(other.tag == "Player" || other.tag == "localPlayer"){
+			isEntered = false;
 		}
 	}
 }

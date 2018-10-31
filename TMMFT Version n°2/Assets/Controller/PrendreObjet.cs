@@ -26,7 +26,7 @@ public class PrendreObjet : NetworkBehaviour
 
     public bool ObjetPris;
 
-    private string ObjectName;
+    private GameObject Object;
     private GameObject ObjectQuiEstPris;
 
     private WeaponChange weaponChange;
@@ -62,7 +62,7 @@ public class PrendreObjet : NetworkBehaviour
 
             if (Physics.Raycast(ShootingDirection, out hit, PortéePourPrendreObjet))
             {
-                ObjectName = hit.collider.gameObject.name;
+                Object = hit.collider.gameObject;
 
                 Transform PositionObjet = hit.transform.GetComponent<Transform>();
                 Rigidbody rigidbody = hit.transform.GetComponent<Rigidbody>();
@@ -109,9 +109,27 @@ public class PrendreObjet : NetworkBehaviour
                     weaponChange.LoupeObtenue = true;
 					if(isServer){
 						weaponChange.RpcWSetLoupeActive();
+						
+						weaponChange.RpcWSetPistoletPassive();
+						weaponChange.RpcWSetFusilPassive();
+						weaponChange.RpcWSetMitrailleur1Passive();
+						weaponChange.RpcWSetMitrailleur2Passive();
+						weaponChange.RpcWSetBazookaPassive();
+						weaponChange.RpcWSetCouteauPassive();
+						weaponChange.RpcWSetPistoletLaserPassive();
 					}else{
 						weaponChange.CmdWSetLoupeActive();
+						
+						weaponChange.CmdWSetPistoletPassive();
+						weaponChange.CmdWSetFusilPassive();
+						weaponChange.CmdWSetMitrailleur1Passive();
+						weaponChange.CmdWSetMitrailleur2Passive();
+						weaponChange.CmdWSetBazookaPassive();
+						weaponChange.CmdWSetCouteauPassive();
+						weaponChange.CmdWSetPistoletLaserPassive();
 					}
+					
+					TextLoupe.SetActive(true);
 					
                     Destroy(hit.collider.gameObject);
                 }
@@ -122,16 +140,34 @@ public class PrendreObjet : NetworkBehaviour
 					
 					if(isServer){
 						weaponChange.RpcWSetPistoletLaserActive();
+						
+						weaponChange.RpcWSetPistoletPassive();
+						weaponChange.RpcWSetFusilPassive();
+						weaponChange.RpcWSetMitrailleur1Passive();
+						weaponChange.RpcWSetMitrailleur2Passive();
+						weaponChange.RpcWSetBazookaPassive();
+						weaponChange.RpcWSetCouteauPassive();
+						weaponChange.RpcWSetLoupePassive();
+						
 					}else{
 						weaponChange.CmdWSetPistoletLaserActive();
+						
+						weaponChange.CmdWSetPistoletPassive();
+						weaponChange.CmdWSetFusilPassive();
+						weaponChange.CmdWSetMitrailleur1Passive();
+						weaponChange.CmdWSetMitrailleur2Passive();
+						weaponChange.CmdWSetBazookaPassive();
+						weaponChange.CmdWSetCouteauPassive();
+						weaponChange.CmdWSetLoupePassive();
 					}
+					
+					TextPistoletLaser.SetActive(true);
 
 					Destroy(hit.collider.gameObject);
 				}
 
 				if (hit.collider.tag == "Meuble" && hit.collider.isTrigger == true)
 				{
-					print (hit.collider.material.name);
 					if (hit.collider.material.name == "Wood (Instance)") {
 						hit.transform.SendMessage ("OuvrirGauche", SendMessageOptions.DontRequireReceiver);
 					}
@@ -142,7 +178,6 @@ public class PrendreObjet : NetworkBehaviour
 				}
 				if (hit.collider.tag == "Coffre" && hit.collider.isTrigger == true)
 				{
-					print (hit.collider.material.name);
 					hit.transform.SendMessage ("Ouvrir", SendMessageOptions.DontRequireReceiver);
 				}
             }
@@ -151,7 +186,7 @@ public class PrendreObjet : NetworkBehaviour
 
         if (Input.GetButtonDown("Fire1") && ObjetPris == true)
         {
-            ObjectQuiEstPris = GameObject.Find(ObjectName);
+		    ObjectQuiEstPris = Object;
 
             Collider ColliderDeLobjetPris = ObjectQuiEstPris.transform.GetComponent<Collider>();
 
@@ -176,6 +211,7 @@ public class PrendreObjet : NetworkBehaviour
 			rigidbodyDeLObjetPris.isKinematic = false;
 			ColliderDeLobjetPris.enabled = true;
 			
+			ObjectQuiEstPris.transform.parent = null;
 			rigidbodyDeLObjetPris.AddForce(DirectionForceJet * ForceDeJeter);	
 			
 			if(isServer){
@@ -183,8 +219,6 @@ public class PrendreObjet : NetworkBehaviour
 			}else{
 				netSpawner.CmdObjectSend(GetGameObjectPath(ObjectQuiEstPris), DirectionForceJet * ForceDeJeter);
 			}
-			
-			ObjectQuiEstPris.transform.parent = null;
 			
             ObjetPris = false;
         }

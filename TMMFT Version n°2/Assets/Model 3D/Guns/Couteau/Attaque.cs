@@ -27,7 +27,7 @@ public class Attaque : NetworkBehaviour {
 
     void Start()
     {
-		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		if (gameObject.transform.parent.parent.parent.tag != "localPlayer")
 		{
 			return;
 		}
@@ -42,7 +42,7 @@ public class Attaque : NetworkBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		if (gameObject.transform.parent.parent.parent.tag != "localPlayer")
 		{
 			return;
 		}

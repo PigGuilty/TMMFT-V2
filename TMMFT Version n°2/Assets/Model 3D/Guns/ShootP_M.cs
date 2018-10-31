@@ -39,11 +39,11 @@ public class ShootP_M : NetworkBehaviour
 	
     void Start()
     {
-		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		if (gameObject.transform.parent.parent.parent.tag != "localPlayer")
 		{
 			return;
 		}
-		netSpawner = gameObject.transform.parent.parent.GetComponent<NetworkSpawner>();
+		netSpawner = gameObject.transform.parent.parent.parent.GetComponent<NetworkSpawner>();
 		fpsCam = GameObject.FindWithTag("localCamera").GetComponent<Camera>();
 		
         animator = GetComponent<Animator>();
@@ -56,11 +56,11 @@ public class ShootP_M : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (gameObject.transform.parent.parent.tag != "localPlayer")
+		if (gameObject.transform.parent.parent.parent.tag != "localPlayer")
 		{
 			return;
 		}
-		m_isServer = gameObject.transform.parent.parent.GetComponent<FirstPersonController>().isServer;
+		m_isServer = gameObject.transform.parent.parent.parent.GetComponent<FirstPersonController>().isServer;
 		
         Vector3 lookRot = -fpsCam.transform.right;
 

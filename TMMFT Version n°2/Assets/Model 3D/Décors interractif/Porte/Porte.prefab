@@ -118,6 +118,8 @@ GameObject:
   - component: {fileID: 82434600060853446}
   - component: {fileID: 114195463398233744}
   - component: {fileID: 114565880403052342}
+  - component: {fileID: 65355372539707658}
+  - component: {fileID: 114767752440526864}
   m_Layer: 0
   m_Name: Porte
   m_TagString: Decor interractif
@@ -212,16 +214,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991909144123094}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.61, y: 0.58, z: 9.491814}
-  m_LocalScale: {x: 0.8157779, y: 0.8157779, z: 0.8157779}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 9.931, y: 0.52556, z: -20.246}
+  m_LocalScale: {x: 0.81578, y: 0.94988, z: 0.81578}
   m_Children:
   - {fileID: 4571513442666032}
   - {fileID: 4911739657782502}
   - {fileID: 4306836201659398}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!65 &65355372539707658
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991909144123094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999996, y: 4, z: 3.6768613}
+  m_Center: {x: 0.8999998, y: 2, z: -0.8851258}
 --- !u!65 &65393043659919988
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -396,6 +410,19 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114767752440526864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991909144123094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab730a13b8727b4492939982de41d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxOuvert: {fileID: 65919422571650230}
+  "boxFerm\xE9": {fileID: 65393043659919988}
 --- !u!114 &114911107085533592
 MonoBehaviour:
   m_ObjectHideFlags: 1
