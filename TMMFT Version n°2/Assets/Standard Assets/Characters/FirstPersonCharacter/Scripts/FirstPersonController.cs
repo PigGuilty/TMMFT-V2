@@ -61,6 +61,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				GetComponentInChildren<AudioListener>().enabled = false;
 				m_Camera.enabled = false;
+				transform.Find("GUI").gameObject.SetActive(false);
 				return;
 			}
 			gameObject.tag = "localPlayer";

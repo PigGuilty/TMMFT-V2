@@ -1,0 +1,276 @@
+fileFormatVersion: 2
+guid: 4eecca2560555104e83d6b3897ddff65
+timeCreated: 1540565690
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armoire
+    100002: Ballon Basket
+    100004: "Ballon Basket d\xE9gonfl\xE9"
+    100006: Ballon foot
+    100008: Clou
+    100010: Clou.001
+    100012: Clou.002
+    100014: Clou.003
+    100016: Clou.004
+    100018: Clou.005
+    100020: Clou.006
+    100022: Clou.007
+    100024: Clou.008
+    100026: Clou.009
+    100028: Clou.010
+    100030: Clou.011
+    100032: Clou.012
+    100034: Clou.013
+    100036: Clou.014
+    100038: Clou.015
+    100040: Clou.016
+    100042: Clou.017
+    100044: Clou.018
+    100046: Clou.019
+    100048: Clou.020
+    100050: Clou.021
+    100052: Clou.022
+    100054: "Cl\xE9s outils"
+    100056: //RootNode
+    100058: Marteau
+    100060: Plane
+    100062: Plane.001
+    100064: Plane.002
+    100066: Scie
+    100068: Tableau
+    400000: Armoire
+    400002: Ballon Basket
+    400004: "Ballon Basket d\xE9gonfl\xE9"
+    400006: Ballon foot
+    400008: Clou
+    400010: Clou.001
+    400012: Clou.002
+    400014: Clou.003
+    400016: Clou.004
+    400018: Clou.005
+    400020: Clou.006
+    400022: Clou.007
+    400024: Clou.008
+    400026: Clou.009
+    400028: Clou.010
+    400030: Clou.011
+    400032: Clou.012
+    400034: Clou.013
+    400036: Clou.014
+    400038: Clou.015
+    400040: Clou.016
+    400042: Clou.017
+    400044: Clou.018
+    400046: Clou.019
+    400048: Clou.020
+    400050: Clou.021
+    400052: Clou.022
+    400054: "Cl\xE9s outils"
+    400056: //RootNode
+    400058: Marteau
+    400060: Plane
+    400062: Plane.001
+    400064: Plane.002
+    400066: Scie
+    400068: Tableau
+    2100000: Bois
+    2100002: "M\xE9tal"
+    2100004: Material.007
+    2100006: "M\xE9tal.002"
+    2100008: Material.006
+    2100010: Material.005
+    2100012: Bout
+    2100014: fin manche
+    2100016: Manche
+    2100018: "Cl\xE9"
+    2100020: Material.004
+    2100022: "M\xE9tal.001"
+    2100024: Orange
+    2100026: Black
+    2100028: White
+    2100030: Metal
+    2100032: Je sais pas
+    2300000: Armoire
+    2300002: Ballon Basket
+    2300004: "Ballon Basket d\xE9gonfl\xE9"
+    2300006: Ballon foot
+    2300008: Clou
+    2300010: Clou.001
+    2300012: Clou.002
+    2300014: Clou.003
+    2300016: Clou.004
+    2300018: Clou.005
+    2300020: Clou.006
+    2300022: Clou.007
+    2300024: Clou.008
+    2300026: Clou.009
+    2300028: Clou.010
+    2300030: Clou.011
+    2300032: Clou.012
+    2300034: Clou.013
+    2300036: Clou.014
+    2300038: Clou.015
+    2300040: Clou.016
+    2300042: Clou.017
+    2300044: Clou.018
+    2300046: Clou.019
+    2300048: Clou.020
+    2300050: Clou.021
+    2300052: Clou.022
+    2300054: "Cl\xE9s outils"
+    2300056: Marteau
+    2300058: Plane
+    2300060: Plane.001
+    2300062: Plane.002
+    2300064: Scie
+    2300066: Tableau
+    3300000: Armoire
+    3300002: Ballon Basket
+    3300004: "Ballon Basket d\xE9gonfl\xE9"
+    3300006: Ballon foot
+    3300008: Clou
+    3300010: Clou.001
+    3300012: Clou.002
+    3300014: Clou.003
+    3300016: Clou.004
+    3300018: Clou.005
+    3300020: Clou.006
+    3300022: Clou.007
+    3300024: Clou.008
+    3300026: Clou.009
+    3300028: Clou.010
+    3300030: Clou.011
+    3300032: Clou.012
+    3300034: Clou.013
+    3300036: Clou.014
+    3300038: Clou.015
+    3300040: Clou.016
+    3300042: Clou.017
+    3300044: Clou.018
+    3300046: Clou.019
+    3300048: Clou.020
+    3300050: Clou.021
+    3300052: Clou.022
+    3300054: "Cl\xE9s outils"
+    3300056: Marteau
+    3300058: Plane
+    3300060: Plane.001
+    3300062: Plane.002
+    3300064: Scie
+    3300066: Tableau
+    4300000: Tableau
+    4300002: Clou.022
+    4300004: Clou.021
+    4300006: Plane.002
+    4300008: Plane.001
+    4300010: Clou.020
+    4300012: Clou.019
+    4300014: Clou.018
+    4300016: Clou.017
+    4300018: Plane
+    4300020: Clou.015
+    4300022: Clou.016
+    4300024: Marteau
+    4300026: Clou.014
+    4300028: Clou.013
+    4300030: Clou.012
+    4300032: Clou.011
+    4300034: Clou.010
+    4300036: Clou.009
+    4300038: Clou.008
+    4300040: Clou.007
+    4300042: Clou.006
+    4300044: Clou.005
+    4300046: Clou.004
+    4300048: Clou.003
+    4300050: "Cl\xE9s outils"
+    4300052: Clou.002
+    4300054: Clou.001
+    4300056: Scie
+    4300058: Clou
+    4300060: "Ballon Basket d\xE9gonfl\xE9"
+    4300062: Ballon Basket
+    4300064: Ballon foot
+    4300066: Armoire
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

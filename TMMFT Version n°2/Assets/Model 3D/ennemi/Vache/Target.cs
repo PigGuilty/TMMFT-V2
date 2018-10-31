@@ -57,7 +57,6 @@ public class Target : NetworkBehaviour {
 		ScoreTextObject = GameObject.FindWithTag ("localScore");
 		ScoreText = ScoreTextObject.GetComponent<Text> ();
 		scoreEnText = ScoreText.text.Replace ("Score : ", "");
-		score = int.Parse (scoreEnText);
 
 		Vie = VieMax;
 
@@ -83,7 +82,8 @@ public class Target : NetworkBehaviour {
 			audio.clip = meurt;
 			audio.Play ();
 			mourir.Play ();
-
+			
+			score = int.Parse (scoreEnText);
 			score++; //Nieh è_é
 			//Ben oui mais comment je suis censé savoir qui l'a tué moi
 			ScoreText.text = "Score : " + score.ToString ();
@@ -93,12 +93,15 @@ public class Target : NetworkBehaviour {
 				animator.SetFloat ("Blend", 1.5f);
 				gameObject.GetComponent<NavMeshAgent> ().speed = 0.0f;
 				Destroy (gameObject, 1.2f);
+				DestroyAfter(gameObject, 1.2f);
 			} else if (IsMeuleDeFromage == true) {
 				GameObject ExplosionMeuleGO = Instantiate (ExplosionMeule);
 				ExplosionMeuleGO.transform.position = gameObject.transform.position;
 				Destroy (gameObject);
+				NetworkServer.Destroy(gameObject);
 			} else {
 				Destroy (gameObject, audio.clip.length);
+				DestroyAfter(gameObject, audio.clip.length);
 			}
 		}
 
@@ -124,6 +127,11 @@ public class Target : NetworkBehaviour {
         }
 
     }
+	
+	IEnumerator DestroyAfter(GameObject obj, float length){
+		yield return new WaitForSeconds(length);
+		NetworkServer.Destroy(obj);
+	}
 
 
     public void Update()

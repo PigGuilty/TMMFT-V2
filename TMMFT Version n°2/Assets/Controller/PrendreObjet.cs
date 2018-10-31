@@ -140,6 +140,11 @@ public class PrendreObjet : NetworkBehaviour
 						hit.transform.SendMessage ("OuvrirDroite", SendMessageOptions.DontRequireReceiver);
 					}
 				}
+				if (hit.collider.tag == "Coffre" && hit.collider.isTrigger == true)
+				{
+					print (hit.collider.material.name);
+					hit.transform.SendMessage ("Ouvrir", SendMessageOptions.DontRequireReceiver);
+				}
             }
 
         }
