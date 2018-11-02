@@ -33,7 +33,9 @@ public class Shoot : NetworkBehaviour {
     }
 
     void Update () {	
-		m_isServer = gameObject.transform.parent.parent.parent.GetComponent<FirstPersonController>().isServer;
+		FirstPersonController fpc = gameObject.transform.parent.parent.parent.GetComponent<FirstPersonController>();
+		if(fpc != null)
+			m_isServer = fpc.isServer;
 		
 		if (gameObject.transform.parent.parent.parent.tag != "localPlayer")
 		{
@@ -59,6 +61,8 @@ public class Shoot : NetworkBehaviour {
 				netSpawner.RpcShoot(fpsCam.transform.position, fpsCam.transform.forward, DegatArme);
 			}
 			
+			print("1");
+			
             if (Physics.Raycast(ShootingDirection, out hit))
             {
 
@@ -82,6 +86,7 @@ public class Shoot : NetworkBehaviour {
 
                 if (hit.collider.tag != "Player" && hit.collider.tag != "Vache" && hit.collider.tag != "Decor interractif")
                 {
+					print("lol");
                     float x = Random.Range(0.0f, 4.0f);
                     if (x <= 1)
                     {
@@ -95,6 +100,7 @@ public class Shoot : NetworkBehaviour {
 							
 							Destroy(impactGO1, 20f);
 						}else{
+							print("spawn");
 							netSpawner.Spawn(impactEffect1, hit.point, Quaternion.LookRotation(hit.normal), 10, "impact:"+hit.normal+":"+GetGameObjectPath(hit.transform.gameObject));
 						}
                     }
@@ -110,6 +116,7 @@ public class Shoot : NetworkBehaviour {
 							
 							Destroy(impactGO2, 20f);
 						}else{
+							print("spawn");
 							netSpawner.Spawn(impactEffect2, hit.point, Quaternion.LookRotation(hit.normal), 10, "impact:"+hit.normal+":"+GetGameObjectPath(hit.transform.gameObject));
 						}
                     }
@@ -125,6 +132,7 @@ public class Shoot : NetworkBehaviour {
 							
 							Destroy(impactGO3, 20f);
 						}else{
+							print("spawn");
 							netSpawner.Spawn(impactEffect3, hit.point, Quaternion.LookRotation(hit.normal), 10, "impact:"+hit.normal+":"+GetGameObjectPath(hit.transform.gameObject));
 						}
                     }
@@ -140,6 +148,7 @@ public class Shoot : NetworkBehaviour {
 							
 							Destroy(impactGO4, 20f);
 						}else{
+							print("spawn");
 							netSpawner.Spawn(impactEffect4, hit.point, Quaternion.LookRotation(hit.normal), 10, "impact:"+hit.normal+":"+GetGameObjectPath(hit.transform.gameObject));
 						}
                     }
@@ -150,6 +159,7 @@ public class Shoot : NetworkBehaviour {
 						
 						Destroy(balleGO, 10f);
 					}else{
+						print("spawnballe");
 						netSpawner.Spawn(balle, hit.point, Quaternion.LookRotation(lookRot), 10, "apparition:"+fpsCam.transform.parent.GetComponent<NetworkIdentity>().netId.Value);
 					}
                 }

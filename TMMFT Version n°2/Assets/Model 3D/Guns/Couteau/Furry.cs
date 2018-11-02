@@ -28,9 +28,9 @@ public class Furry : NetworkBehaviour {
 	
     private void Awake()
     {
-		Player = GameObject.FindWithTag("Player");
+		Player = gameObject.transform.parent.parent.parent.gameObject;
 		
-		if (!isLocalPlayer)
+		if (!(Player.tag == "localPlayer"))
 		{
 			return;
 		}
@@ -41,7 +41,7 @@ public class Furry : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-		if (!isLocalPlayer)
+		if (!(Player.tag == "localPlayer"))
 		{
 			return;
 		}
@@ -57,7 +57,7 @@ public class Furry : NetworkBehaviour {
     // Update is called once per frame
     void Update()
     {
-		if (!isLocalPlayer)
+		if (!(Player.tag == "localPlayer"))
 		{
 			return;
 		}

@@ -14,12 +14,13 @@ public class PointDeVieJoueur : NetworkBehaviour {
     public int PV;
     public int DegatReçus;
     public int PVReçus;
-    private bool Mort;
+    public bool Mort;
 
     private float widthOfLiveBar;
 
     public GameObject Canvas;
     public GameObject BarreDeVie;
+	public Text Dead;
 
     private Attaque attaque;
     private Baguette baguette;
@@ -42,6 +43,9 @@ public class PointDeVieJoueur : NetworkBehaviour {
     private float BloodScreenOpacity;
     private bool FullOpaque;
     private float increase;
+	
+	private float tpsRespawn = 30;
+	private float count = 30;
 	
     // Use this for initialization
     void Start () {		
@@ -130,7 +134,59 @@ public class PointDeVieJoueur : NetworkBehaviour {
                 }
             }
         }
+		
+		if(Mort && count >= 0 && !isGameOver())
+			Dead.text = "Vous êtes mort ! Attendez "+count+" secondes avant de réapparaitre";
+		else if(Mort && count < 0 && !isGameOver())
+			Dead.text = "Cliquez pour réapparaitre";
+		else if(isGameOver())
+			Dead.text = "GAME OVER";
+		
+		if(Mort && Input.GetMouseButton(0) && count <= 0 && !isGameOver()){
+			var theBarRectTransform = furryScript.BarreDeFurry.transform as RectTransform;
+			theBarRectTransform.sizeDelta = new Vector2(0, theBarRectTransform.sizeDelta.y);
+			//furryScript.animator.SetFloat("Attaque Couteau", 0f); //TODO animator inexistant ?
+			furryScript.AnimationWaitEnd = 0;
+			attaque.enabled = true;
+			furryScript.AnimBaguetteVersCouteau = false;
+			furryScript.AnimCouteauVersBaguette = false;
+			attaque.furry = 0;
+			weaponchange.BlockLeChangementDArme = false;
+			furryScript.AmenoPlayer.enabled = true;
+			baguette.enabled = false;
+
+			Canvas.SetActive(true);
+			pistolet.SetActive(true);
+			fusil.SetActive(false);
+			mitrailleur1.SetActive(false);
+			mitrailleur2.SetActive(false);
+			bazooka.SetActive(false);
+			Couteau.SetActive(false);
+			Loupe.SetActive(false);
+			PistoletLaser.SetActive (false);
+			PV = PVMax;
+			
+			Mort = false;
+			Dead.text = "";
+		}
+		
+		count -= Time.deltaTime;
     }
+	
+	bool isGameOver(){
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+		bool arePlayersDead = true; 
+		
+		foreach(GameObject player in players){
+			if(!player.GetComponent<PointDeVieJoueur>().Mort)
+				arePlayersDead = false;
+		}
+		
+		if(players == null || players.Length == 0)
+			return Mort;
+		
+		return Mort && arePlayersDead;
+	}
 
     void OnTriggerEnter(Collider other)
     {
@@ -183,6 +239,7 @@ public class PointDeVieJoueur : NetworkBehaviour {
         Loupe.SetActive(false);
 		PistoletLaser.SetActive (false);
 
+		count = tpsRespawn;
         Mort = true;
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class NetworkSpawner : NetworkBehaviour {
 
@@ -11,6 +12,26 @@ public class NetworkSpawner : NetworkBehaviour {
 	void Start(){
 		netManager = NetworkManager.singleton;
 	}
+	/*
+	public void setFloatPlayer(string id, float fl){
+		CmdSetFloatPlayer(id, fl);
+	}
+	
+	[Command]
+	public void CmdSetFloatPlayer(string id, float fl){
+		NetworkInstanceId netid = new NetworkInstanceId(UInt32.Parse(id));
+		GameObject player = NetworkServer.FindLocalObject(netid);
+		player.GetComponent<FirstPersonController>().FloatOfAnimator = fl;
+		
+		RpcSetFloatPlayer(id, fl);
+	}
+	
+	[ClientRpc]
+	public void RpcSetFloatPlayer(string id, float fl){
+		NetworkInstanceId netid = new NetworkInstanceId(UInt32.Parse(id));
+		GameObject player = NetworkServer.FindLocalObject(netid);
+		player.GetComponent<FirstPersonController>().FloatOfAnimator = fl;
+	}*/
 	
 	public void Spawn(GameObject obj, Vector3 objPos, Quaternion objRot, int destroy, string args){
 		CmdSpawn(obj.name, objPos, objRot, destroy, args);
@@ -23,6 +44,7 @@ public class NetworkSpawner : NetworkBehaviour {
 	void CmdSpawn(string objName, Vector3 objPos, Quaternion objRot, int destroy, string args){
 		GameObject findObject = null;
 		
+		print("0");
 		if(objName.EndsWith("(Clone)")){
 			objName = objName.Substring(0, objName.Length - 7);
 		}
@@ -49,6 +71,8 @@ public class NetworkSpawner : NetworkBehaviour {
 			
 			GameObject spawnObject = Instantiate(findObject, objPos, objRot) as GameObject;
 			
+			print("1");
+			
 			if(args.StartsWith("apparition:")){
 				spawnObject.GetComponent<Apparition>().camToFollow = apparitionCamToFollow;
 			}else if(args.StartsWith("apparitionFAP:")){
@@ -59,15 +83,17 @@ public class NetworkSpawner : NetworkBehaviour {
 				string vect = args.Split(':')[1];
 				Vector3 norm = new Vector3(float.Parse(vect.Split(',')[0].Substring(1)), float.Parse(vect.Split(',')[1].Substring(1)), float.Parse(vect.Split(',')[2].Substring(1, 1)));
 				
-				GameObject item = GameObject.FindWithTag("isLP");
+				print("2");
+				/*GameObject item = GameObject.FindWithTag("isLP");
 				TextMesh text = item.GetComponent<TextMesh>();
-				text.text = args;
+				text.text = args;*/
 				
 				spawnObject.transform.Translate(norm / 1000, Space.World);
 				spawnObject.transform.parent = parent.transform;
-				text.text = text.text + "\n" + parent;
+				//text.text = text.text + "\n" + parent;
 			}
 			
+			print("3");
             NetworkServer.Spawn(spawnObject);
 			if(parent != null)
 				RpcSyncImpact(spawnObject, GetGameObjectPath(parent));
@@ -76,6 +102,7 @@ public class NetworkSpawner : NetworkBehaviour {
 				Destroy(spawnObject, destroy);
 			}
 			
+			print("4");
         }
 	}
 	

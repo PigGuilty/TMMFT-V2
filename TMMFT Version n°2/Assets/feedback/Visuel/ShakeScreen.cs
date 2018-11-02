@@ -15,12 +15,12 @@ public class ShakeScreen : MonoBehaviour {
 	}
 
 	public void Shake() {
-		orgLocalPos = transform.position;
+		orgLocalPos = transform.localPosition;
 		shake = true;
 	}
 
 	public void Stop() {
-		transform.position = orgLocalPos;
+		transform.localPosition = orgLocalPos;
 		shake = false;
 	}
 }

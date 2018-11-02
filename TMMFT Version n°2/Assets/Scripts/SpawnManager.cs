@@ -33,31 +33,32 @@ public class SpawnManager : MonoBehaviour {
 			
 			Counter = Frequence(score, nbJoueurs);
 			
+			int toAdd = score - previousScore;
+			
 			if(score > previousScore){
 				if(probas[1] < 33){
-					probas[1] += score;
-					probas[0] -= score;
+					probas[1] += toAdd;
+					probas[0] -= toAdd;
 				}else if(probas[2] < 33 && probas [1] == 33){
-					probas[2] += score;
-					probas[0] -= score;
+					probas[2] += toAdd;
+					probas[0] -= toAdd;
 				}
 				
 				if(probas[1] > 33){
-					int overflow = 33 - probas[1];
-					probas[1] -= overflow;
-					probas[0] += overflow;
+					probas[1] = 33;
 				}
 				
 				if(probas[2] > 33){
-					int overflow = 33 - probas[2];
-					probas[2] -= overflow;
-					probas[0] += overflow;
+					probas[0] = 34;
+					probas[1] = 33;
+					probas[2] = 33;
 				}
 			}
 			
 			foreach(GameObject spawn in spawns){
 				spawn.GetComponent<Spawner>().probas = probas;
 			}
+			print(probas[0] +" " + probas[1] + " "+ probas[2]);
 			
 			int index = Random.Range(0,spawns.Length);
 			int maxLoop = spawns.Length;
@@ -71,15 +72,21 @@ public class SpawnManager : MonoBehaviour {
 			}
 			
 			spawns[index].GetComponent<Spawner>().Call();
+			
+			previousScore = score;
 		}
 	}
 	
 	int getScore(){
 		GameObject ScoreTextObject = GameObject.FindWithTag ("localScore");
-		Text ScoreText = ScoreTextObject.GetComponent<Text> ();
-		string scoreEnText = ScoreText.text.Replace ("Score : ", "");
-		
-		return int.Parse (scoreEnText);
+		if(ScoreTextObject != null){
+			Text ScoreText = ScoreTextObject.GetComponent<Text> ();
+			string scoreEnText = ScoreText.text.Replace ("Score : ", "");
+			
+			return int.Parse (scoreEnText);
+		}else{
+			return previousScore;
+		}
 	}
 	
 	int getNbJoueurs(){

@@ -96,7 +96,8 @@ public class EffetLanterne : MonoBehaviour {
 					GameObject FireZoneInstanciate = Instantiate(FireZone, gameObject.transform.position, rot);
 					NetworkServer.Spawn(FireZoneInstanciate);
 				}else{
-					netSpawner.Spawn(FireZone, gameObject.transform.position, rot, -1, "");
+					if(netSpawner != null)
+						netSpawner.Spawn(FireZone, gameObject.transform.position, rot, -1, "");
 				}
 				
 				Destroy (gameObject);

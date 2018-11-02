@@ -7310,10 +7310,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001f3223b41f5584c80a4d1b3e4f7533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnSpeed: 300
-  EnnemiPrefab: {fileID: 1764770461818212, guid: 6f178598413dde645856958d8c4e7df1,
-    type: 2}
-  m_isServer: 0
+  probas: 
+  isEntered: 0
+  EnnemiPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &267966659
 GameObject:
   m_ObjectHideFlags: 0
@@ -24729,10 +24731,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001f3223b41f5584c80a4d1b3e4f7533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnSpeed: 300
-  EnnemiPrefab: {fileID: 1764770461818212, guid: 6f178598413dde645856958d8c4e7df1,
-    type: 2}
-  m_isServer: 0
+  probas: 
+  isEntered: 0
+  EnnemiPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &979002438
 GameObject:
   m_ObjectHideFlags: 0
@@ -49888,10 +49892,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001f3223b41f5584c80a4d1b3e4f7533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnSpeed: 300
-  EnnemiPrefab: {fileID: 1764770461818212, guid: 6f178598413dde645856958d8c4e7df1,
-    type: 2}
-  m_isServer: 0
+  probas: 
+  isEntered: 0
+  EnnemiPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1998065051
 GameObject:
   m_ObjectHideFlags: 0
@@ -50329,10 +50335,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001f3223b41f5584c80a4d1b3e4f7533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnSpeed: 300
-  EnnemiPrefab: {fileID: 1764770461818212, guid: 6f178598413dde645856958d8c4e7df1,
-    type: 2}
-  m_isServer: 0
+  probas: 
+  isEntered: 0
+  EnnemiPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2032372265
 GameObject:
   m_ObjectHideFlags: 0
@@ -51922,10 +51930,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001f3223b41f5584c80a4d1b3e4f7533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnSpeed: 300
-  EnnemiPrefab: {fileID: 1764770461818212, guid: 6f178598413dde645856958d8c4e7df1,
-    type: 2}
-  m_isServer: 0
+  probas: 
+  isEntered: 0
+  EnnemiPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2121492238
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 23876718142090314}
   - component: {fileID: 114877066480308504}
   - component: {fileID: 82673842698511882}
+  - component: {fileID: 64599718536597554}
   m_Layer: 0
   m_Name: Pistolet Laser 1
-  m_TagString: Untagged
+  m_TagString: Pistolet Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1875677682473784}
   m_LocalRotation: {x: 0.05673227, y: 0.000000075376356, z: 0.9983894, w: -0.0000000042831725}
-  m_LocalPosition: {x: 0.222, y: -0.187, z: 0.587}
+  m_LocalPosition: {x: -39.148, y: 7.771, z: -18.553}
   m_LocalScale: {x: 10, y: 10, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
@@ -86,6 +87,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1875677682473784}
+  m_Mesh: {fileID: 4300000, guid: 5082259b91fa7d4408366dee765cecf8, type: 3}
+--- !u!64 &64599718536597554
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1875677682473784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5082259b91fa7d4408366dee765cecf8, type: 3}
 --- !u!82 &82673842698511882
 AudioSource:
@@ -142,7 +157,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -154,7 +169,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -166,7 +181,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114877066480308504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,4 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317709b03b0144549a4de1a311585c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bziou: {fileID: 0}
+  Bziou: {fileID: 8300000, guid: d4d27815609b59b4f93f4630e8e8a0d5, type: 3}

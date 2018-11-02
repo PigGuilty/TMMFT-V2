@@ -16,7 +16,7 @@ public class MainRotation : MonoBehaviour {
 	void Update () {
 		transform.rotation = Camera.transform.rotation;
 		if (transform.rotation.x > 0.0f) {
-			transform.localPosition = new Vector3(0.0f, 0.0027f  - (transform.rotation.x / 75.0f) , - (transform.rotation.x / 125.0f));
+			//transform.localPosition = new Vector3(0.0f, 0.0027f  - (transform.rotation.x / 75.0f) , - (transform.rotation.x / 125.0f));
 		}
 	}
 }
